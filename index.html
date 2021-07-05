@@ -13,6 +13,12 @@
         <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://kit.fontawesome.com/53fe39a7b7.js" crossorigin="anonymous"></script>
+
+        <!-- SDK EmailJS -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+        <script type="text/javascript">
+            
+        </script>
     </head>
     <body>
 	
@@ -512,6 +518,7 @@
                                             <div class="border-top-right title-parts"></div>
                                         </div>
                                         <a href="https://charlottesaidi.github.io/loopstudios-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
+                                        <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
                                     </figcaption>
                                 </figure>
                             </li>
@@ -538,6 +545,7 @@
                                             <div class="border-top-right title-parts"></div>
                                         </div>
                                         <a href="https://charlottesaidi.github.io/Sunnyside-agency-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
+                                        <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
                                     </figcaption>
                                 </figure>
                             </li>
@@ -614,7 +622,7 @@
         </div>
 
         <footer id="contact" class="page-footer black section scrollspy">
-            <a href="#pageTop" id="btn_up" class="head-link btn-floating btn teal hide-on-med-and-down">
+            <a href="#pageTop" id="btn_up" class="head-link btn-floating btn-large btn teal hide-on-med-and-down">
                 <i class="large material-icons">keyboard_arrow_up</i>
               </a>
             <div class="container">
@@ -623,33 +631,40 @@
                     <div class="col s12 l6">
                         <div id="modal1" class="modal">
                             <div class="modal-content">
+                                <h4 class="right-align">Contact</h4>
+                                <div id="success" class="success"></div>
+                                <div id="errors" class="error"></div>
                                 <form id="contact_form" class="col s12 contact_form">
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
-                                            <input id="name" type="text" class="validate">
+                                            <input id="name" type="text" name="user_name" class="validate">
                                             <label for="first_name">Votre nom ou entreprise</label>
+                                            <div id="nameErr" class="error"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">email</i>
-                                            <input id="email" type="email" class="validate">
+                                            <input id="email" type="email" name="user_email"  class="validate">
                                             <label for="email">Votre adresse e-mail</label>
+                                            <div id="emailErr" class="error"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">edit</i>
-                                            <input id="objet" type="text" class="validate">
+                                            <input id="objet" type="text" name="object"  class="validate">
                                             <label for="objet">Object de votre message</label>
+                                            <div id="objectErr" class="error"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">message</i>
-                                            <textarea id="message" class="materialize-textarea"  cols="30" rows="10"></textarea>
+                                            <textarea id="message" name="message" class="materialize-textarea" cols="30" rows="10"></textarea>
                                             <label for="message">Votre message</label>
+                                            <div id="messErr" class="error"></div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -666,11 +681,14 @@
                     <div class="col s12 l6">
                         <p class="center-align">Vous pouvez aussi me retrouver sur les sites suivants:</p>
                         <div class="social">
-                            <a class="white-text" href="https://www.linkedin.com/in/charlotte-saidi/" title="Share on LinkedIn" target="_blank"> 
+                            <a class="white-text" href="https://www.linkedin.com/in/charlotte-saidi/" title="Mon Profil LinkedIn" target="_blank"> 
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a class="white-text" href="https://github.com/charlottesaidi" title="Share on GitHub" target="_blank"> 
+                            <a class="white-text" href="https://github.com/charlottesaidi" title="Mon GitHub" target="_blank"> 
                                 <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.frontendmentor.io/profile/charlottesaidi" title="Mes Challenges FrontEnd Mentor" target="_blank">
+                                <img src="assets/images/frontend_mentor.png" alt="" width="30" class="circle">
                             </a>
                         </div>
                     </div>
