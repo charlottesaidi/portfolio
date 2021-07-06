@@ -144,10 +144,6 @@ $(document).ready(function(){
                 objectErr = false;
             }
         }
-        console.log(name);
-        console.log(email);
-        console.log(object);
-        console.log(message);
         if (message == "")  {
             printError("messErr", "<p>Le message est obligatoire</p>");
         } else {
@@ -168,8 +164,11 @@ $(document).ready(function(){
     document.getElementById('contact_form').addEventListener('submit', function(event) {
         event.preventDefault();
         if(validateForm()) {
+            $('#submitted').addClass('disabled');
+            $('.waiting').fadeIn('slow');
             emailjs.sendForm('contact_service', 'contact_form', this)
             .then(function() {
+                $('.waiting').fadeOut("slow");
                 successMessage.innerHTML = success;
             }, function() {
                 printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
