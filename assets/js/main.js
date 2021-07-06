@@ -40,6 +40,7 @@ $(document).ready(function(){
     // CHANGE NAV STYLE ON SCROLL
     var marker = $('#caption-border-top').offset().top;
     var nav = $('nav');
+    var borderTop = $('#header-border');
     var mobileBtn = $('nav .sidenav-trigger');
     var navLinks = $('.head-link:not(footer .head-link)');
     var underlineHover = $('nav ul a');
@@ -47,20 +48,33 @@ $(document).ready(function(){
         var currentScroll = $(window).scrollTop();
         if (currentScroll >= marker) {
             nav.addClass('white').removeClass('transparent');
-            navLinks.css({color: '#3d3b3b'});
-            mobileBtn.css({color: '#3d3b3b',});
+            navLinks.addClass('grey-text')
+            mobileBtn.addClass('grey-text')
             underlineHover.addClass('tealVersion');
+            borderTop.removeClass('hide');
         } else {
             nav.addClass('transparent').removeClass('white');
-            navLinks.css({color: '#fff',});
-            mobileBtn.css({color: '#fff ',});
+            navLinks.removeClass('grey-text');
+            mobileBtn.removeClass('grey-text');
             underlineHover.removeClass('tealVersion');
+            borderTop.addClass('hide');
         }
     });
 
     // COMPETENCES BARS PROGRESS ON SCROLL
     var marker1 = $('#block1').offset().top;
     var marker2 = $('#block2').offset().top;
+    var mob_html = $('#mobile_html');
+    var mob_css = $('#mobile_css');
+    var mob_js = $('#mobile_js');
+    var mob_jquery = $('#mobile_jquery');
+    var mob_php = $('#mobile_php');
+    var mob_sql = $('#mobile_sql');
+    var mob_laravel = $('#mobile_laravel');
+    var mob_symfony = $('#mobile_symfony');
+    var mob_vue = $('#mobile_vue');
+    var mob_bootstrap = $('#mobile_bootstrap');
+
     var html = $('#html');
     var css = $('#css');
     var js = $('#js');
@@ -75,7 +89,7 @@ $(document).ready(function(){
     var github = $('#github');
     var anglais = $('#anglais');
     $(window).scroll(function() {
-        var currentScroll = $(window).scrollTop() + $(window).height() - 200;
+        var currentScroll = $(window).scrollTop() + $(window).height() - 100;
         if (currentScroll >= marker1) {
             html.addClass('html');
             css.addClass('css');
@@ -87,6 +101,17 @@ $(document).ready(function(){
             symfony.addClass('symfony');
             vue.addClass('vue');
             bootstrap.addClass('bootstrap');
+            
+            mob_html.addClass('html');
+            mob_css.addClass('css');
+            mob_js.addClass('js');
+            mob_jquery.addClass('jquery');
+            mob_php.addClass('php');
+            mob_sql.addClass('sql');
+            mob_laravel.addClass('laravel');
+            mob_symfony.addClass('symfony');
+            mob_vue.addClass('vue');
+            mob_bootstrap.addClass('bootstrap');
         } 
         if (currentScroll >= marker2) {
             vs_code.addClass('vs_code');
