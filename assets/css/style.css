@@ -698,4 +698,15 @@ textarea.materialize-textarea {
     .section h6 {font-size: 50px}
     .demo-3 figure h2 {font-size: 25px}
     #portfolio .title {font-size: 25px}
+    .modal h4 {
+        padding: 24px;
+    }
+    .modal .modal-content {
+        padding: 0;
+    }
+}
+@media screen and (max-width: 320px) {
+    .modal i {
+        display: none;
+    }
 }

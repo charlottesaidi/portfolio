@@ -264,5 +264,18 @@ $(document).ready(function(){
             })
         } 
     });
-
 });
+
+$(window).resize(function() {
+    if($(window).width() <= 320) {
+        $('i').removeClass('prefix');
+    } else {
+        $('i').addClass('prefix');
+    }
+});
+// OR
+if($(window).width() <= 320) {
+    $('i').removeClass('prefix');
+} else {
+    $('i').addClass('prefix');
+}
