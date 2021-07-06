@@ -108,7 +108,7 @@ $(document).ready(function(){
         var email = stripTagInput(document.forms["contact_form"]["user_email"].value);
         var object = stripTagInput(document.forms["contact_form"]["object"].value);
         var message = stripTagInput(document.forms["contact_form"]["message"].value);
-        
+
         var nameErr = emailErr = objectErr = messErr = true;
 
         if(name == "") {
@@ -168,12 +168,12 @@ $(document).ready(function(){
     document.getElementById('contact_form').addEventListener('submit', function(event) {
         event.preventDefault();
         if(validateForm()) {
-            // emailjs.sendForm('contact_service', 'contact_form', this)
-            // .then(function() {
-            //     successMessage.innerHTML = success;
-            // }, function() {
-            //     printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
-            // })
+            emailjs.sendForm('contact_service', 'contact_form', this)
+            .then(function() {
+                successMessage.innerHTML = success;
+            }, function() {
+                printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
+            })
             successMessage.innerHTML = success;
         } 
     });
