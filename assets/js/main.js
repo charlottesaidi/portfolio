@@ -37,6 +37,64 @@ $(document).ready(function(){
         });
     });
 
+    // CHANGE NAV STYLE ON SCROLL
+    var marker = $('#caption-border-top').offset().top;
+    var nav = $('nav');
+    var mobileBtn = $('nav .sidenav-trigger');
+    var navLinks = $('.head-link:not(footer .head-link)');
+    var underlineHover = $('nav ul a');
+    $(window).scroll(function() {
+        var currentScroll = $(window).scrollTop();
+        if (currentScroll >= marker) {
+            nav.addClass('white').removeClass('transparent');
+            navLinks.css({color: '#3d3b3b'});
+            mobileBtn.css({color: '#3d3b3b',});
+            underlineHover.addClass('tealVersion');
+        } else {
+            nav.addClass('transparent').removeClass('white');
+            navLinks.css({color: '#fff',});
+            mobileBtn.css({color: '#fff ',});
+            underlineHover.removeClass('tealVersion');
+        }
+    });
+
+    // COMPETENCES BARS PROGRESS ON SCROLL
+    var marker1 = $('#block1').offset().top;
+    var marker2 = $('#block2').offset().top;
+    var html = $('#html');
+    var css = $('#css');
+    var js = $('#js');
+    var jquery = $('#jquery');
+    var php = $('#php');
+    var sql = $('#sql');
+    var laravel = $('#laravel');
+    var symfony = $('#symfony');
+    var vue = $('#vue');
+    var bootstrap = $('#bootstrap');
+    var vs_code = $('#vs_code');
+    var github = $('#github');
+    var anglais = $('#anglais');
+    $(window).scroll(function() {
+        var currentScroll = $(window).scrollTop() + $(window).height() - 200;
+        if (currentScroll >= marker1) {
+            html.addClass('html');
+            css.addClass('css');
+            js.addClass('js');
+            jquery.addClass('jquery');
+            php.addClass('php');
+            sql.addClass('sql');
+            laravel.addClass('laravel');
+            symfony.addClass('symfony');
+            vue.addClass('vue');
+            bootstrap.addClass('bootstrap');
+        } 
+        if (currentScroll >= marker2) {
+            vs_code.addClass('vs_code');
+            github.addClass('github');
+            anglais.addClass('anglais');
+        }
+    });
+
     // TIMELINE ANIMATION
     (function() {
         'use strict';
@@ -160,6 +218,11 @@ $(document).ready(function(){
             return true;
         }
     }
+    
+    $('#agree').on('click', function(){
+        $('#submitted').toggleClass('disabled')
+    }) 
+
         // Validate and Send Email
     document.getElementById('contact_form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -170,10 +233,10 @@ $(document).ready(function(){
             .then(function() {
                 $('.waiting').fadeOut("slow");
                 successMessage.innerHTML = success;
+                $('#submitted').removeClass('disabled');
             }, function() {
                 printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
             })
-            successMessage.innerHTML = success;
         } 
     });
 

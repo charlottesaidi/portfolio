@@ -3,7 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>Charlotte Saidi | Développeuse Web Etudiante </title>
+        <title>Charlotte Saidi | Développeuse Web Junior | Porfolio</title>
+        <meta name="description" content="Portfolio, Développeuse Web Junior. En recherche de nouveaux talents ? Je suis incluse dans les plus récents packages.">
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon//favicon-32x32.png">
@@ -28,8 +29,8 @@
 	
         <header>
             <div class="row" style="margin: 0px; text-align: center;">
-                <div class="border-top-right"></div>
-                <nav class="white nav z-depth-2">
+                <div class="border-top-right header"></div>
+                <nav class="transparent nav z-depth-2">
                     <div class="logo">
                         <img src="assets/images/logo.png" alt="Logo C.S" class="logo-img">
                     </div>
@@ -47,21 +48,23 @@
             </div>
         </header>
         <!-- Mobile Menu -->
-        <ul id="slide-out" class="sidenav right">
+        <ul id="slide-out" class="sidenav nav right">
             <li class="border-top-right"></li>
-            <li><a class="head-link" href="#aPropos">A propos</a></li>
-            <li><a class="head-link" href="#competences">Compétences</a></li>
-            <li><a class="head-link" href="#portfolio">Portfolio</a></li>
-            <li><a class="head-link" href="#formations">Formations</a></li>
-            <li><a class="head-link" href="#contact">Me contacter</a></li>
+            <li><a class="sidenav-head-link" href="#aPropos">A propos</a></li>
+            <li><a class="sidenav-head-link" href="#competences">Compétences</a></li>
+            <li><a class="sidenav-head-link" href="#portfolio">Portfolio</a></li>
+            <li><a class="sidenav-head-link" href="#formations">Formations</a></li>
+            <li><a class="sidenav-head-link" href="#contact">Me contacter</a></li>
+            <li class="mobile_nav_logo"><img src="assets/images/logo.png" alt="Logo C.S" class="logo-img"></li>
         </ul>
         <!-- Mobile Menu -->
-        <h1 class="hidden">Charlotte Saidi - Développeuse Web - Portfolio</h1>
+
+        <h1 class="hidden" style="position: absolute; left: -500000px">Charlotte Saidi - Développeuse Web - Portfolio</h1>
 
         <div id="pageTop" class="main scrollspy">
             <div class="caption">
                 <div class="box-caption white">
-                <div class="border-top"></div>
+                <div id="caption-border-top" class="border-top"></div>
                 <div class="text-caption center-align">
                     <h3 class="grey-text text-darken-3">Charlotte Saidi</h3>
                     <p class="sep"></p>
@@ -94,12 +97,12 @@
                     <h6 class="center-align competences">Mes compétences</h6>
                     <div class="row">
 
-                        <div class="col s12 hide-on-med-and-down">
+                        <div id="block1" class="col s12 hide-on-med-and-down">
                             <div class="row">
                                 <h5 class="col s12 l6">Langages</h5>
                                 <h5 class="col s12 l6 right-align">Frameworks et librairies</h5>
                             </div>
-                            <div class="card-panel teal lighten-3 z-depth-4">
+                            <div class="card-panel teal lighten-4 z-depth-4">
                                 <div class="row">
                                     <div class="col s12 l6">
                                         <div class="row valign-wrapper">
@@ -239,9 +242,9 @@
                             </div>
                         </div>
 
-                        <div class="hide-on-large-only">
+                        <div id="block1" class="hide-on-large-only">
                             <h5 class="left-align">Langages</h5>
-                            <div class="card-panel teal lighten-3 z-depth-4">
+                            <div class="card-panel teal lighten-4 z-depth-4">
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="row valign-wrapper">
@@ -313,7 +316,7 @@
                                 </div>
                             </div>
                             <h5 class="right-align">Frameworks et librairies</h5>
-                            <div class="card-panel teal lighten-3 z-depth-4">
+                            <div class="card-panel teal lighten-4 z-depth-4">
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="row valign-wrapper">
@@ -386,9 +389,9 @@
                             </div>
                         </div>
 
-                        <div class="col s12 l7">
+                        <div id="block2" class="col s12 l7">
                             <h5>Autres</h5>
-                            <div class="card-panel teal lighten-3 z-depth-4">
+                            <div class="card-panel teal lighten-4 z-depth-4">
                                 <div class="row valign-wrapper">
                                     <div class="col s2 hide-on-small-only">
                                         <img src="assets/images/github.png" alt="" class="circle">
@@ -431,9 +434,9 @@
                             </div>
                         </div>
 
-                        <div class="col s12 l5">
+                        <div class="col s12 l5 perso">
                             <h5 class="right-align">Personnelles</h5>
-                            <div class="card-panel teal lighten-3 z-depth-4">
+                            <div class="card-panel teal lighten-4 z-depth-4">
                                 <div class="row valign-wrapper">
                                     <div class="col s2 hide-on-small-only">
                                         <img src="assets/images/comments-solid.svg" alt="" class="circle">
@@ -480,10 +483,10 @@
                             <ul class="demo-3">
                                 <li>
                                     <figure>
-                                        <img src="assets/images/keepvibz.jpg" class="" alt=""/>
+                                        <img src="assets/images/keepvibz.jpg" alt="Maquette du projet KeepVibz"/>
                                         <figcaption>
                                             <h2 class="teal-text">KeepVibz</h2>
-                                                <p>Projet pédagogique de soutenance, à présenter devant un Jury. Le site est encore en développement et devrait être déployé sur serveur dans quelques semaines.</p>
+                                                <p>Projet pédagogique de soutenance en groupe, à présenter devant un Jury. Le site est encore en développement et devrait être déployé sur serveur dans quelques semaines.</p>
                                             <div class="title">
                                                 <div class="border-top title-parts"></div>
                                                 <p class="sub-title title-parts">Outils</p>
@@ -505,56 +508,82 @@
                     
                         <div class="col s12 l6">
                             <ul class="demo-3">
-                            <li>
-                                <figure>
-                                    <img src="assets/images/screenshot-loopstudios.jpg" class="" alt=""/>
-                                    <figcaption>
-                                        <h2 class="teal-text">LoopStudios Landing Page</h2>
-                                        <p>Solution pour le challenge "Page d'accueil de <i>LoopStudios</i>" sur FrontEnd Mentor. Objectifs: travailler l'intégration responsive. Les technologies n'étaient pas imposées.</p>
-                                        <div class="title">
-                                            <div class="border-top title-parts"></div>
-                                            <p class="sub-title title-parts">Outils</p>
-                                            <div class="border-top-right title-parts"></div>
-                                        </div>
-                                        <p>HTML5 <strong class="separator">~</strong> CSS3 <strong class="separator">~</strong> JQuery</p>
-                                        <div class="title">
-                                            <div class="border-top title-parts"></div>
-                                            <p class="sub-title title-parts">Liens</p>
-                                            <div class="border-top-right title-parts"></div>
-                                        </div>
-                                        <a href="https://charlottesaidi.github.io/loopstudios-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
-                                        <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
+                                <li>
+                                    <figure>
+                                        <img src="assets/images/screenshot-loopstudios.jpg" alt="Maquette du projet LoopStudios"/>
+                                        <figcaption>
+                                            <h2 class="teal-text">LoopStudios Landing Page</h2>
+                                            <p>Solution pour le challenge "Page d'accueil de <i>LoopStudios</i>" sur FrontEnd Mentor. Objectifs: travailler l'intégration responsive. Les technologies n'étaient pas imposées.</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Outils</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <p>HTML5 <strong class="separator">~</strong> CSS3 <strong class="separator">~</strong> JQuery</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Liens</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <a href="https://charlottesaidi.github.io/loopstudios-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
+                                            <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
                         </div>
                     
                         <div class="col s12 l6">
                             <ul class="demo-3">
-                            <li>
-                                <figure>
-                                    <img src="assets/images/screenshot-sunnysideAgency.jpg" class="" alt=""/>
-                                    <figcaption>
-                                        <h2 class="teal-text">SunnySide Agency Landing Page</h2>
-                                        <p>Solution pour le challenge "Page d'accueil de <i>Sunnyside Agency</i>" sur FrontEnd Mentor. Objectifs: travailler l'intégration responsive. Là encore, les technologies n'étaient pas imposées.</p>
-                                        <div class="title">
-                                            <div class="border-top title-parts"></div>
-                                            <p class="sub-title title-parts">Outils</p>
-                                            <div class="border-top-right title-parts"></div>
-                                        </div>
-                                        <p>HTML5 <strong class="separator">~</strong> CSS3 <strong class="separator">~</strong> JQuery</p>
-                                        <div class="title">
-                                            <div class="border-top title-parts"></div>
-                                            <p class="sub-title title-parts">Liens</p>
-                                            <div class="border-top-right title-parts"></div>
-                                        </div>
-                                        <a href="https://charlottesaidi.github.io/Sunnyside-agency-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
-                                        <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
+                                <li>
+                                    <figure>
+                                        <img src="assets/images/screenshot-sunnysideAgency.jpg" alt="Maquette du projet SunnySide"/>
+                                        <figcaption>
+                                            <h2 class="teal-text">SunnySide Agency Landing Page</h2>
+                                            <p>Solution pour le challenge "Page d'accueil de <i>Sunnyside Agency</i>" sur FrontEnd Mentor. Objectifs: travailler l'intégration responsive. Là encore, les technologies n'étaient pas imposées.</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Outils</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <p>HTML5 <strong class="separator">~</strong> CSS3 <strong class="separator">~</strong> JQuery</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Liens</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <a href="https://charlottesaidi.github.io/Sunnyside-agency-challenge-solution/" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
+                                            <a href="https://www.frontendmentor.io/" class="btn-primary btn-small wave-effect" target="_blank">FrontEnd Mentor</a>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="col s12 l6">
+                            <ul class="demo-3">
+                                <li>
+                                    <figure>
+                                        <img src="projet_auto/asset/img/graphisme.png" alt="Maquette du projet AutoLoc Agence"/>
+                                        <figcaption>
+                                            <h2 class="teal-text">AutoLoc Agence</h2>
+                                            <p>Projet de formation chez WebForce3. Examen des techniques d'intégration Web et responsive.</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Outils</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <p>HTML5 <strong class="separator">~</strong> CSS3 <strong class="separator">~</strong> JQuery</p>
+                                            <div class="title">
+                                                <div class="border-top title-parts"></div>
+                                                <p class="sub-title title-parts">Liens</p>
+                                                <div class="border-top-right title-parts"></div>
+                                            </div>
+                                            <a href="projet_auto/index.html" class="btn-primary btn-small wave-effect" target="_blank">Visiter</a>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
                         </div>
                     </div><!--row-->
                 </div><!--container-->
@@ -568,7 +597,7 @@
                         <div class="timeline2">
                             <ul>
                               <li>
-                                <div class="card-panel teal lighten-3 z-depth-4">
+                                <div class="card-panel teal lighten-4 z-depth-4">
                                     <strong>Certification Développeur Codeur Web</strong> 
                                     <p class="row">
                                       <i class="material-icons col s1">school</i> 
@@ -585,7 +614,7 @@
                                 </span>
                               </li>
                               <li>
-                                <div class="card-panel teal lighten-3 z-depth-4">
+                                <div class="card-panel teal lighten-4 z-depth-4">
                                     <strong>Licence Langues Etrangères Appliquées</strong> 
                                     <p class="row">
                                       <i class="material-icons col s1">school</i> 
@@ -602,7 +631,7 @@
                                 </span>
                               </li>
                               <li>
-                                <div class="card-panel teal lighten-3 z-depth-4">
+                                <div class="card-panel teal lighten-4 z-depth-4">
                                     <strong>Baccalauréat Littéraire</strong> 
                                     <p class="row">
                                       <i class="material-icons col s1">school</i> 
@@ -624,91 +653,100 @@
                 </div>
             </div>
             <div class="border-top-right"></div>
-        </div>
 
-        <footer id="contact" class="page-footer black section scrollspy">
-            <a href="#pageTop" id="btn_up" class="head-link btn-floating btn-large btn teal hide-on-med-and-down">
-                <i class="large material-icons">keyboard_arrow_up</i>
-              </a>
-            <div class="container">
-                <h6 class="center-align white-text competences">Pour me contacter</h6>
-                <div class="row">
-                    <div class="col s12 l6">
-                        <div id="modal1" class="modal">
-                            <div class="waiting">
-                                <div class="loader-circle-2"></div>
+            <div id="contact" class="page-footer black section scrollspy">
+                <a href="#pageTop" id="btn_up" class="head-link btn-floating btn-large btn teal hide-on-med-and-down">
+                    <i class="large material-icons">keyboard_arrow_up</i>
+                  </a>
+                <div class="container">
+                    <h6 class="center-align white-text competences">Pour me contacter</h6>
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <div id="modal1" class="modal">
+                                <div class="waiting">
+                                    <div class="loader-circle-2"></div>
+                                </div>
+                                <div class="modal-content">
+                                    <h4 class="right-align">Contact</h4>
+                                    <div id="success" class="success"></div>
+                                    <div id="errors" class="error"></div>
+                                    <form id="contact_form" class="col s12 contact_form">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">account_circle</i>
+                                                <input id="name" type="text" name="user_name" class="validate">
+                                                <label for="first_name">Votre nom ou entreprise</label>
+                                                <div id="nameErr" class="error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">email</i>
+                                                <input id="email" type="email" name="user_email"  class="validate">
+                                                <label for="email">Votre adresse e-mail</label>
+                                                <div id="emailErr" class="error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">edit</i>
+                                                <input id="objet" type="text" name="object"  class="validate">
+                                                <label for="objet">Object de votre message</label>
+                                                <div id="objectErr" class="error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">message</i>
+                                                <textarea id="message" name="message" class="materialize-textarea" cols="30" rows="10"></textarea>
+                                                <label for="message">Votre message</label>
+                                                <div id="messErr" class="error"></div>
+                                            </div>
+                                        </div>
+                                        <p class="col s12">
+                                            <label>
+                                              <input id="agree" name="agree" type="checkbox" />
+                                              <span>En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter. Aucun autre traitement ne sera fait avec mes informations. Pour connaître et exercer mes droits, je peux consulter la <a href="#">Politique de confidentialité</a>.</span>
+                                            </label>
+                                          </p>
+                                        <div class="row">
+                                            <div class="input-field col s12 center-align">
+                                                <button class="btn waves-effect waves-light disabled" id="submitted" type="submit" name="action">Envoyer<i class="material-icons right">send</i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                              </div>
+                            <p class="center-align">Vous pouvez m'écrire par e-mail: <a class="teal-text text-lighten-3" href="mailto:charlotte.saidi@outlook.fr">charlotte.saidi@outlook.fr</a> ou via formulaire. Je vous répondrai dans les plus brefs délais.</p>
+                            <p class="center-align"><button data-target="modal1" class="btn waves-effect waves-green modal-trigger">Contact</button></p>
+                        </div>
+                        <div class="col s12 l6">
+                            <p class="center-align">Vous pouvez aussi me retrouver sur les sites suivants:</p>
+                            <div class="social">
+                                <a class="white-text" href="https://www.linkedin.com/in/charlotte-saidi/" title="Mon Profil LinkedIn" target="_blank"> 
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a class="white-text" href="https://github.com/charlottesaidi" title="Mon GitHub" target="_blank"> 
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.frontendmentor.io/profile/charlottesaidi" title="Mes Challenges FrontEnd Mentor" target="_blank">
+                                    <img src="assets/images/frontend_mentor.png" alt="" width="30" class="circle">
+                                </a>
                             </div>
-                            <div class="modal-content">
-                                <h4 class="right-align">Contact</h4>
-                                <div id="success" class="success"></div>
-                                <div id="errors" class="error"></div>
-                                <form id="contact_form" class="col s12 contact_form">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="name" type="text" name="user_name" class="validate">
-                                            <label for="first_name">Votre nom ou entreprise</label>
-                                            <div id="nameErr" class="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">email</i>
-                                            <input id="email" type="email" name="user_email"  class="validate">
-                                            <label for="email">Votre adresse e-mail</label>
-                                            <div id="emailErr" class="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">edit</i>
-                                            <input id="objet" type="text" name="object"  class="validate">
-                                            <label for="objet">Object de votre message</label>
-                                            <div id="objectErr" class="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">message</i>
-                                            <textarea id="message" name="message" class="materialize-textarea" cols="30" rows="10"></textarea>
-                                            <label for="message">Votre message</label>
-                                            <div id="messErr" class="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12 center-align">
-                                            <button class="btn waves-effect waves-light" id="submitted" type="submit" name="action">Envoyer<i class="material-icons right">send</i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                          </div>
-                        <p class="center-align">Vous pouvez m'écrire par e-mail: <a class="teal-text text-lighten-3" href="mailto:charlotte.saidi@outlook.fr">charlotte.saidi@outlook.fr</a> ou via formulaire. Je vous répondrai dans les plus brefs délais.</p>
-                        <p class="center-align"><button data-target="modal1" class="btn waves-effect waves-green modal-trigger">Contact</button></p>
-                    </div>
-                    <div class="col s12 l6">
-                        <p class="center-align">Vous pouvez aussi me retrouver sur les sites suivants:</p>
-                        <div class="social">
-                            <a class="white-text" href="https://www.linkedin.com/in/charlotte-saidi/" title="Mon Profil LinkedIn" target="_blank"> 
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="white-text" href="https://github.com/charlottesaidi" title="Mon GitHub" target="_blank"> 
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.frontendmentor.io/profile/charlottesaidi" title="Mes Challenges FrontEnd Mentor" target="_blank">
-                                <img src="assets/images/frontend_mentor.png" alt="" width="30" class="circle">
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <footer class="footer-page black">
             <div class="footer-copyright">
                 <div class="container">
                     <div class="row">
                         <ul class="col s12 l6 center-align">
                             <li><a class="white-text" href="https://fontawesome.com/license" target="_blank">Mentions légales</a></li>
                         </ul>
-                        <p class="col s12 l6 center-align">
+                        <p class="col s12 l6 center-align white-text">
                             &copy; Charlotte Saidi. 2021.
                         </p>
                     </div>
