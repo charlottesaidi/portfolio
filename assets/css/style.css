@@ -1,5 +1,6 @@
 body {
     color: #3d3b3b;
+    font-size: 16px;
 }
 body::-webkit-scrollbar, .modal::-webkit-scrollbar {
     width: 15px;
@@ -35,14 +36,14 @@ header {
     margin-bottom: 2px;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Arizonia", Helvetica, sans-serif; color: #9b9797;
+    font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
     margin: 0;
 }
 h5 {
-    font-size: 30px;
+    font-size: 40px;
 }
 h3 {
-    font-size: 40px;
+    font-size: 50px;
 }
 .caption h3, h5 {
     padding: 20px 0;
@@ -55,21 +56,21 @@ h6:not(.textShadow) {
 }
 .logo {
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 50px;
+    transition: all .5s;
 }
 .head-link:not(footer .head-link) {
     color: #3d3b3b;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 600;
+    font-family: 'Qwigley', cursive;
+    font-size: 30px;
 }
 nav ul a:hover {
     background-color: transparent;
 }
 nav ul a {
     display: block; 
-    position: relative
+    position: relative;
 }
 nav ul a::after, a.active::after {
     content: ''; 
@@ -148,7 +149,7 @@ nav .sidenav-trigger {
     object-fit: cover;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 50% 5px 50% 5px; 
 }
 #aPropos .text {
     font-weight: 600px;
@@ -160,7 +161,7 @@ nav .sidenav-trigger {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 76px/1 "Arizonia", Helvetica, sans-serif;
+    font: normal 90px/1 "Qwigley", Helvetica, sans-serif;
     color: teal;
     text-align: center;
     -o-text-overflow: ellipsis;
@@ -185,13 +186,6 @@ nav .sidenav-trigger {
 #competences p {
     margin: 5px 0;
 }
-/* #competences i {
-    display: block;
-    font-size: 40px;
-    height: 50px;
-    width: 50px;
-    color: rgb(3, 80, 80);
-} */
 #competences .row {
     margin: 0;
 }
@@ -222,26 +216,7 @@ nav .sidenav-trigger {
     font-size: 30px;
 }
 #portfolio .title p {
-    font-family: "Arizonia", Helvetica, sans-serif; color: #9b9797;
-}
-.textShadow {
--webkit-box-sizing: content-box;
--moz-box-sizing: content-box;
-box-sizing: content-box;
-border: none;
-font: normal 100px/normal "Arizonia", Helvetica, sans-serif;
-color: #3d3b3b;;
-text-align: left;
--o-text-overflow: clip;
-text-overflow: clip;
-text-shadow: 0 15px 29px rgba(0,0,0,0.0980392) , 10px 20px 5px rgba(0,0,0,0.0470588) , -10px 20px 5px rgba(0,0,0,0.0470588) ;
--webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
--moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
--o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-}
-.textShadow:hover {
-    text-shadow: 0 -15px 29px rgba(0,0,0,0.0980392) , 10px -20px 5px rgba(0,0,0,0.0470588) , -10px -20px 5px rgba(0,0,0,0.0470588) ;
+    font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
 }
 .demo-3 {
     position:relative;
@@ -278,7 +253,7 @@ transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 .demo-3 figure h2 {
     color:#fff;
-    font-size: 30px;
+    font-size: 40px;
     text-align:center;
 }
 .demo-3 figure p {
@@ -326,7 +301,7 @@ footer {
 }
 .modal {
     max-height: 85%;
-    padding: 20px 0;
+    padding: 0 0 20px 0;
 }
 .contact_form .row {
     margin: 0;
@@ -355,7 +330,7 @@ textarea.materialize-textarea {
 }
 .social a:hover {
     background-color: teal;
-    border-radius: 15px 3px 15px 3px;
+    border-radius: 50% 3px 50% 3px;
 }
 .btn-floating {
     position: absolute;
@@ -543,7 +518,11 @@ textarea.materialize-textarea {
     left: -289px;
   }
 }
-
+@media screen and (max-width: 800px) {
+    .box-caption {
+        width: 60%;
+    }
+}
 @media screen and (max-width: 600px) {
     .main {
         padding-top: 66px;
@@ -557,11 +536,22 @@ textarea.materialize-textarea {
     .textShadow {
         font-size: 80px;
     }
+    .logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .logo-img {
+        width: 80px;
+        height: 80px;
+    }
     h5 {
-        font-size: 6vw;
+        font-size: 8vw;
     }
     h3 {
-        font-size: 7vw;
+        font-size: 9vw;
+    }
+    .demo-3 p:not(.sub-title) {
+        font-size: 14px;;
     }
     .timeline2 ul li {
         margin-left: 20px;
@@ -582,10 +572,6 @@ textarea.materialize-textarea {
         top: 60px;
         left: -23px;
         width: 90px;
-        /*
-        transform: rotate(-90deg);
-        -webkit-transform:rotate(270deg);
-        */
         transform: rotate(0deg);
         -webkit-transform:rotate(0deg);
     }
@@ -594,10 +580,6 @@ textarea.materialize-textarea {
         top: 60px;
         right: -67px;
         width: 90px;
-        /*
-        transform: rotate(-90deg);
-        -webkit-transform:rotate(270deg);
-        */
         transform: rotate(0deg);
         -webkit-transform:rotate(0deg);
     }

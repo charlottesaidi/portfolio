@@ -97,12 +97,18 @@ $(document).ready(function(){
         document.getElementById(elemId).innerHTML = hintMsg;
     }
 
-    function validateForm() {
-        var name = document.forms["contact_form"]["user_name"].value;
-        var email = document.forms["contact_form"]["user_email"].value;
-        var object = document.forms["contact_form"]["object"].value;
-        var message = document.forms["contact_form"]["message"].value;
+    function stripTagInput(inputValue) {
+        const originalString = inputValue;
+        const strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
+        return strippedString
+    }
 
+    function validateForm() {
+        var name = stripTagInput(document.forms["contact_form"]["user_name"].value);
+        var email = stripTagInput(document.forms["contact_form"]["user_email"].value);
+        var object = stripTagInput(document.forms["contact_form"]["object"].value);
+        var message = stripTagInput(document.forms["contact_form"]["message"].value);
+        
         var nameErr = emailErr = objectErr = messErr = true;
 
         if(name == "") {
@@ -138,10 +144,14 @@ $(document).ready(function(){
                 objectErr = false;
             }
         }
+        console.log(name);
+        console.log(email);
+        console.log(object);
+        console.log(message);
         if (message == "")  {
             printError("messErr", "<p>Le message est obligatoire</p>");
         } else {
-            if(object.length < 10) {
+            if(message.length < 10) {
                 printError("messErr", "<p>Le message doit contenir au moins 10 caractères</p>");
             } else{
                 printError("messErr", "");
@@ -158,12 +168,14 @@ $(document).ready(function(){
     document.getElementById('contact_form').addEventListener('submit', function(event) {
         event.preventDefault();
         if(validateForm()) {
-            emailjs.sendForm('contact_service', 'contact_form', this)
-            .then(function() {
-                successMessage.innerHTML = success;
-            }, function() {
-                printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
-            })
+            // emailjs.sendForm('contact_service', 'contact_form', this)
+            // .then(function() {
+            //     successMessage.innerHTML = success;
+            // }, function() {
+            //     printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
+            // })
+            successMessage.innerHTML = success;
         } 
     });
+
 });
