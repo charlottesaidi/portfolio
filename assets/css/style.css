@@ -73,6 +73,9 @@ h6:not(.textShadow) {
 .sidenav-head-link, .sidenav-headlink, .grey-text {
     color:#3d3b3b !important;
 }
+.grey-text.text-lighten-1 {
+    color: #9e9e9e  !important;
+}
 .head-link:not(footer .head-link), nav .sidenav-trigger {
     color: #fff  ;
 }
