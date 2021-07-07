@@ -128,20 +128,20 @@ nav ul a:hover::after, a.active::after {
     width: 50%;
     margin: 0 auto;
     height: 5px;
-    background: rgb(0,150,136);
-    background: linear-gradient(90deg, rgba(0,150,136,1) 0%, rgba(15,190,174,1) 48%, rgba(255,255,255,1) 100%);
+    background: #004D40;
+    background: linear-gradient(90deg, #004D40 0%, rgba(15,190,174,1) 48%, rgba(255,255,255,1) 100%);
 }
 .caption {
     background: url('../images/separation.jpg') no-repeat fixed; background-size: cover; height: 600px; display: flex; padding-top: 74px;
 }
 .border-top {
     background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(15,190,174,1) 48%, rgba(0,150,136,1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(15,190,174,1) 48%, #004D40 100%);
     height: 10px;
 }
 .border-top-right {
-    background: rgb(0,150,136);
-    background: linear-gradient(90deg, rgba(0,150,136,1) 0%, rgba(15,190,174,1) 48%, rgba(255,255,255,1) 100%);
+    background: #004D40;
+    background: linear-gradient(90deg, #004D40 0%, rgba(15,190,174,1) 48%, rgba(255,255,255,1) 100%);
     height: 10px;
 }
 .hide {
@@ -179,7 +179,7 @@ nav ul a:hover::after, a.active::after {
     box-sizing: content-box;
     border: none;
     font: normal 90px/1 "Qwigley", Helvetica, sans-serif;
-    color: teal;
+    color: #004D40;
     text-align: center;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -206,7 +206,7 @@ nav ul a:hover::after, a.active::after {
     border-radius: 20px 0 0 20px;
     height: 15px;
     width: 5%;
-    background: teal;
+    background: #004D40;
     transition: all .9s;
 }
 #competences p {
@@ -411,7 +411,7 @@ textarea.materialize-textarea {
     object-fit: cover;
 }
 .social a:hover {
-    background-color: teal;
+    background-color: #004D40;
     border-radius: 50% 3px 50% 3px;
 }
 .btn-floating {
@@ -552,7 +552,7 @@ textarea.materialize-textarea {
     -webkit-transition: background .5s ease-in-out;
 }
 .timeline2 ul li.in-view::after {
-    background: teal;
+    background: #004D40;
     border: 2px solid white;
 }
 .timeline2 ul li div {
