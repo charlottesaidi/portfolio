@@ -197,13 +197,8 @@ $(document).ready(function(){
         if(name == "") {
             printError("nameErr", "<p>Veuillez renseigner au moins un nom</p>");
         } else {
-            var regex = /^[a-zA-Z\s]+$/;                
-            if(regex.test(name) === false) {
-                printError("nameErr", "<p>Entrez un nom valide</p>");
-            } else {
-                printError("nameErr", "");
-                nameErr = false;
-            }
+            printError("nameErr", "");
+            nameErr = false;
         }
         if(email == "") {
             printError("emailErr", "<p>Veuillez renseigner votre adresse e-mail</p>");
