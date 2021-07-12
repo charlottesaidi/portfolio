@@ -206,8 +206,8 @@ nav ul a:hover::after, a.active::after {
     border-radius: 20px;
 }
 .progress-inner-bar {
-    border-radius: 20px 0 0 20px;
-    height: 15px;
+    border-radius: 20px;
+    height: 10px;
     width: 5%;
     background: #004D40;
     transition: all .9s;
@@ -246,6 +246,9 @@ nav ul a:hover::after, a.active::after {
 }
 #portfolio .title p {
     font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
+}
+#portfolio .border-top.title-parts, #portfolio .border-top-right.title-parts {
+    height: 6px;
 }
 .demo-3 {
     position:relative;
