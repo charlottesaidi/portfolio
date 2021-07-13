@@ -6,11 +6,19 @@ $(document).ready(function(){
     (function() {
         emailjs.init("user_FIAzf2KTrflk0vpVglMAg");
     })();
+
+    $('.show_blocks').click(function() {
+        var block = $('#' + $(this).attr('data-target'));
+        console.log(block);
+        block.slideToggle('slow');
+        ($(this).text() === "Voir plus") ? $(this).text("Voir moins") : $(this).text("Voir plus");
+    })
     
     // SCROLL SMOOTH
     $('.head-link').click(function(e) {
         e.preventDefault();
         var goto = $(this).attr('href');
+        console.log(goto);
         $('html, body').animate({
             scrollTop: $(goto).offset().top
         }, 800);
