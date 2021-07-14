@@ -183,69 +183,6 @@ $(document).ready(function(){
     var success = '<p>Votre message a bien été envoyé. Je vous répondrai au plus vite.</p>';
     var successMessage = document.getElementById('success');
 
-    function printError(elemId, hintMsg) {
-        document.getElementById(elemId).innerHTML = hintMsg;
-    }
-
-    function stripTagInput(inputValue) {
-        const originalString = inputValue;
-        const strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
-        return strippedString
-    }
-
-    function validateForm() {
-        var name = stripTagInput(document.forms["contact_form"]["user_name"].value);
-        var email = stripTagInput(document.forms["contact_form"]["user_email"].value);
-        var object = stripTagInput(document.forms["contact_form"]["object"].value);
-        var message = stripTagInput(document.forms["contact_form"]["message"].value);
-
-        var nameErr = emailErr = objectErr = messErr = true;
-
-        if(name == "") {
-            printError("nameErr", "<p>Veuillez renseigner au moins un nom</p>");
-        } else {
-            printError("nameErr", "");
-            nameErr = false;
-        }
-        if(email == "") {
-            printError("emailErr", "<p>Veuillez renseigner votre adresse e-mail</p>");
-        } else {
-            // Regular expression for basic email validation
-            var regex = /^\S+@\S+\.\S+$/;
-            if(regex.test(email) === false) {
-                printError("emailErr", "<p>Entrez une adresse email valide</p>");
-            } else{
-                printError("emailErr", "");
-                emailErr = false;
-            }
-        }
-        if (object == "") {
-            printError("objectErr", "<p>L'objet est obligatoire</p>");
-        } else {
-            if(object.length < 5) {
-                printError("objectErr", "<p>L'objet doit contenir au moins 5 caractères</p>");
-            } else{
-                printError("objectErr", "");
-                objectErr = false;
-            }
-        }
-        if (message == "")  {
-            printError("messErr", "<p>Le message est obligatoire</p>");
-        } else {
-            if(message.length < 10) {
-                printError("messErr", "<p>Le message doit contenir au moins 10 caractères</p>");
-            } else{
-                printError("messErr", "");
-                messErr = false;
-            }
-        }
-        if((nameErr || emailErr || objectErr || messErr) == true) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    
     $('#agree').on('click', function(){
         $('#submitted').toggleClass('disabled')
     }) 
@@ -266,18 +203,90 @@ $(document).ready(function(){
             })
         } 
     });
-});
-
-$(window).resize(function() {
+    
+    $(window).resize(function() {
+        if($(window).width() <= 320) {
+            $('i').removeClass('prefix');
+        } else {
+            $('i').addClass('prefix');
+        }
+    });
+    // OR
     if($(window).width() <= 320) {
         $('i').removeClass('prefix');
     } else {
         $('i').addClass('prefix');
     }
 });
-// OR
-if($(window).width() <= 320) {
-    $('i').removeClass('prefix');
-} else {
-    $('i').addClass('prefix');
+
+function printError(elemId, hintMsg) {
+    document.getElementById(elemId).innerHTML = hintMsg;
 }
+
+function stripTagInput(inputValue) {
+    const originalString = inputValue;
+    const strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
+    return strippedString
+}
+
+function validateForm() {
+    var name = stripTagInput(document.forms["contact_form"]["user_name"].value);
+    var email = stripTagInput(document.forms["contact_form"]["user_email"].value);
+    var object = stripTagInput(document.forms["contact_form"]["object"].value);
+    var message = stripTagInput(document.forms["contact_form"]["message"].value);
+
+    var nameErr = emailErr = objectErr = messErr = true;
+
+    if(name == "") {
+        printError("nameErr", "<p>Veuillez renseigner au moins un nom</p>");
+    } else {
+        printError("nameErr", "");
+        nameErr = false;
+    }
+    if(email == "") {
+        printError("emailErr", "<p>Veuillez renseigner votre adresse e-mail</p>");
+    } else {
+        // Regular expression for basic email validation
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(email) === false) {
+            printError("emailErr", "<p>Entrez une adresse email valide</p>");
+        } else{
+            printError("emailErr", "");
+            emailErr = false;
+        }
+    }
+    if (object == "") {
+        printError("objectErr", "<p>L'objet est obligatoire</p>");
+    } else {
+        if(object.length < 5) {
+            printError("objectErr", "<p>L'objet doit contenir au moins 5 caractères</p>");
+        } else{
+            printError("objectErr", "");
+            objectErr = false;
+        }
+    }
+    if (message == "")  {
+        printError("messErr", "<p>Le message est obligatoire</p>");
+    } else {
+        if(message.length < 10) {
+            printError("messErr", "<p>Le message doit contenir au moins 10 caractères</p>");
+        } else{
+            printError("messErr", "");
+            messErr = false;
+        }
+    }
+    if((nameErr || emailErr || objectErr || messErr) == true) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function loadStyleSheet(src) {
+    if (document.createStyleSheet){
+        document.createStyleSheet(src);
+    }
+    else {
+        $("head").append($("<link rel='stylesheet' href='"+src+" />"));
+    }
+};
