@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    // document.addEventListener('touchstart', handler, {passive: true})
 
     // PLUGINS INIT
     $('.sidenav').sidenav();
@@ -8,12 +7,17 @@ $(document).ready(function(){
         emailjs.init("user_FIAzf2KTrflk0vpVglMAg");
     })();
 
+    // PORTFOLIO APPEARING BLOCKS
+    
+    var blocks = $('.portfolio_blocks');
+    var hiddenBlocks = blocks.slice(4);
+    var showBlocks = blocks.slice(0, 4);
+    showBlocks.removeClass('portfolio_blocks');
     $('.show_blocks').click(function() {
-        var block = $('#' + $(this).attr('data-target'));
-        block.slideToggle('slow');
+        hiddenBlocks.slideToggle('slow');
         ($(this).text() === "add") ? $(this).text("remove") : $(this).text("add");
     })
-    
+
     // SCROLL SMOOTH
     $('.head-link').click(function(e) {
         e.preventDefault();
