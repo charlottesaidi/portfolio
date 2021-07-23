@@ -30,15 +30,13 @@ $(document).ready(function(){
     // ACTIVE CLASS FOR ANCHOR LINKS
     var addClassOnScroll = function () {
         var windowBottom = $(window).scrollTop() + $(window).height();
-        // var windowTop = $(window).scrollTop();
         $('.scrollspy').each(function (index, elem) {
             var offsetTop = $(elem).offset().top;
             var outerHeight = $(this).outerHeight(true);
-
             if( windowBottom > (offsetTop) && windowBottom < ( offsetTop + outerHeight)) {
                 var elemId = $(elem).attr('id');
-                $("nav ul a.active").removeClass('active');
-                $("nav ul a[href='#" + elemId + "']").addClass('active');
+                $("nav ul .head-link.active").removeClass('active');
+                $("nav ul .head-link[href='#" + elemId + "']").addClass('active');
             }
         });
     };
@@ -54,7 +52,8 @@ $(document).ready(function(){
     var borderTop = $('#header-border');
     var mobileBtn = $('nav .sidenav-trigger');
     var navLinks = $('.head-link:not(footer .head-link)');
-    var underlineHover = $('nav ul a');
+    var underlineHover = $('nav ul .head-link');
+
     $(window).scroll(function() {
         var currentScroll = $(window).scrollTop();
         if (currentScroll >= marker) {
@@ -184,8 +183,11 @@ $(document).ready(function(){
 
     // EMAIL JS + VALIDATION
         // prep variables
-    var success = '<p>Votre message a bien été envoyé. Je vous répondrai au plus vite.</p>';
+    var lang = $('html').attr('lang');
+    var success = ''; 
     var successMessage = document.getElementById('success');
+
+    (lang == 'fr' ? success = '<p>Votre message a bien été envoyé. Je vous répondrai au plus vite.</p>' : success = '<p>Your message has been sent. I will respond as soon as possible</p>')
 
     $('#agree').on('click', function(){
         $('#submitted').toggleClass('disabled')
@@ -203,7 +205,12 @@ $(document).ready(function(){
                 successMessage.innerHTML = success;
                 $('#submitted').removeClass('disabled');
             }, function() {
-                printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
+                if(lang == 'fr') {
+                    printError("errors", "<p>Une erreur est survenue... Réessayez ultérieurement</p>");
+                } else {
+                    printError("errors", "<p>An error occured... Try again later</p>");
+                }
+                
             })
         } 
     });
@@ -234,6 +241,7 @@ function stripTagInput(inputValue) {
 }
 
 function validateForm() {
+    var lang = $('html').attr('lang');
     var name = stripTagInput(document.forms["contact_form"]["user_name"].value);
     var email = stripTagInput(document.forms["contact_form"]["user_email"].value);
     var object = stripTagInput(document.forms["contact_form"]["object"].value);
@@ -242,38 +250,69 @@ function validateForm() {
     var nameErr = emailErr = objectErr = messErr = true;
 
     if(name == "") {
-        printError("nameErr", "<p>Veuillez renseigner au moins un nom</p>");
+        if(lang == 'fr') {
+            printError("nameErr", "<p>Veuillez renseigner au moins un nom</p>");
+        } else {
+            printError("nameErr", "<p>The name field cannot be empty</p>");
+        }
+        
     } else {
         printError("nameErr", "");
         nameErr = false;
     }
     if(email == "") {
-        printError("emailErr", "<p>Veuillez renseigner votre adresse e-mail</p>");
+        if(lang == 'fr') {
+            printError("emailErr", "<p>Veuillez renseigner votre adresse e-mail</p>");
+        } else {
+            printError("emailErr", "<p>The e-mail field cannot be empty</p>");
+        }
+        
     } else {
         // Regular expression for basic email validation
         var regex = /^\S+@\S+\.\S+$/;
         if(regex.test(email) === false) {
-            printError("emailErr", "<p>Entrez une adresse email valide</p>");
+            if(lang == 'fr') {
+                printError("emailErr", "<p>Entrez une adresse email valide</p>");
+            } else {
+                printError("emailErr", "<p>Please enter a valid e-email</p>");
+            }
         } else{
             printError("emailErr", "");
             emailErr = false;
         }
     }
     if (object == "") {
-        printError("objectErr", "<p>L'objet est obligatoire</p>");
+        if(lang == 'fr') {
+            printError("objectErr", "<p>L'objet est obligatoire</p>");
+        } else {
+            printError("objectErr", "<p>The subject field cannot be empty</p>");
+        }
     } else {
         if(object.length < 5) {
-            printError("objectErr", "<p>L'objet doit contenir au moins 5 caractères</p>");
+            if(lang == 'fr') {
+                printError("objectErr", "<p>L'objet doit contenir au moins 5 caractères</p>");
+            } else {
+                printError("objectErr", "<p>The subject must be more than 5 caracters</p>");
+            }
         } else{
             printError("objectErr", "");
             objectErr = false;
         }
     }
     if (message == "")  {
-        printError("messErr", "<p>Le message est obligatoire</p>");
+        if(lang == 'fr') {
+            printError("messErr", "<p>Le message est obligatoire</p>");
+        } else {
+            printError("messErr", "<p>The message field cannot be empty</p>");
+        }
+        
     } else {
         if(message.length < 10) {
-            printError("messErr", "<p>Le message doit contenir au moins 10 caractères</p>");
+            if(lang == 'fr') {
+                printError("messErr", "<p>Le message doit contenir au moins 10 caractères</p>");
+            } else {
+                printError("messErr", "<p>Your message must be more than 10 caracters</p>");
+            }
         } else{
             printError("messErr", "");
             messErr = false;

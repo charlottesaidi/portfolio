@@ -94,7 +94,7 @@ header {
     left: 0;
     z-index: 999;
 }
-img {
+img:not(#competences img) {
     height: auto;
 }
 .mobile_nav_logo {
@@ -112,7 +112,7 @@ img {
     width: 100%;
 }
 .btn, .btn-primary {
-    margin-bottom: 2px;
+    margin: 0 5px 2px 0;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
@@ -144,6 +144,10 @@ h6:not(.textShadow) {
 .sidenav-head-link, .sidenav-headlink, .grey-text {
     color:#3d3b3b !important;
 }
+.sidenav li.row .col.s6 {
+    padding: 0 32px;
+    font-weight: bold;
+}
 .grey-text.text-lighten-1 {
     color: #9e9e9e  !important;
 }
@@ -155,17 +159,17 @@ nav {
     -o-transition: all .3s;
     transition: all .3s;
 }
-nav ul a:hover {
+nav ul a:hover, .sidenav li.row a:hover {
     background-color: transparent;
 }
-nav ul a {
+nav ul .head-link {
     display: block; 
     position: relative;
 }
-.tealVersion::after, .tealVersion.active::after {
+.head-link.tealVersion::after, .head-link.tealVersion.active::after {
     background-color: teal;
 }
-nav ul a::after, a.active::after {
+nav ul .head-link::after, .head-link.active::after {
     content: ''; 
     position: absolute; 
     bottom: 15px; 
@@ -182,12 +186,12 @@ nav ul a::after, a.active::after {
     transition: opacity 500ms, transform 500ms; 
     transition: opacity 500ms, transform 500ms, -webkit-transform 500ms;
 }
-nav ul a:hover::after, a.active::after {
+nav ul .head-link:hover::after, .head-link.active::after {
     opacity: 1; 
     -webkit-transform: translate3d(0, 0.2em, 0); 
     transform: translate3d(0, 0.2em, 0);
 }
-nav ul a::after, a.active::after {opacity: 1; 
+nav ul .head-link::after, .head-link.active::after {opacity: 1; 
     -webkit-transform: scale(0); 
     -ms-transform: scale(0); 
     transform: scale(0); 
@@ -195,10 +199,26 @@ nav ul a::after, a.active::after {opacity: 1;
     -ms-transform-origin: center; 
     transform-origin: center;
 }
-nav ul a:hover::after, a.active::after {
+nav ul .head-link:hover::after, .head-link.active::after {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
+}
+.nav-icons a {
+    display: flex;
+    height: 64px;
+}
+.flag_icons {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    border-radius: 50%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease 0s;
+}
+.flag_icons:hover {
+    box-shadow: 0px 15px 20px #004D40;
+    transform: translateY(-7px); 
 }
 .sep {
     width: 50%;
@@ -311,7 +331,6 @@ nav ul a:hover::after, a.active::after {
 
 #portfolio .col {
     overflow: hidden;
-    margin-bottom: 25px;
 }
 #portfolio .title {
     display: -webkit-box;
@@ -357,6 +376,11 @@ nav ul a:hover::after, a.active::after {
     transition: all .3s;
 }
 .demo-3 figure img {
+    -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+    -webkit-transition:all .5s;
+    -o-transition:all .5s;
+    transition:all .5s;
     width: 100%;
     max-height: 400px;
     min-height: 400px;
@@ -371,13 +395,6 @@ nav ul a:hover::after, a.active::after {
     border: solid 5px white;
     border-radius: 2px;
 }
-.demo-3 figure figcaption {
-    display:block;
-    position:absolute;
-    z-index:5;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box
-}
 .demo-3 figure h2 {
     color:#fff;
     font-size: 40px;
@@ -391,7 +408,18 @@ nav ul a:hover::after, a.active::after {
 .demo-3 figure .title-parts {
     width: 30%;
 } 
+.demo-3 .links {
+    display: flex;
+    justify-content: center;
+}
 .demo-3 figure figcaption {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position:absolute;
+    z-index:5;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
     top:0;
     left:0;
     width:100%;
@@ -406,13 +434,6 @@ nav ul a:hover::after, a.active::after {
     -webkit-transition:all .5s;
     -o-transition:all .5s;
     transition:all .5s;
-}
-.demo-3 figure img {
-    -webkit-backface-visibility:hidden;
-            backface-visibility:hidden;
-    -webkit-transition:all .5s;
-    -o-transition:all .5s;
-    transition:all .5s
 }
 .demo-3 figure:hover img,figure.hover img {
     -webkit-transform:rotateY(180deg);
@@ -564,6 +585,9 @@ textarea.materialize-textarea {
     background-color: #004D40;
     border-radius: 50% 3px 50% 3px;
 }
+.footer-copyright .row {
+    margin: 0
+}
 #contact .btn-floating {
     position: absolute;
     right: 100px;
@@ -584,11 +608,20 @@ textarea.materialize-textarea {
     border: solid 1px darkred;
     border-radius: 3px;
 }
-.footer-copyright .row {
-    margin: 0
+.footer-copyright p:not(.policy.footer-copyright p), .footer-copyright ul:not(.policy.footer-copyright ul) {
+    margin: 0;
+}
+.footer-copyright p {
+    padding: 20px 0
+}
+.attribution_title {
+    font-weight: bold;
 }
 .page-footer.section {
     padding: 100px 50px 20px 50px;
+}
+.page-footer.section .row {
+    margin: 0
 }
 .timeline2 {
     overflow-y: scroll;
@@ -826,7 +859,7 @@ textarea.materialize-textarea {
     .timeline2 ul li:nth-child(even) div::before {
         left: -15px;
         border-width: 16px 16px 16px 0; /* border-width: 8px 16px 8px 0;  */
-        border-color: transparent #80cbc4 transparent transparent;
+        border-color: transparent #B2DFDB transparent transparent;
     }
     .timeline2 ul li:nth-child(odd) .time {
         position: absolute;
@@ -863,7 +896,7 @@ textarea.materialize-textarea {
         width: 80%;
     }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
     .card-panel {
         padding: 24px 0;
     }
@@ -875,6 +908,24 @@ textarea.materialize-textarea {
     }
     .modal .modal-content {
         padding: 0;
+    }
+    .btn-small {
+        height: 25px;
+        line-height: 25px;
+        font-size: 10px;
+    }
+    .demo-3 figure h2 {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 780px) {
+    .hide-on-small-only, .hide-on-small-and-down {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 780px) {
+    nav a.sidenav-trigger {
+        display: none;
     }
 }
 @media screen and (max-width: 320px) {
