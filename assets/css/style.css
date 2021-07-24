@@ -78,6 +78,12 @@ body::-webkit-scrollbar-track, .modal::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
     background-color: teal;
 }
+/* .teal.darken-4 {
+    background-color: rgb(0,77,64, .1) !important;
+}
+.teal.darken-4 h6, .teal.darken-4 p {
+    color: #3d3b3b !important;
+} */
 .hidden {
     display: none;
 }
@@ -328,10 +334,6 @@ nav ul .head-link:hover::after, .head-link.active::after {
 #portfolio .row {
     margin: 0;
 }
-
-#portfolio .col {
-    overflow: hidden;
-}
 #portfolio .title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -361,26 +363,29 @@ nav ul .head-link:hover::after, .head-link.active::after {
     display: none
 }
 .demo-3 {
+    perspective: 900px;
     position:relative;
     float:left;
     height: 400px;
     width: 100%;
 }
 .demo-3 figure {
+    transform-style: preserve-3d;
     margin: 0;
     padding:0;
     position:relative;
     cursor:pointer;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: all .9s;
+    -o-transition: all .9s;
+    transition: all .9s;
 }
 .demo-3 figure img {
+    transform-style: preserve-3d;
     -webkit-backface-visibility:hidden;
             backface-visibility:hidden;
-    -webkit-transition:all .5s;
-    -o-transition:all .5s;
-    transition:all .5s;
+    -webkit-transition:all .9s;
+    -o-transition:all .9s;
+    transition:all .9s;
     width: 100%;
     max-height: 400px;
     min-height: 400px;
@@ -392,12 +397,12 @@ nav ul .head-link:hover::after, .head-link.active::after {
     position:relative;
     z-index:10;
     margin:-15px 0;
-    border: solid 5px white;
+    border: solid 5px #fff;
     border-radius: 2px;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 20%);
 }
 .demo-3 figure h2 {
-    color:#fff;
-    font-size: 40px;
+    font-size: 30px;
     text-align:center;
 }
 .demo-3 figure p {
@@ -405,14 +410,27 @@ nav ul .head-link:hover::after, .head-link.active::after {
     line-height:1.3;
     margin: 10px 0;
 }
+.demo-3 p:not(.sub-title) {
+    font-size: 14px;;
+}
+#portfolio .title {
+    font-size: 25px
+}
 .demo-3 figure .title-parts {
     width: 30%;
 } 
 .demo-3 .links {
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
 }
+.btn-small {
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+}
 .demo-3 figure figcaption {
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 20%);
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -431,9 +449,9 @@ nav ul .head-link:hover::after, .head-link.active::after {
             backface-visibility:hidden;
     -webkit-transform:rotateY(-180deg);
     transform:rotateY(-180deg);
-    -webkit-transition:all .5s;
-    -o-transition:all .5s;
-    transition:all .5s;
+    -webkit-transition: all .9s;
+    -o-transition: all .9s;
+    transition: all .9s;
 }
 .demo-3 figure:hover img,figure.hover img {
     -webkit-transform:rotateY(180deg);
@@ -844,9 +862,6 @@ textarea.materialize-textarea {
     h3 {
         font-size: 9vw;
     }
-    .demo-3 p:not(.sub-title) {
-        font-size: 14px;;
-    }
     .timeline2 ul li {
         margin-left: 20px;
     }
@@ -891,6 +906,7 @@ textarea.materialize-textarea {
     }
   
 }
+/* OVERWRITE MATERIALIZECSS STYLE */
 @media only screen and (min-width: 993px) {
     .container {
         width: 80%;
@@ -901,21 +917,11 @@ textarea.materialize-textarea {
         padding: 24px 0;
     }
     .section h6 {font-size: 50px}
-    .demo-3 figure h2 {font-size: 25px}
-    #portfolio .title {font-size: 25px}
     .modal h4 {
         padding: 24px;
     }
     .modal .modal-content {
         padding: 0;
-    }
-    .btn-small {
-        height: 25px;
-        line-height: 25px;
-        font-size: 10px;
-    }
-    .demo-3 figure h2 {
-        font-size: 30px;
     }
 }
 @media only screen and (max-width: 780px) {
@@ -926,6 +932,11 @@ textarea.materialize-textarea {
 @media only screen and (min-width: 780px) {
     nav a.sidenav-trigger {
         display: none;
+    }
+}
+@media only screen and (max-width: 740px) {
+    #portfolio .row .col.m6 {
+        width: 100%;
     }
 }
 @media screen and (max-width: 320px) {

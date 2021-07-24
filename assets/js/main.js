@@ -10,8 +10,12 @@ $(document).ready(function(){
     // PORTFOLIO APPEARING BLOCKS
     
     var blocks = $('.portfolio_blocks');
-    var hiddenBlocks = blocks.slice(4);
-    var showBlocks = blocks.slice(0, 4);
+    var hiddenBlocks = blocks.slice(3);
+    var showBlocks = blocks.slice(0, 3);
+    if($(window).width() <= 993) {
+        hiddenBlocks = blocks.slice(4);
+        showBlocks = blocks.slice(0, 4);
+    }
     showBlocks.removeClass('portfolio_blocks');
     $('.show_blocks').click(function() {
         hiddenBlocks.slideToggle('slow');
@@ -222,12 +226,6 @@ $(document).ready(function(){
             $('i').addClass('prefix');
         }
     });
-    // OR
-    if($(window).width() <= 320) {
-        $('i').removeClass('prefix');
-    } else {
-        $('i').addClass('prefix');
-    }
 });
 
 function printError(elemId, hintMsg) {
