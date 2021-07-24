@@ -359,6 +359,9 @@ nav ul .head-link:hover::after, .head-link.active::after {
 #portfolio, #contact {
     margin-top: -10px;
 }
+#portfolio, #aPropos {
+    margin-bottom: -10px;
+}
 #portfolio .title p {
     font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
 }
@@ -618,7 +621,7 @@ textarea.materialize-textarea {
 #contact .btn-floating {
     position: absolute;
     right: 100px;
-    top: -130px;
+    top: -50px;
     z-index: 100;
 } 
 .success p {
