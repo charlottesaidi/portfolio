@@ -100,7 +100,7 @@ header {
     left: 0;
     z-index: 999;
 }
-img:not(#competences img) {
+img:not(#competences img, .img_profile) {
     height: auto;
 }
 .mobile_nav_logo {
