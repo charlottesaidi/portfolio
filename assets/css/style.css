@@ -112,7 +112,7 @@ img:not(#competences img) {
     margin-top: 20px;
 }
 .section {
-    padding: 100px 50px;
+    padding: 0 50px;
 }
 #portfolio .container, #competences .container, #formations .container {
     width: 100%;
@@ -266,6 +266,9 @@ nav ul .head-link:hover::after, .head-link.active::after {
 {
     text-align:center;
 }
+#aPropos {
+    padding-top: 100px
+}
 #aPropos .profile .img_profile {
     -o-object-fit: cover;
        object-fit: cover;
@@ -275,6 +278,9 @@ nav ul .head-link:hover::after, .head-link.active::after {
     font-weight: 600px;
     text-align: center;
     color: #fff;
+}
+#aPropos .row {
+    margin: 0
 }
 .competences {
     -webkit-box-sizing: content-box;
@@ -350,14 +356,17 @@ nav ul .head-link:hover::after, .head-link.active::after {
             align-items: center;
     font-size: 30px;
 }
+#portfolio, #contact {
+    margin-top: -10px;
+}
 #portfolio .title p {
     font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
 }
 #portfolio .border-top.title-parts, #portfolio .border-top-right.title-parts {
     height: 6px;
 }
-#portfolio .col.competence_show_btn {
-    margin: 0;
+#portfolio .competence_show_btn {
+    margin-top: 20px;
 }
 .portfolio_blocks {
     display: none
@@ -609,7 +618,7 @@ textarea.materialize-textarea {
 #contact .btn-floating {
     position: absolute;
     right: 100px;
-    top: -25px;
+    top: -130px;
     z-index: 100;
 } 
 .success p {
@@ -636,7 +645,7 @@ textarea.materialize-textarea {
     font-weight: bold;
 }
 .page-footer.section {
-    padding: 100px 50px 20px 50px;
+    padding: 50px 50px 20px 50px;
 }
 .page-footer.section .row {
     margin: 0
