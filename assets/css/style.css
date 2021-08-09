@@ -120,17 +120,20 @@ img:not(#competences img, .img_profile) {
 .btn, .btn-primary {
     margin: 0 5px 2px 0;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .name, .job {
     font-family: "Qwigley", Helvetica, sans-serif; color: #9b9797;
     margin: 0;
 }
-h5 {
+.box-caption span {
+    display: block
+}
+.job, h5 {
     font-size: 40px;
 }
-h3 {
+.name, h3 {
     font-size: 50px;
 }
-.caption h3, h5 {
+.caption .job, .name {
     padding: 20px 0;
 }
 h6:not(.textShadow) {
@@ -868,10 +871,10 @@ textarea.materialize-textarea {
         width: 50px;
         height: 50px;
     }
-    h5 {
+    .job, h5 {
         font-size: 8vw;
     }
-    h3 {
+    .name, h3 {
         font-size: 9vw;
     }
     .timeline2 ul li {
