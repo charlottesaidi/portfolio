@@ -227,6 +227,7 @@ $(document).ready(function(){
         }
     });
 });
+// end window.load
 
 function printError(elemId, hintMsg) {
     document.getElementById(elemId).innerHTML = hintMsg;
