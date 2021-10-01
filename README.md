@@ -9,4 +9,4 @@
 
 ### Links
 
-- [Live Site](https://www.charlottesaidi.fr/)  
+- [Live Site](https://charlottesaidi.github.io/portfolio/)  
