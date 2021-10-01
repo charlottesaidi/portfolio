@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.charlottesaidi.fr/sitemap.xml
+Sitemap: https://charlottesaidi.github.io/portfolio/sitemap.xml

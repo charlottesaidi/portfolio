@@ -854,6 +854,9 @@ textarea.materialize-textarea {
     }
 }
 @media screen and (max-width: 600px) {
+    body nav {
+        height: 56px !important;
+    }
     .caption {
         padding-top: 66px;
     }
