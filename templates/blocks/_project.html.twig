@@ -16,7 +16,7 @@
                                 <p>
                                 {% set lastOutil = project.outils|last %}
                                 {% for outil in project.outils %}
-                                    {{ outil.title }}{% if lastOutil %}.{% else %} <strong class="separator">~</strong> {% endif %}
+                                    {{ outil.title }} {% if not loop.last %}<strong class="separator">~</strong> {% endif %}
                                  {% endfor %}    
                                 </p>
                             <div class="title">
