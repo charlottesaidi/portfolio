@@ -2,10 +2,11 @@
 
 ### Outils
 - Symfony
+- Symfony EasyAdmin bundle
 - Webpack
 - Javascript/JQuery
 - [MaterializeCss](https://materializecss.com/)
 
-### Links
+### Liens
 
-- [Live Site](https://charlottesaidi.fr)  
+- [Site live](https://charlottesaidi.fr)  

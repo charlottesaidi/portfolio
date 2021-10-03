@@ -1,0 +1,10 @@
+{% if presentation %}
+    <div class="col s12 l7 text grey-text text-darken-1">
+        {{ presentation.textBlock|raw }}   
+    </div>
+    <div class="col s5 hide-on-med-and-down">
+        <div class="profile right">
+            <img src="{{('uploads/presentation/' ~ presentation.image)}}" alt="Photo de présentation" class="img_profile" width="200" height="200">
+        </div>
+    </div>
+{% endif %}

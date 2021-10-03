@@ -1,0 +1,22 @@
+{% extends 'error-base.html.twig' %}
+{% block title %}Page introuvable{% endblock %}
+
+{% block body %}
+
+<div class="main">
+    <div class="error_template center-align">
+
+        <div id="error">
+            <div class="error card-panel">
+                <div class="error-message">
+                {% set referer = app.request.server.get('http-referer')|default('/') %}
+                    <h1 class="purple-text">404</h1>
+                    <h2>Ce site ne contient qu'une page, comment avez vous fait pour vous retrouver ici ?! <span class="emojis">&#128514;</span></h2>
+                </div>
+                <a class="error-link btn btn-small btn-primary" href="{{referer}}">Retour</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

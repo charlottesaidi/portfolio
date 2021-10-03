@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Charlotte Saidi | Développeuse Web Junior | Porfolio</title>
+        <meta name="description" content="Portfolio, Développeuse Web Junior. En recherche de nouveaux talents ? Je suis incluse dans les plus récents packages.">
+        <meta property="og:image" content="{{asset('images/favicon//mstile-150x150.webp')}}"/>
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="76x76" href="{{asset('images/favicon/apple-touch-icon.png')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon//favicon-32x32.png')}}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon//favicon-16x16.png')}}">
+        <link rel="manifest" href="{{asset('images/favicon//site.webmanifest')}}">
+        <link rel="mask-icon" href="{{asset('images/favicon//safari-pinned-tab.svg')}}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+    </head>
+    <body id="body">
+
+        {% include "blocks/_header.html.twig" %}
+
+        <div id="pageTop" class="main scrollspy">
+            {% block body %}{% endblock %}
+            {% include "blocks/_contact.html.twig" %}
+        </div>
+
+        {% include "blocks/_footer.html.twig" %}
+        
+    </body>
+    
+</html>
