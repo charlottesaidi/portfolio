@@ -3,6 +3,7 @@ import '../javaScript/materialize/bin/materialize.min.js';
 $(document).ready(function(){
     // PLUGINS INIT
     $('.sidenav').sidenav();
+    $('.modal').modal();
 
     // CHANGE THEME
 
@@ -143,6 +144,12 @@ $(document).ready(function(){
             timeline.addEventListener("scroll",callbackFunc );
         }
     })();
+
+    // Allow submit message if agree to rgpd
+    $('#agree').on('click', function(){
+        $('#submitted').toggleClass('disabled')
+        console.log('michel')
+    }) 
     
     $(window).resize(function() {
         if($(window).width() <= 320) {

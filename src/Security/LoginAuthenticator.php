@@ -15,9 +15,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mime\Address;
-use Symfony\Component\Mailer\MailerInterface;
+use App\Service\EmailSender;
 
 class LoginAuthenticator extends AbstractLoginFormAuthenticator
 {
@@ -28,7 +26,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
     private UrlGeneratorInterface $urlGenerator;
     public $mailer;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator, MailerInterface $mailer)
+    public function __construct(UrlGeneratorInterface $urlGenerator, EmailSender $mailer)
     {
         $this->urlGenerator = $urlGenerator;
         $this->mailer = $mailer;
@@ -40,14 +38,12 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
-        $sendEmail = (new TemplatedEmail())
-            ->from(new Address('authentication-success@admin-portfolio.fr', 'Connexion sur le compte Admin'))
-            ->to('charlotte.saidi@outlook.fr')
-            ->subject('Connexion à l\'interface Admin')
-            ->htmlTemplate('security/authentication-success.html.twig')
-        ;
-
-        $this->mailer->send($sendEmail);
+        $this->mailer->sendAdminEmail(
+            'authentication-success@admin-portfolio.fr', 'Connexion sur le compte Admin',
+            'charlotte.saidi@outlook.fr',
+            'Connexion à l\'interface Admin',
+            'security/authentication-success.html.twig'
+        );
 
         return new Passport(
             new UserBadge($email),

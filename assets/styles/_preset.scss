@@ -12,14 +12,16 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-	&::-webkit-scrollbar {
+    * {transition: all .3s}
+    .waves-effect {transition: .3s ease-out;}
+	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
 		width: 15px;
 		background-color: #fff;
 	}
-	&::-webkit-scrollbar-track {
+	&::-webkit-scrollbar-track, .modal::-webkit-scrollbar-track {
 		background-color: #fff;
 	}
-	&::-webkit-scrollbar-thumb {
+	&::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
 		background-color: $main-theme;
 	}
     .right-align {
@@ -56,7 +58,7 @@ body {
                     background-color: transparent !important;
                 }
             }
-            .head-link {
+            .head-link, .rgpd-head-link {
                 display: block;
                 position: relative;
                 &::after {
@@ -172,11 +174,11 @@ body {
     .grey-text.text-lighten-1 {
         color: #9e9e9e !important;
     }
-    .head-link {
+    .head-link, .rgpd-head-link {
         display: block;
         position: relative;
     }
-    .head-link.active {
+    .head-link.active, .rgpd-head-link.active {
         &::after {
             content: '';
             position: absolute;
@@ -234,15 +236,15 @@ body {
     }
 }
 body.teal-theme {
-    &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
 		background-color: $teal-dark;
 	}
-    nav ul .head-link {
+    nav ul .head-link, .rgpd-head-link {
         &::after {
             background-color: $teal-dark;
         }
     }
-    .head-link.active {
+    .head-link.active, .rgpd-head-link.active {
         &::after {
         background-color: $teal-dark;
         }
@@ -250,8 +252,8 @@ body.teal-theme {
     a:not(a.white-text, a.grey-text) {
         color: #26a69a;
     }
-    .btn-primary {
-        background-color: #259c90 !important;
+    .btn-primary, .btn:not(.disabled) {
+        background-color: #1d857a !important;
         color: #fff !important;
     }
 }

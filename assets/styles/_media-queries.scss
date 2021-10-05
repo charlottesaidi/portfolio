@@ -141,6 +141,12 @@
         padding: 24px 0;
     }
     body .section h6 {font-size: 50px}
+    body #contact .modal h4 {
+        padding: 24px;
+    }
+    body #contact .modal .modal-content {
+        padding: 0;
+    }
 }
 @media only screen and (max-width: 780px) {
     body header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
@@ -155,5 +161,15 @@
 @media only screen and (max-width: 740px) {
     body #portfolio .row .col.m6 {
         width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    body #contact .modal span.prefix {
+        display: none;
+    }
+    .input-field .prefix ~ input, .input-field .prefix ~ textarea {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+        width: 98% !important;
     }
 }

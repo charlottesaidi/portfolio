@@ -1,0 +1,68 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block main %}
+<style>
+    .hidden {display:none}
+</style>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>{{ contact.object }}</th>
+            </tr>
+            <tr>
+                <td>
+                    <span>{{ contact.createdAt ? contact.createdAt|date('d/m/Y H:i') : '' }}</span> <br>
+                    De : {{ contact.email }} ({{ contact.firstName }} {{ contact.lastName }})
+                </td>
+            </tr>
+            <tr>
+                <td>{{ contact.message }}</td>
+            </tr>
+        </tbody>
+        <span class="row">
+            <div class="col">
+                <a href="{{ path('admin') }}">Retour</a>
+            </div>
+            <div class="col">
+                <button class="btn" id="answer">Répondre</button>
+            </div>
+        </span>
+    </table>
+
+    <div id="anwser_form" class="hidden">
+        {{ include('blocks/answer/_form.html.twig') }}
+    </div>
+
+    <div class="mt-5">
+        <h2 class="title">Réponses associées</h2>
+        {% for answer in contact.adminAnswer %}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Re : {{ contact.object }}</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>{{ answer.createdAt ? answer.createdAt|date('d/m/Y H:i') : '' }}</span> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{ answer.message }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+
+    <script>
+        var btn = document.getElementById('answer');
+        var form = document.getElementById('anwser_form');
+        btn.addEventListener('click', function() {
+            form.classList.toggle('hidden');
+        })
+    </script>
+
+{% endblock %}

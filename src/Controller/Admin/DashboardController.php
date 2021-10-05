@@ -18,15 +18,17 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+/**
+ * @Route("/admin")
+ * @IsGranted("ROLE_ADMIN")
+ */
 class DashboardController extends AbstractDashboardController
 {
-    /**
-     * @Route("/admin", name="admin")
-     * @IsGranted("ROLE_ADMIN")
-     */
+    #[Route('/', name: 'admin')]
     public function index(): Response
     {
         return $this->render('admin/dashboard.html.twig');
@@ -43,6 +45,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Retour au site', 'fas fa-home', 'home');
         yield MenuItem::section('Général');
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-project-diagram');
+        yield MenuItem::linktoRoute('Messagerie', 'fas fa-envelope-open-text', 'messagerie');
         yield MenuItem::section('Contenus');
         yield MenuItem::linkToCrud('Présentation', 'far fa-address-card', Presentation::class);
         yield MenuItem::subMenu('Projets', 'fas fa-laptop-code')->setSubItems([

@@ -1,5 +1,6 @@
 @import "_fonts.scss";
 @import "_preset.scss";
+@import '_rgpd.scss';
 
 /* MAIN */
 body {
@@ -204,6 +205,22 @@ body {
             right: 100px;
             top: -50px;
             z-index: 100;
+        }
+        .modal {
+            max-height: 85%;
+            padding: 0 0 20px 0;
+            textarea {
+                height: 100px !important;
+            }
+            .prefix {
+                color: #9e9e9e;
+                &.active {
+                    color: $main-theme;
+                    svg path {
+                        fill: $main-theme;
+                    }
+                }
+            }
         }
     }
     .portfolio_blocks {
@@ -592,6 +609,40 @@ body.teal-theme {
     }
     .progress-inner-bar {
         background: $teal-dark;
+    }
+    #contact {
+        .modal {
+            .prefix {
+                &.active {
+                    color: $teal-dark;
+                    svg path{
+                        fill: $teal-dark;
+                    }
+                }
+            }
+            input:not([type]),
+            input[type=text]:not(.browser-default),
+            input[type=password]:not(.browser-default),
+            input[type=email]:not(.browser-default),
+            input[type=url]:not(.browser-default),
+            input[type=time]:not(.browser-default),
+            input[type=date]:not(.browser-default),
+            input[type=datetime]:not(.browser-default),
+            input[type=datetime-local]:not(.browser-default),
+            input[type=tel]:not(.browser-default),
+            input[type=number]:not(.browser-default),
+            input[type=search]:not(.browser-default),
+            textarea.materialize-textarea {
+                &:focus:not([readonly]) {
+                    border-bottom: 1px solid $teal-dark !important;
+                    box-shadow: 0 1px 0 0 $teal-dark !important;
+                }
+            }
+            [type=checkbox]:checked + span:not(.lever):before {
+                border-right: 2px solid $teal-dark !important;
+                border-bottom: 2px solid $teal-dark !important;
+            }
+        }
     }
     .social {
         a {
