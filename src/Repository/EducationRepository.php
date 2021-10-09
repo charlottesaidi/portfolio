@@ -26,7 +26,7 @@ class EducationRepository extends ServiceEntityRepository
             ->join('e.status', 's')
             ->andWhere('s.title = :val')
             ->setParameter('val', 'published')
-            ->orderBy('e.created_at', 'ASC')
+            ->orderBy('e.created_at', 'DESC')
             ->getQuery()
             ->getResult()
         ;

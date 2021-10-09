@@ -24,7 +24,7 @@ class SkillsRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('s')
             ->select('s, c')
             ->join('s.categorie', 'c')
-            ->orderBy('s.id', 'DESC')
+            ->orderBy('s.id', 'ASC')
             ->getQuery()
             ->getResult()
         ;

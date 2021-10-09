@@ -10,6 +10,8 @@ use App\Entity\Outils;
 use App\Entity\Status;
 use App\Entity\Skills;
 use App\Entity\Categories;
+use App\Entity\Page;
+use App\Entity\Block;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -46,7 +48,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Général');
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-project-diagram');
         yield MenuItem::linktoRoute('Messagerie', 'fas fa-envelope-open-text', 'messagerie');
-        yield MenuItem::section('Contenus');
+        yield MenuItem::subMenu('Site', 'fas fa-sitemap')->setSubItems([
+            MenuItem::linkToCrud('Pages', 'far fa-file', Page::class),
+            MenuItem::linkToCrud('Contenus', 'far fa-file-alt', Block::class),
+        ]);
+        yield MenuItem::section('Accueil');
         yield MenuItem::linkToCrud('Présentation', 'far fa-address-card', Presentation::class);
         yield MenuItem::subMenu('Projets', 'fas fa-laptop-code')->setSubItems([
             MenuItem::linkToCrud('Réalisations', 'fas fa-pencil-ruler', Project::class),

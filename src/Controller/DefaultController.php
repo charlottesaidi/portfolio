@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\PresentationRepository;
+use App\Repository\PageRepository;
+use App\Repository\BlockRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillsRepository;
@@ -16,12 +18,16 @@ use App\Repository\SkillsRepository;
 class DefaultController extends AbstractController
 {
     public $presentationRepo;
+    public $pageRepository;
+    public $blockRepository;
     public $educationRepo;
     public $projectRepo;
     public $skillsRepo;
 
-    public function __construct(PresentationRepository $presentationRepo, EducationRepository $educationRepo, ProjectRepository $projectRepo, SkillsRepository $skillsRepo) {
+    public function __construct(BlockRepository $blockRepository, PageRepository $pageRepository, PresentationRepository $presentationRepo, EducationRepository $educationRepo, ProjectRepository $projectRepo, SkillsRepository $skillsRepo) {
         $this->presentationRepo = $presentationRepo;
+        $this->pageRepository = $pageRepository;
+        $this->blockRepository = $blockRepository;
         $this->educationRepo = $educationRepo;
         $this->projectRepo = $projectRepo;
         $this->skillsRepo = $skillsRepo;
@@ -53,8 +59,12 @@ class DefaultController extends AbstractController
     }
 
     #[Route('/politique-de-confidentialite', name: 'rgpd')]
-    public function rgpd(): Response
+    public function rgpdPage(): Response
     {
-        return $this->render('pages/rgpd.html.twig');
+        $rgpd = $this->pageRepository->findOneBy(['slug' => 'politique-de-confidentialite']);
+        // dd($rgpd->getBlocks());
+        return $this->render('pages/rgpd.html.twig', [
+            'page' => $rgpd
+        ]);
     }
 }
