@@ -62,7 +62,6 @@ class DefaultController extends AbstractController
     public function rgpdPage(): Response
     {
         $rgpd = $this->pageRepository->findOneBy(['slug' => 'politique-de-confidentialite']);
-        // dd($rgpd->getBlocks());
         return $this->render('pages/rgpd.html.twig', [
             'page' => $rgpd
         ]);

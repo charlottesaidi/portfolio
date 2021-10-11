@@ -23,6 +23,9 @@ body {
 	&::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
 		background-color: $main-theme;
 	}
+    .container {
+        margin: 0 auto;
+    }
     .right-align {
         .sidenav-close {
             padding-top: 20px;
