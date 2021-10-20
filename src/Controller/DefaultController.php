@@ -58,12 +58,12 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/politique-de-confidentialite', name: 'rgpd')]
-    public function rgpdPage(): Response
+    #[Route('/{slug}', name: 'page')]
+    public function showPage($slug): Response
     {
-        $rgpd = $this->pageRepository->findOneBy(['slug' => 'politique-de-confidentialite']);
-        return $this->render('pages/rgpd.html.twig', [
-            'page' => $rgpd
+        $page = $this->pageRepository->findOneBy(['slug' => $slug]);
+        return $this->render('pages/page.html.twig', [
+            'page' => $page
         ]);
     }
 }

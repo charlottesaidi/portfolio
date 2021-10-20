@@ -4,7 +4,7 @@
             <ul class="demo-3">
                 <li>
                     <figure>
-                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet Clock App" height="400"/>
+                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" height="400"/>
                         <figcaption>
                             <h2 class="purple-text">{{project.title}}</h2>
                             {{project.description|raw}}

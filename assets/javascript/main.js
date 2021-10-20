@@ -148,7 +148,6 @@ $(document).ready(function(){
     // Allow submit message if agree to rgpd
     $('#agree').on('click', function(){
         $('#submitted').toggleClass('disabled')
-        console.log('michel')
     }) 
     
     $(window).resize(function() {
@@ -158,5 +157,25 @@ $(document).ready(function(){
             $('i').addClass('prefix');
         }
     });
+
+    // ajax form submit
+    $('#contact_form').on('submit', function(e) {
+        e.preventDefault();
+        $('#preloader').removeClass('hidden');
+        $('#contact_form_section').addClass('hidden');
+        var formData = new FormData(document.getElementById('contact_form'));
+        $.ajax({
+            type: "POST",
+            url: "/",
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function() {
+                $('#preloader').addClass('hidden');
+                $('#modal_content').html('<p class="align-center grey-text text-darken-2">Merci, votre message m\'est bien parvenu. Je vous répondrai très bientôt !</p>')
+            }
+        })
+    })
 });
 // end window.load

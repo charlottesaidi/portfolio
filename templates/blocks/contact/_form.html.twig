@@ -1,4 +1,8 @@
-{{ form_start(form) }}
+{{ form_start(form, {
+    'attr': {
+        'id': 'contact_form',
+    }
+}) }}
     <div class="row">
         <div class="input-field col s12 l6">
             <span class="prefix">
@@ -51,7 +55,7 @@
     <p class="col s12">
         <label>
             <input id="agree" name="agree" type="checkbox" />
-            <span>En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter. Pour connaître et exercer mes droits, je peux consulter la <a href="{{path('rgpd')}}">Politique de confidentialité</a>.</span>
+            <span>En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter. Pour connaître et exercer mes droits, je peux consulter la <a href="/politique-de-confidentialite">Politique de confidentialité</a>.</span>
         </label>
     </p>
 

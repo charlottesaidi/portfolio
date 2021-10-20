@@ -1,0 +1,24 @@
+{% extends 'layouts/rgpd-base.html.twig' %}
+
+{% block title %}Politique de confidentialité, Données personnelles, Portfolio{% endblock %}
+
+{% block body %}
+
+{% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+                       
+    <div class="policy_main">
+
+        <div class="container" id="caption-border">
+            <div class="card-panel">
+
+                {% include "blocks/pages/_page.html.twig" %}
+                
+                {% if currentPath == '/politique-de-confidentialite' %}
+                    <p class="right-align">© 2002-2021, DocumentsLégaux™ (Sequiter Inc.)</p>
+                {% endif %}
+                
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

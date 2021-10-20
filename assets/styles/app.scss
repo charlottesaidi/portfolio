@@ -10,6 +10,10 @@ body {
         left: 0;
         z-index: 999;
     }
+    #preloader {
+        justify-content: center;
+        padding: 20px 0 50px 0; 
+    }
     img {
         &:not(#competences, .img_profile) {
             img {
