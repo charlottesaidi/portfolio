@@ -30,7 +30,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/', name: 'admin')]
     public function index(): Response
     {
         return $this->render('admin/dashboard.html.twig');

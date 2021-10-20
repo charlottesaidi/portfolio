@@ -33,7 +33,6 @@ class DefaultController extends AbstractController
         $this->skillsRepo = $skillsRepo;
     }
 
-    #[Route('/', name: 'home')]
     public function index(Request $request): Response
     {
         $contact = new Contact();
@@ -58,7 +57,6 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}', name: 'page')]
     public function showPage($slug): Response
     {
         $page = $this->pageRepository->findOneBy(['slug' => $slug]);

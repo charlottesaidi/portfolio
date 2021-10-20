@@ -3,3 +3,31 @@ home:
     defaults: { _controller: App\Controller\DefaultController::index }
     options:
         sitemap: true
+
+app_login:
+    path: /login
+    defaults: { _controller: App\Controller\SecurityController::login }
+
+app_logout:
+    path: /logout
+    defaults: { _controller: App\Controller\SecurityController::logout }
+
+app_forgot_password_request:
+    path: /reset-password
+    defaults: { _controller: App\Controller\ResetPasswordController::request }
+
+app_check_email:
+    path: /reset-password/check-email
+    defaults: { _controller: App\Controller\ResetPasswordController::checkEmail }
+
+app_reset_password:
+    path: /reset-password/reset/{token}
+    defaults: { _controller: App\Controller\ResetPasswordController::reset }
+    
+admin:
+    path: /admin
+    defaults: { _controller: App\Controller\Admin\DashboardController::index }
+    
+page:
+    path: /{slug}
+    defaults: { _controller: App\Controller\DefaultController::showPage }
