@@ -12,6 +12,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    .flash_success {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        padding: 0 15px;
+        #close_flash_message {
+            background: #90caf9 !important;
+            color: #000000 !important;
+            padding: 0 10px !important;
+            margin-left: 10px;
+        }
+    }
     .waves-effect {transition: .3s ease-out;}
 	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
 		width: 15px;

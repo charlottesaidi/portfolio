@@ -44,6 +44,7 @@ class DefaultController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Merci, votre message m\'est bien parvenu. Je vous répondrai très bientôt !');
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
         

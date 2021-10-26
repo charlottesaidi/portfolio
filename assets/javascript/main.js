@@ -158,24 +158,15 @@ $(document).ready(function(){
         }
     });
 
-    // ajax form submit
+    // form submit preloader
     $('#contact_form').on('submit', function(e) {
-        e.preventDefault();
         $('#preloader').removeClass('hidden');
         $('#contact_form_section').addClass('hidden');
-        var formData = new FormData(document.getElementById('contact_form'));
-        $.ajax({
-            type: "POST",
-            url: "/",
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: formData,
-            success: function() {
-                $('#preloader').addClass('hidden');
-                $('#modal_content').html('<p class="align-center grey-text text-darken-2">Merci, votre message m\'est bien parvenu. Je vous répondrai très bientôt !</p>')
-            }
-        })
+    })
+
+    // toggle flash message visibility
+    $('#close_flash_message').on('click', function() {
+        $('#flash_messages').addClass('hidden');
     })
 });
 // end window.load
