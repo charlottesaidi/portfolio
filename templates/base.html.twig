@@ -20,18 +20,28 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
     </head>
-    <body id="body">
+
+    <body id="body" theme="light">
+
+        {% set route_name = app.request.get('_route') %}
+
         {% include "blocks/components/_flashMessages.html.twig" %}
-        {% include "blocks/_header.html.twig" %}
+
+        {% if route_name == 'home' %}
+            {% include "blocks/_header.html.twig" %}
+        {% elseif route_name == 'page' %}
+            {% include "blocks/_page_header.html.twig" %}
+        {% endif %}
 
         <div id="pageTop" class="main scrollspy">
             {% block body %}{% endblock %}
-            {% include "blocks/_contact.html.twig" %}
         </div>
-
-        {% include "blocks/_footer.html.twig" %}
+        
+        {% if route_name == 'home' or route_name == 'page' %}
+            {% include "blocks/_footer.html.twig" %}
+        {% endif %}
+        
         
     </body>
     

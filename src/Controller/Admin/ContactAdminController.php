@@ -29,8 +29,8 @@ class ContactAdminController extends DashboardController
         $this->answerRepository = $answerRepository;
         $this->mailer = $mailer;
     }
-    
-    #[Route('/messagerie', name: 'messagerie')]
+
+    #[Route('admin/messagerie', name: 'messagerie')]
     public function index(): Response
     {
         return $this->render('admin/messagerie.html.twig', [
@@ -66,8 +66,6 @@ class ContactAdminController extends DashboardController
                 ['messageContent' => $answer->getMessage()],
                 'blocks/answer/reply-email.html.twig'
             );
-
-            return $this->redirectToRoute('admin', [], Response::HTTP_SEE_OTHER);
         }
         
         return $this->render('admin/show.html.twig', [

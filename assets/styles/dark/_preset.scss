@@ -1,0 +1,81 @@
+$main-theme: #0e1928;
+$secondary-theme: #6A1145;
+$font-color: #9e9e9e;
+$main-lightScroll: #6d4c60;
+
+body[theme=dark] {
+    color: $font-color !important;
+    background-color: $main-theme;
+    background-image: url('../../../public/images/background/darkDesktop-min.png');
+    background-size: cover;
+	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
+		background-color: $main-theme;
+	}
+	&::-webkit-scrollbar-track, .modal::-webkit-scrollbar-track {
+		background-color: $main-theme;
+	}
+	&::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
+		background-color: $secondary-theme;
+	}
+    .white {
+        background-color: $main-theme !important;
+    }
+    .white-text, .black-text {
+        color: $font-color !important;
+    }
+    .grey-text.text-darken-3 {
+        color: #757575 !important;
+    }
+    .grey.lighten-3 {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+    .purple.lighten-5 {
+        background-color: $main-theme !important;
+    }
+    .flash_success {
+        #close_flash_message {
+            background: #90caf9!important;
+            color: #000!important;
+        }
+    }
+    nav {
+        a.sidenav-trigger {
+            svg {
+                -webkit-box-shadow: 0px 0px 4px 0px #C4C4C4;
+                box-shadow: 0px 0px 4px 0px #C4C4C4;
+            }
+        }
+        ul {
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+    .card-panel {
+        background: rgba(14, 25, 40, .9);
+    }
+    .card-panel.inside {
+        background: transparent;
+    }
+    h1, h2, h3, h4, h5, h6, .name, .job {
+        color: #9b9797;
+    }
+    .sidenav {
+        background-color: $main-theme;
+        li.row {
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+    .grey-text.text-lighten-1 {
+        color: $font-color !important;
+    }
+    .page-footer {
+        color: $font-color;
+    }
+}

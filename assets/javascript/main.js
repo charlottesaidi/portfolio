@@ -1,23 +1,61 @@
 import '../javaScript/materialize/bin/materialize.min.js';
 
-$(document).ready(function(){
+$(function(){
     // PLUGINS INIT
     $('.sidenav').sidenav();
     $('.modal').modal();
 
     // CHANGE THEME
+    var svgWaveUp = document.getElementsByClassName('wave_up');
+    var svgWaveDown = document.getElementsByClassName('wave_down');
 
-    $('#logo').on('click', function() {
-        $('#body').toggleClass('teal-theme')
-        $('.purple').toggleClass('teal')
-        $('.purple-text').toggleClass('teal-text')
-        $('.logo-img').attr('src', (_, attr) => attr == '/images/logo_purple.webp' ? '/images/teal-theme/logo.webp' : '/images/logo_purple.webp')
-        $('.wave_up').attr('src', (_, attr) => attr == '/images/wave_up.svg' ? '/images/teal-theme/wave_up.svg' : '/images/wave_up.svg')
-        $('.wave_down').attr('src', (_, attr) => attr == '/images/wave_down.svg' ? '/images/teal-theme/wave_down.svg' : '/images/wave_down.svg')
-    })
+    const toggleSwitch = document.getElementById("togButton");
+    const currentTheme = localStorage.getItem("theme");
+    const waveUp = localStorage.getItem("wave_up");
+    const waveDown = localStorage.getItem("wave_down");
+    
+    if (currentTheme) {
+        document.body.setAttribute("theme", currentTheme);
+        if (currentTheme === "dark") {
+            toggleSwitch.checked = true;
+        }
+        svgWaveUp.forEach(e => {
+            e.setAttribute("src", waveUp);
+        });
+        svgWaveDown.forEach(e => {
+            e.setAttribute("src", waveDown);
+        });
+    }
+    
+    function switchTheme(event) {
+        if (event.target.checked) {
+            document.body.setAttribute("theme", "dark");
+            localStorage.setItem("theme", "dark");
+            svgWaveUp.forEach(e => {
+                e.setAttribute("src", "/images/teal-theme/wave_up.svg");
+                localStorage.setItem("wave_up", "/images/teal-theme/wave_up.svg");
+            });
+            svgWaveDown.forEach(e => {
+                e.setAttribute("src", "/images/teal-theme/wave_down.svg");
+                localStorage.setItem("wave_down", "/images/teal-theme/wave_down.svg");
+            });
+        } else {
+            document.body.setAttribute("theme", "light");
+            localStorage.setItem("theme", "light");
+            svgWaveUp.forEach(e => {
+                e.setAttribute("src", "/images/wave_up.svg");
+                localStorage.setItem("wave_up", "/images/wave_up.svg");
+            });
+            svgWaveDown.forEach(e => {
+                e.setAttribute("src", "/images/wave_down.svg");
+                localStorage.setItem("wave_down", "/images/wave_down.svg");
+            });
+        }
+    }
+
+    toggleSwitch.addEventListener("change", switchTheme, false);
 
     // PORTFOLIO APPEARING BLOCKS
-    
     var blocks = $('.portfolio_blocks');
     var hiddenBlocks = blocks.slice(3);
     var showBlocks = blocks.slice(0, 3);
@@ -158,15 +196,9 @@ $(document).ready(function(){
         }
     });
 
-    // form submit preloader
-    $('#contact_form').on('submit', function(e) {
-        $('#preloader').removeClass('hidden');
-        $('#contact_form_section').addClass('hidden');
-    })
-
-    // toggle flash message visibility
+    // Success flash message
     $('#close_flash_message').on('click', function() {
         $('#flash_messages').addClass('hidden');
-    })
+    });
 });
 // end window.load

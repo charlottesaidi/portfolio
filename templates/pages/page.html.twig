@@ -1,11 +1,9 @@
-{% extends 'layouts/rgpd-base.html.twig' %}
-
-{% block title %}Politique de confidentialité, Données personnelles, Portfolio{% endblock %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
 {% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
-                       
+
     <div class="policy_main">
 
         <div class="container" id="caption-border">

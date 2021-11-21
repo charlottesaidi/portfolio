@@ -4,7 +4,6 @@
             <div class="logo" id="logo">
                 <div class="logo_img_block">
                     {% include "blocks/components/_logo.html.twig" %}
-                    <p class="change_theme card-panel grey-text text-darken-1">Theme switch</p>
                 </div>
             </div>
             <div class="nav-wrapper col s12 m12">
@@ -14,6 +13,11 @@
                     <li><a class="head-link grey-text text-lighten-1" href="#portfolio">Portfolio</a></li>
                     <li><a class="head-link grey-text text-lighten-1" href="#formations">Formations</a></li>
                     <li><a class="head-link grey-text text-lighten-1" href="#contact">Me contacter</a></li>
+                    <li>
+                        {% include "blocks/components/_day-night-switch.html.twig" with {
+                            id: 'togButton'
+                        } %}
+                    </li>
                 </ul>
                 <a href="#" data-target="slide-out" class="right sidenav-trigger">
                     <svg height="30" viewBox="0 0 100 100">
@@ -28,7 +32,11 @@
     <!-- Mobile Menu -->
     <ul id="slide-out" class="sidenav nav right">
         <li class="right-align">
-            <a class="sidenav-close grey-text" href="#">X</a></li>
+            {% include "blocks/components/_day-night-switch.html.twig" with {
+                id: 'togMobileButton'
+            } %}
+            <a class="sidenav-close grey-text" href="#">X</a>
+        </li>
         <li><a class="sidenav-close sidenav-head-link grey-text" href="#aPropos">A propos</a></li>
         <li><a class="sidenav-close sidenav-head-link grey-text" href="#competences">Compétences</a></li>
         <li><a class="sidenav-close sidenav-head-link grey-text" href="#portfolio">Portfolio</a></li>

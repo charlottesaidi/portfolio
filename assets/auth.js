@@ -6,7 +6,9 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/auth.scss';
+import './styles/light/auth.scss';
+import './styles/dark/auth.scss';
 
-// import './javaScript/materialize/bin/materialize.min.js';
+// start the Stimulus application
+import './bootstrap';
 

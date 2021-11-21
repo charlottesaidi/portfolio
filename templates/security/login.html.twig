@@ -1,10 +1,16 @@
-{% extends "layouts/auth-base.html.twig" %}
+{% extends "base.html.twig" %}
+    
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('auth') }}
+{% endblock %}
+
 {% block title %}Admin Login{% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div>
-                <form class="login card-panel hoverable" method="post">
+    <div class="container_login">
+        <div class="row card-panel">
+            <div class="inner_row">
+                <form class="login hoverable" method="post">
                     {% if error %}
                         <div class="alert red-text">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}

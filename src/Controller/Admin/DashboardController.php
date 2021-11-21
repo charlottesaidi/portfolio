@@ -23,6 +23,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\ContactRepository;
+use App\Repository\AnswerRepository;
 
 /**
  * @Route("/admin")
@@ -30,9 +32,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class DashboardController extends AbstractDashboardController
 {
+    private $contactRepository;
+    private $answerRepository;
+
+    public function __construct(ContactRepository $contactRepository, AnswerRepository $answerRepository) {
+        $this->contactRepository = $contactRepository;
+        $this->answerRepository = $answerRepository;
+    }
+    
     public function index(): Response
     {
-        return $this->render('admin/dashboard.html.twig');
+        return $this->render('admin/messagerie.html.twig', [
+            'contacts' => $this->contactRepository->findAll(),
+            'answers' => $this->answerRepository->findAllAnswers(),
+        ]);
     }
 
     public function configureDashboard(): Dashboard
@@ -46,7 +59,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Retour au site', 'fas fa-home', 'home');
         yield MenuItem::section('Général');
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-project-diagram');
-        yield MenuItem::linktoRoute('Messagerie', 'fas fa-envelope-open-text', 'messagerie');
         yield MenuItem::subMenu('Site', 'fas fa-sitemap')->setSubItems([
             MenuItem::linkToCrud('Pages', 'far fa-file', Page::class),
             MenuItem::linkToCrud('Contenus', 'far fa-file-alt', Block::class),
