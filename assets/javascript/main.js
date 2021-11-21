@@ -10,6 +10,7 @@ $(function(){
     var svgWaveDown = document.getElementsByClassName('wave_down');
 
     const toggleSwitch = document.getElementById("togButton");
+    const toggleMobileSwitch = document.getElementById("togMobileButton");
     const currentTheme = localStorage.getItem("theme");
     const waveUp = localStorage.getItem("wave_up");
     const waveDown = localStorage.getItem("wave_down");
@@ -18,6 +19,7 @@ $(function(){
         document.body.setAttribute("theme", currentTheme);
         if (currentTheme === "dark") {
             toggleSwitch.checked = true;
+            toggleMobileSwitch.checked = true;
         }
         svgWaveUp.forEach(e => {
             e.setAttribute("src", waveUp);
@@ -54,6 +56,7 @@ $(function(){
     }
 
     toggleSwitch.addEventListener("change", switchTheme, false);
+    toggleMobileSwitch.addEventListener("change", switchTheme, false);
 
     // PORTFOLIO APPEARING BLOCKS
     var blocks = $('.portfolio_blocks');
