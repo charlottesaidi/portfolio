@@ -181,7 +181,6 @@ body[theme=light], body {
         }
         .text {
             text-align: center;
-            color: #fff;
             padding: 10px 0;
         }
         .row {
@@ -195,10 +194,10 @@ body[theme=light], body {
         box-sizing: content-box;
         border: none;
         font: normal 90px/1 "Qwigley", Helvetica, sans-serif;
-        color: $main-theme;
         text-align: center;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
+        color: $main-theme;
     }
     .progress-bar {
         border-radius: 20px;

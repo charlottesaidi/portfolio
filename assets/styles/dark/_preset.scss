@@ -1,7 +1,9 @@
-$main-theme: #0e1928;
-$secondary-theme: #6A1145;
-$font-color: #9e9e9e;
-$main-lightScroll: #6d4c60;
+$main-theme: rgba(13, 17, 23, 1);
+$secondary-theme: #96587c;
+$tertiary-theme: rgba(22, 27, 34, 1);
+$font-color: #d4d3d3;
+$secondary-font-color: #D0A9C1;
+$main-lightScroll: #3d2434;
 
 body[theme=dark] {
     color: $font-color !important;
@@ -20,23 +22,35 @@ body[theme=dark] {
     .white {
         background-color: $main-theme !important;
     }
-    .white-text, .black-text {
+    .white-text, .black-text, .grey-text.text-darken-1 {
         color: $font-color !important;
     }
-    .grey-text.text-darken-3 {
-        color: #757575 !important;
+    .grey-text.text-darken-3  {
+        color: #9e9e9e !important;
     }
     .grey.lighten-3 {
         background-color: rgba(255, 255, 255, 0.1) !important;
     }
     .purple.lighten-5 {
         background-color: $main-theme !important;
+    }    
+    .purple {
+        background-color: $secondary-theme !important;
     }
+    .purple-text {
+        color: $secondary-theme !important;
+    }
+    .purple-text.text-lighten-3 {
+        color: $secondary-font-color !important;
+    } 
     .flash_success {
         #close_flash_message {
             background: #90caf9!important;
             color: #000!important;
         }
+    }
+    a:not(a.al, .links a) {
+        color: $secondary-theme !important;
     }
     nav {
         a.sidenav-trigger {
@@ -54,12 +68,12 @@ body[theme=dark] {
         }
     }
     .card-panel {
-        background: rgba(14, 25, 40, .9);
+        background: rgba(13, 17, 23, .9);
     }
     .card-panel.inside {
         background: transparent;
     }
-    h1, h2, h3, h4, h5, h6, .name, .job {
+    h1, h2, h3, h4, h5 {
         color: #9b9797;
     }
     .sidenav {

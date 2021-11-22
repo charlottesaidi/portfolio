@@ -6,6 +6,8 @@
 /.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/uploads/
+/public/download/
 /var/
 /vendor/
 /src/DataFixtures/
