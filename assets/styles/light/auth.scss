@@ -40,8 +40,4 @@ body[theme=light], body {
         }
     }
 }
-@media screen and (max-width: 400px) {
-    body[theme=light], body {
-        .main .row .login.card-panel {width: 95%;}
-    }    
-}
+@import './_media-queries';

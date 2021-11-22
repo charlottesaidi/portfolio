@@ -16,6 +16,13 @@
         }
     }   
 }
+@media screen and (max-width: 860px) {
+    body[theme=light], body {
+        .main {
+            width: 100%;
+        }
+    }
+}
 @media screen and (max-width: 800px) {
     body[theme=light], body {
         .box-caption {
@@ -148,7 +155,7 @@
 }
 @media only screen and (max-width: 450px) {
     body[theme=light], body {
-        .card-panel:not(.icon_title.card-panel, .change_theme.card-panel) {
+        .card-panel:not(.icon_title.card-panel, .change_theme.card-panel, .policy_main .card-panel) {
             padding: 24px 0;
         }
         .section h6 {
