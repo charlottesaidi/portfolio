@@ -65,6 +65,16 @@ body[theme=dark] {
                     background-color: transparent !important;
                 }
             }
+            .head-link, .rgpd-head-link {
+                &::after {
+                    background-color: rgba($secondary-theme, .5);
+                }
+            }
+        }
+    }
+    .head-link.active, .rgpd-head-link.active {
+        &::after {
+            background-color: rgba($secondary-theme, .4);
         }
     }
     .card-panel {

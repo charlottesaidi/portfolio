@@ -15,6 +15,18 @@
         left: -289px;
         }
     }   
+    .sidenav li > a {
+        font-size: 30px;
+        transition: all .5s;
+        &:hover {
+            background-color: $secondary-color !important;
+        }
+    }
+    .sidenav li > a.grey-text.text-lighten-1:not(a.sidenav-close) {
+        &:hover {
+            color: #fff !important;
+        }
+    }
 }
 @media screen and (max-width: 860px) {
     body[theme=light], body {
@@ -39,9 +51,6 @@
         font-size: 14px;
         nav {
             height: 56px !important;
-        }
-        .sidenav li > a {
-            font-size: 30px;
         }
         .caption {
             padding-top: 66px;

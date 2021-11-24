@@ -33,24 +33,24 @@ $(function(){
         if (event.target.checked) {
             document.body.setAttribute("theme", "dark");
             localStorage.setItem("theme", "dark");
+            localStorage.setItem("wave_up", "/images/teal-theme/wave_up.svg");
+            localStorage.setItem("wave_down", "/images/teal-theme/wave_down.svg");
             svgWaveUp.forEach(e => {
                 e.setAttribute("src", "/images/teal-theme/wave_up.svg");
-                localStorage.setItem("wave_up", "/images/teal-theme/wave_up.svg");
             });
             svgWaveDown.forEach(e => {
                 e.setAttribute("src", "/images/teal-theme/wave_down.svg");
-                localStorage.setItem("wave_down", "/images/teal-theme/wave_down.svg");
             });
         } else {
             document.body.setAttribute("theme", "light");
             localStorage.setItem("theme", "light");
+            localStorage.setItem("wave_up", "/images/wave_up.svg");
+            localStorage.setItem("wave_down", "/images/wave_down.svg");
             svgWaveUp.forEach(e => {
                 e.setAttribute("src", "/images/wave_up.svg");
-                localStorage.setItem("wave_up", "/images/wave_up.svg");
             });
             svgWaveDown.forEach(e => {
                 e.setAttribute("src", "/images/wave_down.svg");
-                localStorage.setItem("wave_down", "/images/wave_down.svg");
             });
         }
     }
