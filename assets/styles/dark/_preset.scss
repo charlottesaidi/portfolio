@@ -67,7 +67,7 @@ body[theme=dark] {
             }
             .head-link, .rgpd-head-link {
                 &::after {
-                    background-color: rgba($secondary-theme, .5);
+                    background-color: rgba($secondary-theme, .4);
                 }
             }
         }
@@ -78,10 +78,10 @@ body[theme=dark] {
         }
     }
     .card-panel {
-        background: rgba(13, 17, 23, .9);
+        background: rgba($main-theme, .9);
     }
     .card-panel.inside {
-        background: transparent;
+        background: rgba($tertiary-theme, .8);
     }
     h1, h2, h3, h4, h5 {
         color: #9b9797;

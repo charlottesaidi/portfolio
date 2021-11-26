@@ -107,9 +107,9 @@ $(function(){
     $(window).on('scroll', function() {
         var currentScroll = $(window).scrollTop();
         if (currentScroll > marker) {
-            nav.addClass('white').removeClass('transparent');
+            nav.addClass('blur').removeClass('transparent');
         } else {
-            nav.addClass('transparent').removeClass('white');
+            nav.addClass('transparent').removeClass('blur');
         }
     });
 

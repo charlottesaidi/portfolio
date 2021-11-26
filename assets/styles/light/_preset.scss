@@ -13,7 +13,7 @@ body[theme=light], body {
     background-attachment: fixed;
     background-size: cover;
     .btn.waves-effect {
-        border-radius: 32px;
+        border-radius: 15px 0;
         transition: .3s ease-out;
     }
 	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
@@ -46,6 +46,10 @@ body[theme=light], body {
     }
     .container {
         margin: 0 auto;
+    }
+    .blur {
+        background-color: rgba(255,255,255,.04)!important;
+        backdrop-filter: blur(81px);
     }
     .right-align {
         .sidenav-close {
@@ -94,6 +98,7 @@ body[theme=light], body {
                     width: 80%;
                     margin: 0 auto;
                     height: 10px;
+                    border-radius: 0 10px;
                     background-color: rgba($main-theme, .4);
                     opacity: 0;
                     -webkit-transition: opacity 500ms, -webkit-transform 500ms;
@@ -132,6 +137,7 @@ body[theme=light], body {
             width: 80%;
             margin: 0 auto;
             height: 10px;
+            border-radius: 0 10px;
             background-color: rgba($main-theme, .4);
             opacity: 0;
             -webkit-transition: opacity 500ms, -webkit-transform 500ms;
@@ -159,6 +165,7 @@ body[theme=light], body {
     }
     .card-panel.inside {
         background: transparent;
+        border-radius: 0;
     }
     .nav-icons {
         position: relative;

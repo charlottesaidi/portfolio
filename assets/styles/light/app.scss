@@ -75,6 +75,7 @@ body[theme=light], body {
                 margin: 0;
                 font-size: 25px;
                 font-weight: 500;
+                border-radius: 0 50%;
             }
         }
     }
@@ -118,7 +119,7 @@ body[theme=light], body {
         }
         z-index: 99;
         margin: auto;
-        width: 40%;
+        width: 35%;
     }
     h5, .job {
         font-size: 40px;
@@ -163,6 +164,7 @@ body[theme=light], body {
     }
     .text-caption {
         background: rgba(255, 255, 255, .9);
+        border-radius: 0 100px;
     }
     .nav-wrapper {
         ul {
@@ -176,7 +178,7 @@ body[theme=light], body {
         .profile {
             .img_profile {
                 object-fit: cover;
-                border-radius: 50% 5px 50% 5px;
+                border-radius: 50% 0 50% 0;
             }
         }
         .text {
@@ -216,6 +218,7 @@ body[theme=light], body {
             position: absolute;
             right: 100px;
             top: -50px;
+            border-radius: 0 50%;
         }
         .modal {
             max-height: 85%;
@@ -323,7 +326,7 @@ body[theme=light], body {
         height: 25px;
         line-height: 25px;
         font-size: 10px;
-        border-radius: 32px;
+        border-radius: 15px 0;
     }
     figure.hover {
         img {
@@ -371,7 +374,7 @@ body[theme=light], body {
             transition: all .4s;
             &:hover {
                 background-color: $main-theme;
-                border-radius: 50% 3px 50% 3px;
+                border-radius: 50% 0 50% 0;
             }
         }
         i {
