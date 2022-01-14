@@ -2,6 +2,9 @@
 
 /* MAIN */
 body[theme=dark] {
+    .attribution_title {
+        border-top: rgba(255, 255, 255, .1) 2px solid;
+    }
     .policy_main {
         color: $font-color;
     }
@@ -35,24 +38,29 @@ body[theme=dark] {
     }
     #portfolio {
         .btn-floating.show_blocks.btn-large.btn.white.purple-text {
-            background-color: rgb(22, 27, 34) !important;
+            background-color: #1c181b !important;
         }
     }
     #contact {
-        .modal {
-            background-color: $main-theme !important;
-            .prefix {
-                color: $font-color;
-                &.active {
-                    color: $secondary-theme;
-                    svg path {
-                        fill: $secondary-theme;
-                    }
-                }
-            }
-        }
         .btn-floating {
             background-color: #6A1145 !important;
+        }
+        .svg-inline--fa {
+            path {
+                fill: #ffffff;
+            }
+        }
+    }
+    .modal {
+        background-color: $main-theme !important;
+        .prefix {
+            color: $font-color;
+            &.active {
+                color: $secondary-theme;
+                svg path {
+                    fill: $secondary-theme;
+                }
+            }
         }
     }
     .demo-3 {
@@ -132,4 +140,3 @@ body[theme=dark] {
         }
     }
 }
-@import './_media-queries';

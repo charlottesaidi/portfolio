@@ -1,15 +1,21 @@
-$main-theme: rgba(13, 17, 23, 1);
+$main-theme: #120f11;
 $secondary-theme: #96587c;
-$tertiary-theme: rgba(22, 27, 34, 1);
+$tertiary-theme: #1c181b;
 $font-color: #d4d3d3;
 $secondary-font-color: #D0A9C1;
 $main-lightScroll: #3d2434;
 
 body[theme=dark] {
-    color: $font-color !important;
     background-color: $main-theme;
-    background-image: url('../../../public/images/background/darkDesktop-min.png');
-    background-size: cover;
+    color: $font-color !important;
+    .gradient_background {
+        background-image: linear-gradient(to left, #6a1145, #41306a, #004270, #004b5c, #004d40);
+    }
+    #wave {
+        stop {
+            stop-color: $main-theme;
+        }
+    }
 	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
 		background-color: $main-theme;
 	}
@@ -22,6 +28,9 @@ body[theme=dark] {
     .white {
         background-color: $main-theme !important;
     }
+    .grey-text.text-lighten-1 {
+        color: #d4d3d3!important;
+    }
     .white-text, .black-text, .grey-text.text-darken-1 {
         color: $font-color !important;
     }
@@ -32,7 +41,7 @@ body[theme=dark] {
         background-color: rgba(255, 255, 255, 0.1) !important;
     }
     .purple.lighten-5 {
-        background-color: $main-theme !important;
+        background-color: transparent !important;
     }    
     .purple {
         background-color: $secondary-theme !important;
@@ -78,10 +87,13 @@ body[theme=dark] {
         }
     }
     .card-panel {
-        background: rgba($main-theme, .9);
+        background: transparent;
+    }
+    .text-caption.card-panel {
+        background: $tertiary-theme
     }
     .card-panel.inside {
-        background: rgba($tertiary-theme, .8);
+        background: transparent;
     }
     h1, h2, h3, h4, h5 {
         color: #9b9797;
@@ -96,7 +108,7 @@ body[theme=dark] {
             }
         }
     }
-    .grey-text.text-lighten-1 {
+    .grey-text.text-lighten-2 {
         color: $font-color !important;
     }
     .page-footer {

@@ -14,6 +14,7 @@
         <link rel="mask-icon" href="{{asset('images/favicon//safari-pinned-tab.svg')}}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
+        <meta name="robots" content="noindex,nofollow"> 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -23,6 +24,7 @@
     </head>
 
     <body id="body" theme="light">
+        <div class="gradient_background"></div>
 
         {% set route_name = app.request.get('_route') %}
 
@@ -38,7 +40,10 @@
             {% block body %}{% endblock %}
         </div>
         
-        {% if route_name == 'home' or route_name == 'page' %}
+        {% if route_name == 'home' %}
+            {% include "blocks/contact/_new.html.twig" %}
+            {% include "blocks/_footer.html.twig" %}
+        {% elseif route_name == 'home' or route_name == 'page' %}
             {% include "blocks/_footer.html.twig" %}
         {% endif %}
         

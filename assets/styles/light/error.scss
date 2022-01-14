@@ -4,9 +4,16 @@
 body[theme=light], body {
     .main {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
+        bottom: 0;
+        left: 0;
         width: 100%;
+        .error_template {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+        }
         .error {
             width: 50%;
             margin: 0 auto;
@@ -17,6 +24,7 @@ body[theme=light], body {
             }
             .error-link {
                 font-size: 12px;
+                color: #fff !important;
             }
         }
     }

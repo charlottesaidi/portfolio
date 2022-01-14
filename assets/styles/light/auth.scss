@@ -18,12 +18,12 @@ body[theme=light], body {
         top: 0;
         bottom: 0;
         left: 0;
-        width: 50%;
+        width: 100%;
         .row.card-panel {
             margin: 0;
             display: flex;
             .inner_row {
-                width: 100%;
+                width: 50%;
                 margin: auto;
             }
             .login {

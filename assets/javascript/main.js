@@ -7,13 +7,11 @@ $(function(){
 
     // CHANGE THEME
     var svgWaveUp = document.getElementsByClassName('wave_up');
-    var svgWaveDown = document.getElementsByClassName('wave_down');
 
     const toggleSwitch = document.getElementById("togButton");
     const toggleMobileSwitch = document.getElementById("togMobileButton");
     const currentTheme = localStorage.getItem("theme");
     const waveUp = localStorage.getItem("wave_up");
-    const waveDown = localStorage.getItem("wave_down");
     
     if (currentTheme) {
         document.body.setAttribute("theme", currentTheme);
@@ -24,33 +22,22 @@ $(function(){
         svgWaveUp.forEach(e => {
             e.setAttribute("src", waveUp);
         });
-        svgWaveDown.forEach(e => {
-            e.setAttribute("src", waveDown);
-        });
     }
     
     function switchTheme(event) {
         if (event.target.checked) {
             document.body.setAttribute("theme", "dark");
             localStorage.setItem("theme", "dark");
-            localStorage.setItem("wave_up", "/images/teal-theme/wave_up.svg");
-            localStorage.setItem("wave_down", "/images/teal-theme/wave_down.svg");
+            localStorage.setItem("wave_up", "/images/dark_footer_wave_up.svg");
             svgWaveUp.forEach(e => {
-                e.setAttribute("src", "/images/teal-theme/wave_up.svg");
-            });
-            svgWaveDown.forEach(e => {
-                e.setAttribute("src", "/images/teal-theme/wave_down.svg");
+                e.setAttribute("src", "/images/dark_footer_wave_up.svg");
             });
         } else {
             document.body.setAttribute("theme", "light");
             localStorage.setItem("theme", "light");
-            localStorage.setItem("wave_up", "/images/wave_up.svg");
-            localStorage.setItem("wave_down", "/images/wave_down.svg");
+            localStorage.setItem("wave_up", "/images/footer_wave_up.svg");
             svgWaveUp.forEach(e => {
-                e.setAttribute("src", "/images/wave_up.svg");
-            });
-            svgWaveDown.forEach(e => {
-                e.setAttribute("src", "/images/wave_down.svg");
+                e.setAttribute("src", "/images/footer_wave_up.svg");
             });
         }
     }

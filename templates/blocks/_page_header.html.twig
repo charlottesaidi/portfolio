@@ -4,7 +4,6 @@
             <div class="logo" id="logo">
                 <div class="logo_img_block">
                     {% include "blocks/components/_logo.html.twig" %}
-                    <p class="change_theme card-panel grey-text text-darken-1">Theme switch</p>
                 </div>
             </div>
             <div class="nav-wrapper col s12 m12">
@@ -27,7 +26,7 @@
         </nav>
     </div>
     <!-- Mobile Menu -->
-    <ul id="slide-out" class="sidenav nav right">
+    <ul id="slide-out" class="sidenav nav right blur">
         <li class="right-align">
             {% include "blocks/components/_day-night-switch.html.twig" with {
                 id: 'togMobileButton'

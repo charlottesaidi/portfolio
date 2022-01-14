@@ -1,9 +1,4 @@
 /* MEDIA QUERIES */
-@media screen and (max-width: 1024px) {
-    body[theme=light] {
-        background-image: url('../../../public/images/background/tablet.webp');
-    }
-}
 @media screen and (max-width: 900px) {
     body[theme=light], body { 
         .timeline2 ul li div.card-panel.inside {
@@ -43,10 +38,6 @@
     }
 }
 @media screen and (max-width: 600px) {
-    body[theme=light] {
-        background-image: url('../../../public/images/background/mobile.webp');
-        background-size: cover;
-    }
     body[theme=light], body {
         font-size: 14px;
         nav {
