@@ -98,6 +98,11 @@ body[theme=light], body {
         }
     }   
     nav {
+        &.nav-hidden {
+            &, .logo {
+                transform: translate3d(0,-100%,0)
+            }
+        }
         i.far.fa-smile-wink {
             height: 15px !important;
             line-height: 1 !important;

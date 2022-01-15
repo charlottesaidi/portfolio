@@ -88,16 +88,38 @@ $(function(){
     });
 
     // CHANGE NAV STYLE ON SCROLL
-    var marker = $('#caption-border').offset().top;
     var nav = $('nav');
-
-    $(window).on('scroll', function() {
-        var currentScroll = $(window).scrollTop();
-        if (currentScroll > marker) {
+    var lastScrollPos = 0;
+    var ticking = false;
+    function setHeaderState(scrollPos, direction) {
+        var offsetTop = (window.outerWidth >= 1080) ? 42 : 12;
+        
+        if(scrollPos >= offsetTop) {
             nav.addClass('blur').removeClass('transparent');
-        } else {
+        }
+        else {
             nav.addClass('transparent').removeClass('blur');
         }
+        if(direction > 0) {
+            nav.addClass('nav-hidden');
+            nav.addClass('blur').removeClass('transparent');
+        }
+        else {
+            nav.removeClass('nav-hidden');
+        }
+    }
+
+    $(window).on('scroll', function() {
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        var direction = scrollPos > lastScrollPos ? 1 : -1;
+        if(!ticking) {
+            window.requestAnimationFrame(function() {
+                setHeaderState(scrollPos, direction)
+                ticking = false;
+            })
+        }
+        lastScrollPos = (scrollPos <= 0) ? 0 : scrollPos;
+        ticking = true;
     });
 
     // COMPETENCES BARS PROGRESS ON SCROLL
