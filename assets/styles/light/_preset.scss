@@ -130,6 +130,11 @@ body[theme=light], body {
             }
         }
     }
+    nav.nav-hidden {
+        &, .logo {
+            transform: translate3d(0,-100%,0)
+        }
+    }
     .head-link.active, .rgpd-head-link.active {
         &::after {
             content: '';

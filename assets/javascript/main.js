@@ -94,23 +94,45 @@ $(function(){
             }
         });
     };
-    $(function () {
-        $(window).on('scroll', function () {
-            addClassOnScroll();
-        });
+
+    $(window).on('scroll', function () {
+        addClassOnScroll();
     });
 
     // CHANGE NAV STYLE ON SCROLL
-    var marker = $('#caption-border').offset().top;
     var nav = $('nav');
-
-    $(window).on('scroll', function() {
-        var currentScroll = $(window).scrollTop();
-        if (currentScroll > marker) {
+    function setHeaderState(scrollPos, direction) {
+        if(scrollPos >= offsetTop) {
             nav.addClass('blur').removeClass('transparent');
-        } else {
+        }
+        else {
             nav.addClass('transparent').removeClass('blur');
         }
+        if(direction > 0) {
+            nav.addClass('nav-hidden');
+            nav.addClass('blur').removeClass('transparent');
+        }
+        else {
+            nav.removeClass('nav-hidden');
+        }
+    }
+
+    var offsetTop = (window.outerWidth >= 1080) ? 42 : 12;
+    var lastScrollPos = 0;
+    var ticking = false;
+
+    $(window).on('scroll', function() {
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        var direction = scrollPos > lastScrollPos ? 1 : -1;
+        if(!ticking) {
+            window.requestAnimationFrame(function() {
+                setHeaderState(scrollPos, direction)
+                ticking = false;
+            })
+        }
+        lastScrollPos = (scrollPos <= 0) ? 0 : scrollPos;
+        ticking = true;
+        console.log(ticking)
     });
 
     // COMPETENCES BARS PROGRESS ON SCROLL
@@ -136,55 +158,52 @@ $(function(){
     });
 
     // TIMELINE ANIMATION
-    (function() {
-        'use strict';
-        var timelines= document.querySelectorAll('.timeline2');
+    var timelines= document.querySelectorAll('.timeline2');
 
-        function debounce(func, wait, immediate) {
-            var timeout;
-            return function() {
-                var context = this, args = arguments;
-                var later = function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-                var callNow = immediate && !timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-                if (callNow) func.apply(context, args);
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
             };
-        }
-        function callbackFunc() {
-            var h,timeline, li,rect,parent_rect,i,items;
-            for(h=0;h<timelines.length;h++){
-                timeline=timelines[h];
-                    parent_rect=timeline.getBoundingClientRect();
-                    items = timeline.querySelectorAll(".timeline2 li");
-                for (  i = 0; i < items.length; i++) {
-                    li=items[i];
-                    rect = li.getBoundingClientRect();  
-                    if( (rect.bottom<=(parent_rect.top+(rect.height/2) ) ) || (rect.top >=(parent_rect.bottom-(rect.height/2)) ) ){
-                        li.classList.remove("in-view");
-                    }else{
-                        li.classList.add("in-view");
-                    }
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+    function callbackFunc() {
+        var h,timeline, li,rect,parent_rect,i,items;
+        for(h=0;h<timelines.length;h++){
+            timeline=timelines[h];
+                parent_rect=timeline.getBoundingClientRect();
+                items = timeline.querySelectorAll(".timeline2 li");
+            for (  i = 0; i < items.length; i++) {
+                li=items[i];
+                rect = li.getBoundingClientRect();  
+                if( (rect.bottom<=(parent_rect.top+(rect.height/2) ) ) || (rect.top >=(parent_rect.bottom-(rect.height/2)) ) ){
+                    li.classList.remove("in-view");
+                }else{
+                    li.classList.add("in-view");
                 }
             }
         }
-        var updateLayout =debounce(function(e) {
-            // Does all the layout updating here
-            callbackFunc();
-        }, 500); // Maximum run of once per 500 milliseconds
+    }
+    var updateLayout =debounce(function(e) {
+        // Does all the layout updating here
+        callbackFunc();
+    }, 500); // Maximum run of once per 500 milliseconds
 
-        // listen for events
-        window.addEventListener("load", callbackFunc);
-        window.addEventListener("resize", updateLayout);
-        window.addEventListener("scroll", callbackFunc);
-        for(var h=0;h<timelines.length;h++) {
-            var  timeline=timelines[h];
-            timeline.addEventListener("scroll",callbackFunc );
-        }
-    })();
+    // listen for events
+    window.addEventListener("load", callbackFunc);
+    window.addEventListener("resize", updateLayout);
+    window.addEventListener("scroll", callbackFunc);
+    for(var h=0;h<timelines.length;h++) {
+        var  timeline=timelines[h];
+        timeline.addEventListener("scroll",callbackFunc );
+    }
 
     // Allow submit message if agree to rgpd
     $('#agree').on('click', function(){
