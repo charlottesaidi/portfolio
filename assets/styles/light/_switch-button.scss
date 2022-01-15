@@ -35,7 +35,7 @@
     left: 2px;
     top: 15%;
     transform: translateX(0px);
-    animation: off 0.3s forwards cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    animation: off 0.1s forwards cubic-bezier(0.8, 0.5, 0.2, 1.4);
     box-shadow: inset 5px -5px 4px rgba(53, 53, 53, 0.3);
 }
 @keyframes off {
@@ -53,7 +53,7 @@
     }
 }
 .switch:checked:after {
-    animation: on 0.3s forwards cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    animation: on 0.1s forwards cubic-bezier(0.8, 0.5, 0.2, 1.4);
     box-shadow: inset -5px -5px 4px rgba(53, 53, 53, 0.3);
 }
 @keyframes on {
@@ -82,7 +82,7 @@
     background-color: transparent;
     box-shadow: 5px -1px 0px #fff;
     filter: blur(0px);
-    animation: sun 0.3s forwards ease;
+    animation: sun 0.0s forwards ease;
 }
 @keyframes sun {
     0% {
@@ -120,7 +120,7 @@
     background-color: #f5daaa;
     box-shadow: 0px 0px 10px #f5deb4, 0px 0px 20px #f5deb4, 0px 0px 30px #f5deb4, inset 0px 0px 2px #efd3a3;
     transform-origin: 53px 10px;
-    animation: moon 0.3s forwards ease;
+    animation: moon 0.0s forwards ease;
 }
 @keyframes moon {
     0% {
