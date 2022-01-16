@@ -45,7 +45,10 @@ body[theme=light], body {
         }
     }
     .section {
-        padding: 4rem 50px;
+        padding: 4rem;
+    }
+    .section#aPropos {
+        padding-top: 0;
     }
     #portfolio {
         .container {
@@ -142,7 +145,7 @@ body[theme=light], body {
         .job {
             padding: 20px 0;
         }
-        height: 600px;
+        height: 100vh;
         display: flex;
         padding-top: 74px;
     }
@@ -166,7 +169,6 @@ body[theme=light], body {
         height: 10px;
     }
     .text-caption {
-        background: hsla(0,0%,100%,.9);
         border-radius: 0 100px;
     }
     .nav-wrapper {

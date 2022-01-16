@@ -89,16 +89,17 @@ $(function(){
 
     // CHANGE NAV STYLE ON SCROLL
     var nav = $('nav');
+    var background = $('.gradient_background');
     var lastScrollPos = 0;
     var ticking = false;
     function setHeaderState(scrollPos, direction) {
         var offsetTop = (window.outerWidth >= 1080) ? 42 : 12;
         
         if(scrollPos >= offsetTop) {
-            nav.addClass('blur').removeClass('transparent');
+            nav.addClass('z-depth-2 blur').removeClass('z-depth-0 transparent');
         }
         else {
-            nav.addClass('transparent').removeClass('blur');
+            nav.addClass('z-depth-0 transparent ').removeClass('z-depth-2 blur');
         }
         if(direction > 0) {
             nav.addClass('nav-hidden');
