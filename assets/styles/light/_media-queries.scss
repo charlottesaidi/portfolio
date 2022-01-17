@@ -1,4 +1,12 @@
 /* MEDIA QUERIES */
+@media screen and (max-width: 1024px) {
+    body[theme=light], body {
+        .background {
+            background: url('../../../public/images/background/tablet.webp') no-repeat center;
+            background-size: cover;
+        }
+    }
+}
 @media screen and (max-width: 900px) {
     body[theme=light], body { 
         .timeline2 ul li div.card-panel.inside {
@@ -35,11 +43,22 @@
         .box-caption {
             width: 60%;
         }
+        .main {
+            .row.card-panel {
+                .inner_row {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 @media screen and (max-width: 600px) {
     body[theme=light], body {
         font-size: 14px;
+        .background {
+            background: url('../../../public/images/background/mobile.webp') no-repeat center;
+            background-size: cover;
+        }
         nav {
             height: 56px !important;
         }

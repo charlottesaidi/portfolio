@@ -1,13 +1,13 @@
 /* MEDIA QUERIES */
 @media screen and (max-width: 1024px) {
-    body[theme=dark] {
-        background-image: url('../../../public/images/background/darkTablet-min.png');
+    body[theme=dark] .background {
+        background: url('../../../public/images/background/darkTablet.webp') no-repeat center;
         background-size: cover;
     }
 }
 @media screen and (max-width: 600px) {
-    body[theme=dark] {
-        background-image: url('../../../public/images/background/darkMobile-min.png');
+    body[theme=dark] .background {
+        background: url('../../../public/images/background/darkMobile.webp') no-repeat center;
         background-size: cover;
     } 
 }

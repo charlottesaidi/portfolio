@@ -11,6 +11,15 @@ body[theme=dark] {
     .gradient_background {
         background-image: linear-gradient(to left, #6a1145, #41306a, #004270, #004b5c, #004d40);
     }
+    .background {
+        background: url('../../../public/images/background/darkDesktop.webp') no-repeat center;
+        background-size: cover;
+        opacity: .15;
+    }
+    .background::after {
+        background: rgb(18,15,17);
+        background: linear-gradient(0deg, rgba(18,15,17,0) 0%, rgba(18,15,17,1) 45%, rgba(18,15,17,1) 68%, rgba(18,15,17,0) 100%);
+    }
     #wave {
         stop {
             stop-color: $main-theme;
@@ -31,7 +40,7 @@ body[theme=dark] {
     .grey-text.text-lighten-1 {
         color: #d4d3d3!important;
     }
-    .white-text, .black-text, .grey-text.text-darken-1 {
+    .white-text, .black-text, .grey-text.text-darken-4, .grey-text.text-darken-1 {
         color: $font-color !important;
     }
     .grey-text.text-darken-3  {
@@ -59,7 +68,7 @@ body[theme=dark] {
         }
     }
     a:not(a.al, .links a) {
-        color: $secondary-theme !important;
+        color: $secondary-font-color !important;
     }
     nav {
         a.sidenav-trigger {
