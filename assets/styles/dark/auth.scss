@@ -2,9 +2,15 @@
 
 body[theme=dark] {
     .main {
-        .row {
-            .login.card-panel {
-                background: rgba(14, 25, 40, .9);
+        .container_login {
+            .row {
+                .inner_row {
+                    .login  {
+                        .form-control {
+                            color: $font-color
+                        }
+                    }
+                }
             }
         }
     }
