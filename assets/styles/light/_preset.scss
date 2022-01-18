@@ -41,7 +41,8 @@ body[theme=light], body {
         right: 0;
         left: 0;
         background-image: linear-gradient(to left, #b37b9c, #9286b7, #6392bd, #449aad, #539d90);
-        z-index: -1
+        z-index: -1;
+        filter: blur(50px)
     }
     .background {
         position: absolute;
