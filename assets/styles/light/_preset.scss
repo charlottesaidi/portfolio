@@ -271,6 +271,9 @@ body[theme=light], body {
             }
         }
     }
+    .sidenav-overlay {
+        background-color: transparent !important;
+    }
     .sidenav {
         li.row {
             .col.s6 {

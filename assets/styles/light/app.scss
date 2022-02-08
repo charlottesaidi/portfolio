@@ -143,12 +143,12 @@ body[theme=light], body {
         font-size: 50px;
     }
     .caption {
+        position: relative;
         .job {
             padding: 20px 0;
         }
         height: 100vh;
         display: flex;
-        padding-top: 74px;
     }
     .sep, .border-top-right {
         width: 50%;
@@ -218,12 +218,17 @@ body[theme=light], body {
     #contact {
         margin-top: -10px;
         position: relative;
-        .btn-floating {
-            position: absolute;
-            right: 100px;
-            top: -50px;
-            border-radius: 0 50%;
-        }
+    }
+    .head-link.btn-floating.btn-large.btn.purple {
+        position: absolute;
+        right: 100px;
+        top: -50px;
+        border-radius: 0 50%;
+    }
+    .head-link.btn-floating.btn-large.btn.purple.header_button {
+        right: 50%;
+        top: 85%;
+        transform: translateX(50%);
     }
     .portfolio_blocks {
         display: none;
@@ -402,7 +407,7 @@ body[theme=light], body {
             margin: 0;
         }
     }
-    .head-link.btn-floating.btn-large.btn.purple.hide-on-small-only {
+    .head-link.btn-floating.btn-large.btn.purple.hide-on-small-only, .head-link.btn-floating.btn-large.btn.purple.header_button {
         display: flex;
         img {
             display: block;
