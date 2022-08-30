@@ -1,0 +1,260 @@
+$main-theme: #1d1d1d;
+$secondary-theme: #ffffff;
+$tertiary-theme: #292929;
+$main-lightScroll: #d4d3d3;
+$black-color: #000000;
+
+body[theme=dark] {
+    background-color: $main-theme;
+    color: $secondary-theme !important;
+    .black {
+        background-color: $secondary-theme !important;
+    }
+    .grey.lighten-3 {
+        background-color: hsla(0,0%,100%,.1)!important;
+    }
+    .background {
+        background: url('../../../public/images/background/darkDesktop.webp') fixed no-repeat center;
+        background-size: cover;
+        opacity: .15;
+    }
+    .logo-img {
+        svg {
+            g {
+                fill: $secondary-theme;
+            }
+        }
+    }
+    .custom-shape-divider {
+        .shape-fill {
+            fill: $secondary-theme;
+        }    
+    }
+    .background_container {
+        background-color: $main-theme;
+    }
+    .attribution_title {
+        border-top: rgba(255, 255, 255, .1) 2px solid;
+    }
+    .policy_main {
+        color: $secondary-theme;
+    }
+    #portfolio {
+        .title {
+            p {
+                color: $secondary-theme;
+            }
+        }
+    }
+    #competences {
+        .perso {
+            img {
+                filter: invert(30%);
+            }
+        }
+    }
+    .sep, .border-top-right {
+        background: #ffffff;
+        background: linear-gradient(90deg, #ffffff 0%, #7d7d7d 48%, $main-theme 100%);
+    }
+    .border-top {
+        background: $main-theme;
+        background: linear-gradient(90deg, $main-theme 0%, #7d7d7d 48%, #ffffff 100%);
+    }
+    .competences {
+        color: $secondary-theme;
+    }
+    .progress-inner-bar {
+        background: $secondary-theme;
+    }
+    #contact {
+        .social {
+            a {
+                &:hover {
+                    background-color: $secondary-theme;
+                }
+            }
+        }
+        .svg-inline--fa {
+            path {
+                fill: $secondary-theme;
+            }
+        }
+        a:hover .svg-inline--fa {
+            path {
+                fill: $main-theme;
+                transition: all 0.4s;
+            }
+        }
+    }
+    .modal {
+        background-color: $main-theme !important;
+        .prefix {
+            color: $secondary-theme;
+            &.active {
+                color: $secondary-theme;
+                svg path {
+                    fill: $secondary-theme;
+                }
+            }
+        }
+    }
+    .contact_form {
+        .prefix {
+            color: $secondary-theme;
+        }
+    }
+    .timeline2 {
+        * {
+            color: $secondary-theme;
+            &::before {
+                color: $secondary-theme;
+            }
+            &::after {
+                color: $secondary-theme;
+            }
+        }
+        &::-webkit-scrollbar {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px $main-lightScroll;
+            background-color: $main-lightScroll;
+        }
+        ul {
+            li {
+                background: $secondary-theme;
+                border-left: 3px double $secondary-theme;
+                &::after {
+                    border: 2px solid $secondary-theme;
+                }
+                div.card-panel.inside {
+                    .location {
+                        border: 5px solid $secondary-theme;
+                    }
+                    .location::after {
+                        border-top: 10px solid $secondary-theme;
+                    }
+                }
+                &:nth-child(odd) {
+                    div.card-panel.inside {
+                        &::before {
+                            border-color: transparent $secondary-theme transparent transparent;
+                        }
+                    }
+                }
+                &:nth-child(even) {
+                    div.card-panel.inside {
+                        &::before {
+                            border-color: transparent transparent transparent $secondary-theme;
+                        }
+                    }
+                }
+                .time {
+                    color: $secondary-theme;
+                }
+            }
+            li.in-view {
+                &::after {
+                    background: $secondary-theme;
+                    border: 2px solid $secondary-theme;
+                }
+            }
+        }
+    }
+    input {
+        color: $secondary-theme;
+    }
+    #wave {
+        stop {
+            stop-color: $tertiary-theme;
+        }
+    }
+	&::-webkit-scrollbar, .modal::-webkit-scrollbar {
+		background-color: $main-theme;
+	}
+	&::-webkit-scrollbar-track, .modal::-webkit-scrollbar-track {
+		background-color: $main-theme;
+	}
+	&::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
+		background-color: $secondary-theme;
+	}
+    .white {
+        background-color: $main-theme !important;
+    }
+    .black-text, .grey-text.text-darken-4, .grey-text.text-darken-1 {
+        color: $secondary-theme !important;
+    }
+    .grey-text.text-darken-3  {
+        color: #9e9e9e !important;
+    }
+    .flash_success {
+        #close_flash_message {
+            background: #90caf9!important;
+            color: $black-color!important;
+        }
+    }
+    .links {
+        a {
+            color: $main-theme;
+        }
+    }
+    nav {
+        a.sidenav-trigger {
+            svg {
+                -webkit-box-shadow: 0px 0px 4px 0px #C4C4C4;
+                box-shadow: 0px 0px 4px 0px #C4C4C4;
+            }
+        }
+        ul {
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+            .head-link, .rgpd-head-link {
+                &::after {
+                    background-color: rgba($secondary-theme, .4);
+                }
+            }
+        }
+    }
+    .head-link.active, .rgpd-head-link.active {
+        &::after {
+            background-color: rgba($secondary-theme, .4);
+        }
+    }
+    .card-panel {
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.94),
+        0 3px 1px -2px rgba(0,0,0,0.92),
+        0 1px 5px 0 rgba(0,0,0,1);
+        background: transparent;
+        // background-image: linear-gradient(to left, #6a1145, #41306a, #004270, #004b5c, #004d40);
+        // background-image: linear-gradient(to right, RGBA(128,0,128,1), RGBA(54,72,168,1), RGBA(0,100,172,1), RGBA(0,117,153,1), RGBA(0,128,128,1));
+    }
+    .card-panel.inside {
+        background: transparent;
+    }
+    h1, h2, h3, h4, h5 {
+        color: #e1e1e1;
+    }
+    .sidenav {
+        background-color: $main-theme;
+        li.row {
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+    .grey-text.text-lighten-2, .grey-text.text-darken-2 {
+        color: $secondary-theme !important;
+    }
+    .page-footer {
+        color: $secondary-theme;
+    }
+}

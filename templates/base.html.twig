@@ -24,7 +24,6 @@
     </head>
 
     <body id="body" theme="light">
-        <div class="gradient_background"></div>
 
         {% set route_name = app.request.get('_route') %}
 
@@ -32,6 +31,33 @@
 
         {% if route_name == 'home' %}
             {% include "blocks/_header.html.twig" %}
+
+            <div id="slide-in" class="background_container">
+                {% include "blocks/components/_trigger_button.html.twig" with {
+                    classes: 'btn-floating btn-large btn background_trigger',
+                    target: 'slide-in'
+                } %}
+                <div id="caption-border" class="caption js-about">
+                    <div class="background"></div>
+                    <div class="box-caption ">
+                        <div class="text-caption center-align">
+                            <h1><span class="name grey-text text-darken-3"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
+                            <span class="sep"></span>
+                            <span class="job light grey-text text-darken-1">Développeuse Web Junior</span></h1>
+                        </div>
+            
+                        <div id="aPropos" class="section scrollspy">
+                            <div class="container">
+                                <div class="row valign-wrapper">
+                                    {% include "blocks/_presentation.html.twig" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {% include "blocks/contact/_new.html.twig" %}
         {% elseif route_name == 'page' %}
             {% include "blocks/_page_header.html.twig" %}
         {% endif %}
@@ -40,10 +66,7 @@
             {% block body %}{% endblock %}
         </div>
         
-        {% if route_name == 'home' %}
-            {% include "blocks/contact/_new.html.twig" %}
-            {% include "blocks/_footer.html.twig" %}
-        {% elseif route_name == 'home' or route_name == 'page' %}
+        {% if route_name == 'page' %}
             {% include "blocks/_footer.html.twig" %}
         {% endif %}
         

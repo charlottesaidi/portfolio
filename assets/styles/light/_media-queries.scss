@@ -1,4 +1,18 @@
 /* MEDIA QUERIES */
+@media screen and (max-width: 1250px) {
+    body[theme=light], body {
+        .right_side {
+            margin-left: auto !important;
+            width: 100% !important;
+        }
+        .background_container {
+            width: 100%;
+            .background_trigger {
+                display: block;
+            }
+        }
+    }
+}
 @media screen and (max-width: 1024px) {
     body[theme=light], body {
         .background {
@@ -8,16 +22,21 @@
     }
 }
 @media screen and (max-width: 900px) {
-    body[theme=light], body { 
+    body[theme=light], body {
+        header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
+            display: none !important;
+        }
         .timeline2 ul li div.card-panel.inside {
         width: 250px;
         }
-    }   
-    body[theme=light], body {
         .timeline2 ul li:nth-child(even) div.card-panel.inside {
         left: -289px;
         }
-    }   
+    }
+    .switch#togMobileButton {
+        top: 27px;
+        right: 222px;
+    }
     .sidenav li > a {
         font-size: 30px;
         transition: all .5s;
@@ -43,6 +62,11 @@
         .box-caption {
             width: 60%;
         }
+        h6 {
+            &.competences {
+                font-size: 50px !important;
+            }
+        }
         .main {
             .row.card-panel {
                 .inner_row {
@@ -58,6 +82,19 @@
         .background {
             background: url('../../../public/images/background/mobile.webp') no-repeat center;
             background-size: cover;
+        }
+        .background_trigger {
+            display: block;
+            height: 35px !important;
+            width: 35px !important;
+            line-height: 35px !important;
+            font-size: 20px;
+            &.out {
+                right: -4rem !important;
+            }
+        }
+        #competences {
+            padding: 6rem 0 0 0;
         }
         nav {
             height: 56px !important;
@@ -164,6 +201,33 @@
         }
     }
 }
+@media screen and (max-width: 400px) {
+    body[theme=light] .section, body {
+        h6 {
+            &.competences {
+                font-size: 40px !important;
+            }
+        }
+        .section {
+            &#portfolio, &#contact {
+                padding: 50px 0;
+                .container {
+                    padding: 24px 0;
+                }
+            }
+            &#aPropos {
+                padding: 0 0;
+                .container {
+                    padding: 0 0;
+                }
+            }
+        }
+        .box-caption {
+            width: 90%;
+        }
+    }
+}
+
 /* OVERWRITE MATERIALIZECSS STYLE */
 @media only screen and (min-width: 993px) {
     body[theme=light], body {
@@ -177,26 +241,12 @@
         .card-panel:not(.icon_title.card-panel, .change_theme.card-panel, .policy_main .card-panel) {
             padding: 24px 0;
         }
-        .section h6 {
-            font-size: 50px
-        }
         #contact .modal h4 {
             padding: 24px;
         }
         #contact .modal .modal-content {
             padding: 0;
         }
-    }
-}
-@media only screen and (max-width: 900px) {
-    body[theme=light], body {
-        header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
-            display: none !important;
-        }
-    }
-    .switch#togMobileButton {
-        top: 27px;
-        right: 222px;
     }
 }
 @media only screen and (min-width: 900px) {

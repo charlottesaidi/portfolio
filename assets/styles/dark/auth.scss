@@ -1,4 +1,4 @@
-@import "_preset.scss";
+@import "_main.scss";
 
 body[theme=dark] {
     .main {
@@ -7,7 +7,7 @@ body[theme=dark] {
                 .inner_row {
                     .login  {
                         .form-control {
-                            color: $font-color
+                            color: $secondary-theme
                         }
                     }
                 }

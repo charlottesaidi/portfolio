@@ -2,65 +2,41 @@
 
 {% block body %}
 
-    <div id="caption-border" class="caption">
-        <div class="box-caption ">
-            <div class="text-caption center-align">
-                <h1><span class="name grey-text text-darken-3"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
-                <span class="sep"></span>
-                <span class="job light grey-text text-darken-1">Développeuse Web Junior</span></h1>
-            </div>
-        </div>
-        <a href="#aPropos" class="head-link btn-floating btn-large btn purple header_button">
-            <img src="{{asset('images/chevron-down-solid.svg')}}">
-        </a>
-        <div class="background"></div>
-    </div>
-    <div id="aPropos" class="purple lighten-5 section scrollspy">
-        <div class="container">
-            <h6 class="center-align competences">A Propos</h6>
-            <div class="row valign-wrapper">
-                {% include "blocks/_presentation.html.twig" %}
-            </div>
-        </div>
-    </div>
+    <div class="row row_main">
+        <div class="col s12 l8 right_side">
+            {% include "blocks/components/svgs/_section-up.html.twig" %}
 
-    <div id="competences" class="section scrollspy">
-        <div class="container">
-            <h6 class="center-align competences">Mes compétences</h6>
-            <div class="row">
-                {% include "blocks/_competences.html.twig" %}
-            </div>
-        </div>  
-    </div>
+            {% include "blocks/components/_day-night-switch.html.twig" with {
+                id: 'togButton',
+                class: 'desktop_button',
+            } %}
 
-    <div id="portfolio" class="purple lighten-5 section scrollspy">
-            
-        <div class="container">
-            <h6 class="competences">Portfolio</h6>
-            <div class="row"> 
-                {% include "blocks/_project.html.twig" %}
+            <div id="portfolio" class="section scrollspy js-portfolio">
+                <div class="container">
+                    <h6 class="competences black-text">PORTFOLIO</h6>
+                    {% include "blocks/_project.html.twig" %}
+                </div>
             </div>
-            <div class="competence_show_btn center-align">
-                <button class="btn-floating show_blocks btn-large btn white purple-text">+</button>
+
+            <div id="competences" class="section scrollspy js-competence">
+                <div class="container">
+                <h6 class="competences black-text">ENV</h6>    
+                {% include "blocks/components/svgs/_brands_shuffle.html.twig" %}
+                </div>  
             </div>
+
+            <div id="formations" class="section scrollspy js-education">
+                <div class="container">
+                    <h6 class="center-align competences black-text">PARCOURS</h6>
+                    <div class="row formations">
+                        {% include "blocks/_education.html.twig" %}
+                    </div>
+                </div>
+            </div>
+
+            {% include "blocks/_contact.html.twig" %}
+            {% include "blocks/_footer.html.twig" %}
         </div>
     </div>
-
-    <div id="formations" class="section scrollspy">
-        <div class="container">
-            <h6 class="center-align competences">Formations</h6>
-            <div class="row formations">
-                {% include "blocks/_education.html.twig" %}
-            </div>
-            <p class="upload_cv center-align">
-                <span>Vous avez une préférence pour les CVs plus classiques ? Vous avez la possibilité de le télécharger par ici : </span>
-                <a class="download_btn" href="{{asset('download/cv-saidi-charlotte.pdf')}}" download>
-                    <img src="{{asset('images/pdf.webp')}}" alt="PDF icon" width="80">
-                </a>
-            </p>
-        </div>
-    </div>
-
-    {% include "blocks/_contact.html.twig" %}
     
 {% endblock %}

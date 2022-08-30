@@ -13,10 +13,10 @@
             <div class="error card-panel">
                 <div class="error-message">
                 {% set referer = app.request.server.get('http-referer')|default('/') %}
-                    <h1 class="purple-text">Oups...</h1>
+                    <h1 class="grey-text text-lighten-2">Oups...</h1>
                     <h2>Un problème est survenu ! <span class="emojis">&#129300;</span></h2>
                 </div>
-                <a class="error-link btn btn-small btn-primary" href="{{referer}}">Retour</a>
+                <a class="error-link btn btn-primary" href="{{referer}}">Retour</a>
             </div>
         </div>
 

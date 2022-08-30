@@ -2,16 +2,23 @@
     width: 40px;
 }
 .switch {
+    z-index:3;
     opacity: 1 !important;
     pointer-events: auto !important;
-    right: 1.6rem;
-    top: 1.7rem;
     width: 25px;
     height: 25px;
     appearance: none;
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
+    &.desktop_button {
+        right: 1.6rem;
+        top: 5rem;
+    }
+    &.page_button {
+        right: 1.6rem;
+        top: 1.7rem;
+    }
 }
 .switch:after {
     content: url(../../../public/images/moon.svg);

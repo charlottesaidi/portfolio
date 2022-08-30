@@ -45,7 +45,7 @@ class Project
     private $status;
 
     /**
-     * @ORM\OneToMany(targetEntity=Links::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity=Links::class, mappedBy="project", cascade={"remove"})
      */
     private $links;
 

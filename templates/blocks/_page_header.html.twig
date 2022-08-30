@@ -1,6 +1,6 @@
 <header id="header">
     <div class="row" style="margin: 0px; text-align: center;">
-        <nav class="transparent nav z-depth-2">
+        <nav id="navigation" class="transparent nav z-depth-2">
             <div class="logo" id="logo">
                 <div class="logo_img_block">
                     {% include "blocks/components/_logo.html.twig" %}
@@ -11,7 +11,8 @@
                     <li><a class="rgpd-head-link grey-text text-darken-2" href="{{path('home')}}">Retour au Portfolio</a></li>
                     <li>
                         {% include "blocks/components/_day-night-switch.html.twig" with {
-                            id: 'togButton'
+                            id: 'togButton',
+                            class: 'page_button'
                         }  %}
                     </li>
                 </ul>
