@@ -13,56 +13,6 @@
 }
 
 body {
-
-    // Competences icons
-    .body {
-        margin: 0;
-        display: grid;
-        place-content: center;
-        
-        .gallery {
-            --s: 150px; /* control the size */
-            --g: 20px;  /* control the gap */
-            display: grid;
-            margin: calc(var(--s) + var(--g));
-            .item {
-                grid-area: 1/1;
-                aspect-ratio: 1.15;
-                width: var(--s);
-                object-fit: cover;
-                transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
-                cursor: pointer;
-                transition: .2s linear;
-                &:hover {
-                    z-index: 1;
-                    --_t: 1.2;
-                }
-                &:nth-child(1) {--_y: calc(-100% - var(--g))}
-                &:nth-child(7) {--_y: calc( 100% + var(--g))}
-                &:nth-child(3),
-                &:nth-child(5) {--_x: calc(-75% - .87*var(--g))}
-                &:nth-child(4),
-                &:nth-child(6) {--_x: calc( 75% + .87*var(--g))}
-                &:nth-child(3),
-                &:nth-child(4) {--_y: calc(-50% - .5*var(--g))}
-                &:nth-child(5), 
-                &:nth-child(6) {--_y: calc( 50% + .5*var(--g))}
-            }
-        }
-    }
-    .c-col:not(:first-child) {
-        margin-left: -80px;
-    }
-
-
-
-    // Project gallery
-        //  Mobile
-    .swiper {
-        display: none;
-    }
-
-        //  Desktop
     * {
         margin: 0;
         padding: 0;
@@ -143,7 +93,7 @@ body {
     .hexIn h2 {
       bottom: 50%;
       padding-top:50%;
-      font-size: 2.5em;
+      font: normal 1.5em/1 "Josefin Sans", Helvetica, sans-serif;
       z-index: 1;
       -webkit-transform:translate3d(0,-100%,0);
           -ms-transform:translate3d(0,-100%,0);
@@ -169,40 +119,90 @@ body {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis
-    }
-    
-    /*** MODALS HEX  **********************************************************************/
-    .modal.hex_modal {
-        width: 63%;
-        overflow-y: inherit;
-        top: 3.5% !important;
-        box-shadow: none;
-        .hex {
-            width: 100%;
-            .hexLink h2, .hexLink h2, .hexLink h2,
-            .hexLink div, .hexLink div, .hexLink div {
-            -webkit-transform:translate3d(0,0,0);
-                -ms-transform:translate3d(0,0,0);
-                    transform:translate3d(0,0,0);
+    }   
+        
+    /*** HOVER EFFECT  **********************************************************************/
+    .hexLink {
+        &.hex_modal-trigger {
+            &:hover, &:focus, &:active {
+                h2, div {
+                    -webkit-transform:translate3d(0,0,0);
+                        -ms-transform:translate3d(0,0,0);
+                            transform:translate3d(0,0,0);
+                  } 
             }
         }
     }
-    
-    /*** HOVER EFFECT  **********************************************************************/
-    .hexLink:hover h2, .hexLink:focus h2, .hexLink:active h2,
-    .hexLink:hover div, .hexLink:focus div, .hexLink:active div {
-      -webkit-transform:translate3d(0,0,0);
-          -ms-transform:translate3d(0,0,0);
-              transform:translate3d(0,0,0);
+}
+
+/*** MODALS HEX SWIPER **********************************************************************/
+body {
+    .modal_project_section {
+        .modal-overlay {
+            left: 33.333333%;
+        }
+    }
+    #modal2 {
+        &.open {
+            padding: 0;
+            top: 0 !important;
+            left: initial !important;
+            right: 6% !important;
+            width: 56% !important;
+            overflow: visible;
+            .modal-content {
+                padding: 0;
+            }
+        }
+        .hex {
+            &.swiper-slide-active.swiper-slide-visible {
+                width: 100%;
+                .hexLink {
+                    &.content {
+                        h2, div {
+                            -webkit-transform:translate3d(0,0,0);
+                                -ms-transform:translate3d(0,0,0);
+                                    transform:translate3d(0,0,0);
+                        }
+                    }
+                }
+            }
+            &:after {
+                padding-bottom: 80%;
+            }
+        }
+        .hexIn {
+            width: 70%;
+            padding-bottom: 80.851%;
+            margin: 0 15%;
+            h2 {
+                bottom: 49.9%
+            }
+        }
+    }  
+}
+@media screen and(max-width: 1250px) {
+    body {
+        #modal2 {
+            &.open {
+                top: 1% !important;
+                right: 6% !important;
+                width: 90% !important;
+            }
+        }
+        .modal_project_section {
+            .modal-overlay {
+                left: 0;
+                background: #ffffff;
+            }
+        }
     }
 }
     
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-#hexGrid{
-    --item_on_row_1: 3;
-    --item_on_row_2: 2;
-    --a: calc(var(--item_on_row_1) + var(--item_on_row_2));
-    --b: calc(var(--item_on_row_1) + 1);
+#hexGrid { /* <- hexagons per row and hex width calcul variables */
+    --item_on_row_1: 4;
+    --item_on_row_2: 3;
     --width: calc(100/var(--item_on_row_1));
     
     padding-bottom: 7.4%;
@@ -211,25 +211,37 @@ body {
     }
 }
 
-@media (min-width:1201px) { 
+@media (min-width:1201px) { /* <- 4-5  hexagons per row */
     #hexGrid {
 
-        .hex:nth-child(5n+4){ 
+        .hex:nth-child(7n+5) { 
             margin-left:calc(var(--width)/2 * 1%);  
         }
     }
 }
 
-@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+@media (max-width: 1200px) and (min-width:901px) { /* <- 3-4  hexagons per row */
     #hexGrid{
-        
-        .hex:nth-child(5n+4){ 
+        .hex:nth-child(7n+5){ 
             margin-left:calc(var(--width)/2 * 1%);  
         }
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (min-width:601px) { /* <- 2-3  hexagons per row */
+    #hexGrid{
+        --item_on_row_1: 3;
+        --item_on_row_2: 2;
+
+        padding-bottom: 7.4%;
+
+        .hex:nth-child(5n+4){ 
+            margin-left:calc(var(--width)/2 * 1%);  
+        }
+    }
+  }
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
     #hexGrid {
         --item_on_row_1: 2;
         --item_on_row_2: 1;
@@ -242,37 +254,13 @@ body {
     }
 }
 
-@media (max-width: 700px) {
-    #hexGrid {
-        display: none !important;
-    }
-    .swiper {
-        display: block !important;
-        width: 95%;
-        overflow: visible !important;
-        margin-top: 2rem;
-        margin-bottom: 5rem;
-    }
-    .hex.swiper-slide {
-        width: 100%;
-    }
-}
-
-@media (max-width: 500px) {
-    .swiper {
-        margin-bottom: 3rem;
-    }
-}
-
 @media (max-width: 400px) {
     #hexGrid {
         font-size: 13px;
     }
-    .swiper {
-        width: 90%;
-    }
 }
-  
+
+// Global Grid media queries
 @media screen and (max-width: 900px) {
     body {
         .body {
@@ -280,9 +268,6 @@ body {
                 --s: 120px; 
                 --g: 10px;  
             }
-        }
-        .c-col:not(:first-child) {
-            margin-left: -55px;
         }
     }
 }
@@ -295,9 +280,6 @@ body {
         }
         .c-row {
             flex-direction: column;
-        }
-        .c-col:not(:first-child) {
-            margin-left: 0;
         }
     }
 }

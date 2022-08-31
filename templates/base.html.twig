@@ -41,7 +41,7 @@
                     <div class="background"></div>
                     <div class="box-caption ">
                         <div class="text-caption center-align">
-                            <h1><span class="name grey-text text-darken-3"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
+                            <h1><span class="name grey-text"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
                             <span class="sep"></span>
                             <span class="job light grey-text text-darken-1">Développeuse Web Junior</span></h1>
                         </div>
@@ -57,6 +57,9 @@
                 </div>
             </div>
             
+            {% include "blocks/components/_project_modal.html.twig" with {
+                projects: projects
+            } %}
             {% include "blocks/contact/_new.html.twig" %}
         {% elseif route_name == 'page' %}
             {% include "blocks/_page_header.html.twig" %}

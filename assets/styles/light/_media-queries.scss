@@ -10,6 +10,13 @@
             .background_trigger {
                 display: block;
             }
+            &.shrink {
+                width: 0;
+                .box-caption {
+                    visibility: hidden;
+                    opacity: 0;
+                }
+            }
         }
     }
 }
@@ -209,7 +216,7 @@
             }
         }
         .section {
-            &#portfolio, &#contact {
+            &#contact {
                 padding: 50px 0;
                 .container {
                     padding: 24px 0;
@@ -273,5 +280,18 @@
         margin-left: 1% !important;
         margin-right: 1% !important;
         width: 98% !important;
+    }
+}
+@media screen and (max-width: 450px) {
+    .modal h4 {
+        padding: 24px;
+    }
+    .modal .modal-content {
+        padding: 0;
+    }
+}
+@media screen and (max-width: 320px) {
+    .modal i {
+        display: none;
     }
 }

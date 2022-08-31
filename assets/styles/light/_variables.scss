@@ -1,0 +1,17 @@
+:root {
+    --main-theme: #ffffff;
+    --secondary-theme: #000000;
+    --tertiary-theme: #ebebeb;
+    --main-lightScroll: #000000;
+    --shady: #3d3b3b;
+    --gradient: #636363;
+}
+
+[theme=dark] {
+    --main-theme: #1d1d1d;
+    --secondary-theme: #ffffff;
+    --tertiary-theme: #292929;
+    --main-lightScroll: #d4d3d3;
+    --shady: #d1c8c8;
+    --gradient: #7d7d7d;
+}

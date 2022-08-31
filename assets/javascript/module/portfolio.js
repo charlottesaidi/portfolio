@@ -15,6 +15,13 @@ import Swiper from './swiper.js';
             },
             
         });
+
+        if(document.querySelector(".hex_modal")) {
+
+            document.addEventListener('click', (e) => {
+                console.log(e.target)
+            })
+        }
         
         if(document.querySelector('.portfolio_blocks')) {
             var blocks = $('.portfolio_blocks');

@@ -1,11 +1,11 @@
 {% if projects|default %}
 
-    {# DESKTOP #}
+    {# GALLERY #}
     <ul id="hexGrid">
         {% for project in projects %}
             <li class="hex">
                 <div class="hexIn">
-                    <a class="hexLink modal-trigger" data-target="modal1{{project.id}}">
+                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal2" data-project="{{project.id}}">
                         <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
                         <h2 class="white-text">{{project.title}}</h2>
                         {{project.description|raw}}
@@ -14,9 +14,9 @@
             </li>
         {% endfor %}
     </ul>
-
+    
     {# MODALS #}
-    {% for project in projects %}
+    {# {% for project in projects %}
         <div id="modal1{{project.id}}" class="modal hex_modal hidden">
             <div class="modal-content">
                 <li class="hex">
@@ -30,27 +30,6 @@
                 </li>
             </div>
         </div>    
-    {% endfor %}
-
-    {# MOBILE #}
-    <!-- Slider main container -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <ul class="swiper-wrapper">
-            <!-- Slides -->
-            {% for project in projects %}
-                <li class="hex swiper-slide">
-                    <div class="hexIn">
-                        <a class="hexLink modal-trigger" data-target="modal1{{project.id}}">
-                            <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                            <h2>{{project.title}}</h2>
-                            {{project.description|raw}}
-                        </a>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-        <div class="swiper-scrollbar"></div>
-    </div>
+    {% endfor %} #}
 
 {% endif %}
