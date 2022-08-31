@@ -105,6 +105,7 @@ body {
       visibility: visible;
       outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
     }
+    
     .hexLink {
         display:block;
         width: 100%;
@@ -112,6 +113,7 @@ body {
         text-align: center;
         color: #fff;
         overflow: hidden;
+        cursor: pointer;
         -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
             -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
                 transform: skewY(-30deg) rotate3d(0,0,1,60deg);
@@ -132,7 +134,7 @@ body {
     .hexIn h2, .hexIn div {
       width: 100%;
       padding: 5%;
-      background-color: rgba(33, 150, 243, 0.8);
+      background-color: rgba(#ffe013, 0.8);
       box-sizing:border-box;
       font-weight: 300;
       -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
@@ -163,7 +165,28 @@ body {
             -ms-transform:translate3d(0,100%,0);
                 transform:translate3d(0,100%,0);
     }
+    .hexLink:not(.content) div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
     
+    /*** MODALS HEX  **********************************************************************/
+    .modal.hex_modal {
+        width: 63%;
+        overflow-y: inherit;
+        top: 3.5% !important;
+        box-shadow: none;
+        .hex {
+            width: 100%;
+            .hexLink h2, .hexLink h2, .hexLink h2,
+            .hexLink div, .hexLink div, .hexLink div {
+            -webkit-transform:translate3d(0,0,0);
+                -ms-transform:translate3d(0,0,0);
+                    transform:translate3d(0,0,0);
+            }
+        }
+    }
     
     /*** HOVER EFFECT  **********************************************************************/
     .hexLink:hover h2, .hexLink:focus h2, .hexLink:active h2,

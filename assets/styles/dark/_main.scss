@@ -87,6 +87,9 @@ body[theme=dark] {
             }
         }
     }
+    .modal.hex_modal {
+        background-color: transparent !important;
+    }
     .modal {
         background-color: $main-theme !important;
         .prefix {

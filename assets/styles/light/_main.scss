@@ -222,7 +222,6 @@ body[theme=light], body {
     }
     h1, h2, h3, h4, h5, .name, .job {
         font-family: "Qwigley", Helvetica, sans-serif;
-        color: #9b9797;
         margin: 0;
     }
     h6 {
@@ -440,7 +439,6 @@ body[theme=light], body {
         font-size: 40px;
     }
     .name {
-        padding: 20px 0;
         a.al {
             color: inherit;
             font-family: inherit;
@@ -480,7 +478,7 @@ body[theme=light], body {
         position: absolute;
         border-radius: 0 50%;
         top: 50% !important;
-        right: 1rem !important;
+        right: 0 !important;
         font-size: 25px;
         font-weight: 700;
         z-index: 3;
@@ -490,9 +488,6 @@ body[theme=light], body {
     }
     .caption {
         position: relative;
-        .job {
-            padding: 20px 0;
-        }
         height: 100vh;
         display: flex;
     }
@@ -564,6 +559,9 @@ body[theme=light], body {
     }
     .portfolio_blocks {
         display: none;
+    }
+    .modal.hex_modal {
+        background-color: transparent !important;
     }
     .modal {
         max-height: 85%;
