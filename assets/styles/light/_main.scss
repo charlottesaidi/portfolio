@@ -32,20 +32,20 @@ body {
         backdrop-filter: blur(81px);
     }
     .background {
-        position: absolute;
-        background: url('../../../public/images/background/desktop.webp') fixed no-repeat center;
-        background-size: cover;
+        // position: absolute;
+        // background: url('../../../public/images/background/desktop.webp') fixed no-repeat center;
+        // background-size: cover;
         width: 100%;
         height: 110vh;
         top: 0;
-        opacity: .1;
+        // opacity: .1;
     }
     .background::after {
         content: '';
         position:absolute;
         height: 100%;
         right: 0px;
-        width: 20px;
+        width: 0;
         background: var(--main-theme);
         background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
     }
@@ -56,16 +56,19 @@ body {
     .row.row_main {
         margin: 0 !important;
     }
-    .btn.white {
-        color: var(--secondary-theme);
-        svg {
-            stroke: var(--secondary-theme);
+    .btn {
+        &:not(.disabled), &.btn-large:not(.disabled) {
+            background: linear-gradient(270deg, #38a7e2 0, #003da7 100%);
         }
-    }
-    .btn.waves-effect {
-        border-radius: 15px 0;
-        transition: .3s ease-out;
-        margin: 1rem 0;
+        &.btn-large {
+            height: 45px;
+            line-height: 45px;
+        }
+        &.waves-effect {
+            border-radius: 50px;
+            transition: .3s ease-out;
+            margin: 1rem 0;
+        }
     }
 	&::-webkit-scrollbar, .modal1::-webkit-scrollbar {
 		width: 15px;
@@ -226,9 +229,6 @@ body {
     .hidden {
         display: none;
     }
-    .opaque {
-        opacity: 0;
-    }
     h6 {
         padding: 0 0 20px 0;
     }
@@ -236,7 +236,10 @@ body {
         font-weight: bold;
     }
     #logo {
-        transition: opacity .5s;
+        transition: all .5s;
+        &.out {
+            transform: translate3d(0,-105%,0)
+        }
     }
     .logo {
         position: absolute;
@@ -342,6 +345,11 @@ body {
     .mobile_nav_logo {
         margin-top: 50px;
         text-align: center;
+        svg {
+            g {
+                fill: var(--secondary-theme);
+            }
+        }
     }
     .sidenav {
         li {
@@ -445,6 +453,11 @@ body {
         font-size: 50px;
     }
     .box-caption {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
         transition: visibility 0.4s, opacity 0.4s linear;
         span {
             display: block;
@@ -453,27 +466,40 @@ body {
         margin: auto
     }
     .background_container {
+        width: 100%;
         background-color: var(--main-theme);
         position: fixed;
         top:0;
         left:0;
-        width: 33.3333%;
         height:100%;
         z-index:2;
         transition: all 0.5s;
+        &.shrink {
+            width: 33.3333%;
+            .background_trigger {
+                &.out {
+                    right: -1.5rem;
+                }
+            }
+            .background::after {
+                width: 20px;
+            }
+        }
     }
     .background_trigger {
-        display: none;
         position: absolute;
-        border-radius: 0 50%;
-        top: 50% !important;
-        right: 0 !important;
+        border-radius: 50%;
+        text-align: center;
+        top: 50%;
+        right: 2%;
+        height: 54px;
+        line-height: 54px;
+        width: 54px;
         font-size: 25px;
-        font-weight: 700;
+        font-weight: 400;
         z-index: 3;
-        &.out {
-            right: -5rem !important;
-        }
+        color: var(--secondary-theme);
+        border: 1px solid var(--secondary-theme);
     }
     .caption {
         position: relative;
@@ -537,10 +563,7 @@ body {
     .portfolio_blocks {
         display: none;
     }
-    .modal2.hex_modal {
-        background-color: transparent !important;
-    }
-    .modal1 {
+    .modal {
         max-height: 85%;
         padding: 0 0 20px 0;
         background-color: var(--tertiary-theme) !important;
@@ -667,7 +690,6 @@ body {
     }
     .page-footer.section {
         color: var(--secondary-theme);
-        padding: 50px 50px 20px 50px;
         .row {
             margin: 0;
         }
@@ -852,11 +874,12 @@ body[theme=dark] {
     .grey-text.text-darken-4, .grey-text.text-darken-1 {
         color: var(--secondary-theme) !important;
     }
+    .background::after {
+        background: var(--main-theme);
+        background: linear-gradient(90deg, rgba(29,29,29,0) 0%, rgba(29,29,29,1) 100%);
+    }
     .attribution_title {
         border-top: rgba(255, 255, 255, .1) 2px solid;
-    }
-    .background::after {
-        background: linear-gradient(90deg, rgba(29, 29, 29,0) 0%, rgba(29, 29, 29,1) 100%);
     }
     .card-panel {
         box-shadow: 0 2px 2px 0 rgba(0,0,0,0.94),

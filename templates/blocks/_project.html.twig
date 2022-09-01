@@ -5,7 +5,7 @@
         {% for project in projects %}
             <li class="hex">
                 <div class="hexIn">
-                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal2" data-project="{{project.id}}">
+                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
                         <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
                         <h2 class="white-text">{{project.title}}</h2>
                         {{project.description|raw}}
@@ -14,22 +14,24 @@
             </li>
         {% endfor %}
     </ul>
-    
-    {# MODALS #}
-    {# {% for project in projects %}
-        <div id="modal1{{project.id}}" class="modal hex_modal hidden">
-            <div class="modal-content">
-                <li class="hex">
+
+    {# SWIPER #}
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <ul class="swiper-wrapper">
+            <!-- Slides -->
+            {% for project in projects %}
+                <li class="hex swiper-slide">
                     <div class="hexIn">
-                        <a class="hexLink content" href="{{project.links[0].href}}">
+                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}">
                             <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                            <h2 class="white-text">{{project.title}}</h2>
+                            <h2>{{project.title}}</h2>
                             {{project.description|raw}}
                         </a>
                     </div>
                 </li>
-            </div>
-        </div>    
-    {% endfor %} #}
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endif %}

@@ -11,8 +11,8 @@ import './module/header.js';
 import './module/education.js';
 import './module/contact.js';
 
-$(function(){
+(function() {
     // PLUGINS INIT
     $('.sidenav').sidenav();
-    $('.modal').modal();    
-});
+    // $('.modal').modal();    
+})();

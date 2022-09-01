@@ -1,23 +1,15 @@
 {% if projects|default %}
-    {# MODAL SWIPER #}
-    <div class="modal_project_section">
-        <div class="modal transparent z-depth-0" id="modal2">
-            <div class="swiper modal-content" id="modal_content">
-                <ul class="swiper-wrapper">
-                    {% for project in projects %}
-                        <li id="{{project.id}}" class="hex hex_modal swiper-slide">
-                            <div class="hexIn">
-                                <a class="hexLink content" href="{{project.links[0].href}}">
-                                    <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                                    <h2>{{project.title}}</h2>
-                                    {{project.description|raw}}
-                                </a>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <div class="swiper-scrollbar"></div>
+
+    {# BOTTOM SHEET MODAL #}
+    {% for project in projects %}
+        <div id="modal1{{project.id}}" class="modal bottom-sheet z-depth-0">
+            <div class="modal-content">
+                <a class="" href="{{project.links[0].href}}">
+                    {# <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" /> #}
+                    <h2>{{project.title}}</h2>
+                    {{project.description|raw}}
+                </a>
             </div>
-        </div>  
-    </div>  
+        </div>
+    {% endfor %}
 {% endif %}

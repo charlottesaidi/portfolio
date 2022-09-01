@@ -2,26 +2,31 @@
     // Contact section
 
     if(document.querySelector('.js-contact')) {
-
+        
+        var elem = document.querySelectorAll('.modal.js-contact');
+        var contact = M.Modal.init(elem);
+        
         // Allow submit message if agree to rgpd
-        $('#agree').on('click', function(){
-            $('#submitted').toggleClass('disabled')
+        document.querySelector('#agree').addEventListener('click', function() {
+            document.querySelector('#submitted').classList.toggle('disabled');
         }) 
 
         // Toggle 
-        $(window).resize(function() {
+        window.addEventListener('resize', function() {
             if($(window).width() <= 320) {
-                $('span').addClass('hidden');
-                $('label').css('margin-left', '0')
+                document.querySelector('span').classList.add('hidden');
+                document.querySelector('label').style.marginLeft = '0';
             } else {
-                $('span').removeClass('hidden');
+                document.querySelector('span').classList.remove('hidden');
             }
         });
 
         // Success flash message
-        $('#close_flash_message').on('click', function() {
-            $('#flash_messages').addClass('hidden');
-        });
+        if(document.querySelector('#close_flash_message')) {
+            document.querySelector('#close_flash_message').addEventListener('click', function() {
+                document.querySelector('#flash_messages').classList.add('hidden');
+            });
+        }
     }
     
 })();

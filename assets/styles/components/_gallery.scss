@@ -84,7 +84,7 @@ body {
     .hexIn h2, .hexIn div {
       width: 100%;
       padding: 5%;
-      background-color: rgba(#ffe013, 0.8);
+      background-color: rgba(#00416A, 0.8);
       box-sizing:border-box;
       font-weight: 300;
       -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
@@ -135,67 +135,10 @@ body {
     }
 }
 
-/*** MODALS HEX SWIPER **********************************************************************/
+/*** HEX SWIPER **********************************************************************/
 body {
-    .modal_project_section {
-        .modal-overlay {
-            left: 33.333333%;
-        }
-    }
-    #modal2 {
-        &.open {
-            padding: 0;
-            top: 0 !important;
-            left: initial !important;
-            right: 6% !important;
-            width: 56% !important;
-            overflow: visible;
-            .modal-content {
-                padding: 0;
-            }
-        }
-        .hex {
-            &.swiper-slide-active.swiper-slide-visible {
-                width: 100%;
-                .hexLink {
-                    &.content {
-                        h2, div {
-                            -webkit-transform:translate3d(0,0,0);
-                                -ms-transform:translate3d(0,0,0);
-                                    transform:translate3d(0,0,0);
-                        }
-                    }
-                }
-            }
-            &:after {
-                padding-bottom: 80%;
-            }
-        }
-        .hexIn {
-            width: 70%;
-            padding-bottom: 80.851%;
-            margin: 0 15%;
-            h2 {
-                bottom: 49.9%
-            }
-        }
-    }  
-}
-@media screen and(max-width: 1250px) {
-    body {
-        #modal2 {
-            &.open {
-                top: 1% !important;
-                right: 6% !important;
-                width: 90% !important;
-            }
-        }
-        .modal_project_section {
-            .modal-overlay {
-                left: 0;
-                background: #ffffff;
-            }
-        }
+    .swiper {
+        display: none;
     }
 }
     
@@ -241,7 +184,7 @@ body {
     }
   }
 
-@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+@media (max-width: 600px) and (min-width: 501px) { /* <- 2-1  hexagons per row */
     #hexGrid {
         --item_on_row_1: 2;
         --item_on_row_2: 1;
@@ -251,12 +194,6 @@ body {
         .hex:nth-child(3n+3){ 
             margin-left:calc(var(--width)/2 * 1%);  
         }
-    }
-}
-
-@media (max-width: 400px) {
-    #hexGrid {
-        font-size: 13px;
     }
 }
 

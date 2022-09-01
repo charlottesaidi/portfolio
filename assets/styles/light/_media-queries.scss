@@ -1,27 +1,28 @@
 /* MEDIA QUERIES */
-@media screen and (max-width: 1250px) {
-    body[theme=light], body {
+@media screen and (max-width: 1150px) {
+    body {
         .right_side {
             margin-left: auto !important;
             width: 100% !important;
         }
         .background_container {
-            width: 100%;
-            .background_trigger {
-                display: block;
-            }
             &.shrink {
                 width: 0;
                 .box-caption {
                     visibility: hidden;
                     opacity: 0;
                 }
+                .background_trigger {
+                    &.out {
+                        right: -5rem;
+                    }
+                }
             }
         }
     }
 }
 @media screen and (max-width: 1024px) {
-    body[theme=light], body {
+    body {
         .background {
             background: url('../../../public/images/background/tablet.webp') no-repeat center;
             background-size: cover;
@@ -29,7 +30,7 @@
     }
 }
 @media screen and (max-width: 900px) {
-    body[theme=light], body {
+    body {
         header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
             display: none !important;
         }
@@ -58,14 +59,14 @@
     }
 }
 @media screen and (max-width: 860px) {
-    body[theme=light], body {
+    body {
         .main {
             width: 100%;
         }
     }
 }
 @media screen and (max-width: 800px) {
-    body[theme=light], body {
+    body {
         .box-caption {
             width: 60%;
         }
@@ -84,7 +85,7 @@
     }
 }
 @media screen and (max-width: 600px) {
-    body[theme=light], body {
+    body {
         font-size: 14px;
         .background {
             background: url('../../../public/images/background/mobile.webp') no-repeat center;
@@ -92,12 +93,12 @@
         }
         .background_trigger {
             display: block;
-            height: 35px !important;
-            width: 35px !important;
-            line-height: 35px !important;
+            height: 45px;
+            width: 45px;
+            line-height: 45px;
             font-size: 20px;
             &.out {
-                right: -4rem !important;
+                right: -4rem;
             }
         }
         #competences {
@@ -124,6 +125,7 @@
         .logo-img {
             width: 80px;
             height: 80px;
+            margin: auto;
         }
         .back-logo {
             left: 30px;
@@ -237,14 +239,14 @@
 
 /* OVERWRITE MATERIALIZECSS STYLE */
 @media only screen and (min-width: 993px) {
-    body[theme=light], body {
+    body {
         .container {
             width: 80%;
         }
     }
 }
 @media only screen and (max-width: 450px) {
-    body[theme=light], body {
+    body {
         .card-panel:not(.icon_title.card-panel, .change_theme.card-panel, .policy_main .card-panel) {
             padding: 24px 0;
         }
@@ -257,22 +259,34 @@
     }
 }
 @media only screen and (min-width: 900px) {
-    body[theme=light], body {
+    body {
         nav a.sidenav-trigger {
             display: none;
         }
     }
 }
 @media only screen and (max-width: 740px) {
-    body[theme=light], body {
+    body {
         #portfolio .row .col.m6 {
             width: 100%;
         }
     }
 }
 @media screen and (max-width: 500px) {
-    body[theme=light], body {
+    body {
         #contact .modal span.prefix {
+            display: none;
+        }
+        .swiper {
+            display: block;
+            padding-bottom: 25%;
+        }
+        #portfolio {
+            .container {
+                padding: 24px 5px;
+            }
+        }
+        #hexGrid {
             display: none;
         }
     }

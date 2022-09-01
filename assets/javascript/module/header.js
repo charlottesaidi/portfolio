@@ -2,6 +2,7 @@
     // Header
 
     var nav = $('#navigation');
+    var logo = $('#logo');
     var lastScrollPos = 0;
     var ticking = false;
 
@@ -27,6 +28,7 @@ function setHeaderState(nav, scrollPos, direction) {
     
     if(scrollPos >= offsetTop) {
         nav.addClass('z-depth-2 blur').removeClass('z-depth-0 transparent');
+        
     }
     else {
         nav.addClass('z-depth-0 transparent ').removeClass('z-depth-2 blur');
@@ -34,8 +36,10 @@ function setHeaderState(nav, scrollPos, direction) {
     if(direction > 0) {
         nav.addClass('nav-hidden');
         nav.addClass('blur').removeClass('transparent');
+        logo.classList.add('out');
     }
     else {
         nav.removeClass('nav-hidden');
+        logo.classList.remove('out');
     }
 }
