@@ -25,32 +25,36 @@
 
     <body id="body" theme="light">
 
-        {% set route_name = app.request.get('_route') %}
+        {% if app.request.get('_route') == 'home' %}
+            {% set home = true %}
+        {% else %}
+            {% set home = false %}
+        {% endif %}
 
+        <div class="background" id="particles-js"></div>
         {% include "blocks/components/_flashMessages.html.twig" %}
 
-        {% if route_name == 'home' %}
+        {% if home %}
             {% include "blocks/_header.html.twig" %}
+            
+            {% include "blocks/components/_trigger_button.html.twig" with {
+                classes: 'background_trigger',
+                target: 'slide-in'
+            } %}
 
             <div id="slide-in" class="background_container">
-                {% include "blocks/components/_trigger_button.html.twig" with {
-                    classes: 'background_trigger',
-                    target: 'slide-in'
-                } %}
                 <div id="caption-border" class="caption js-about">
-                    <div class="background">
-                        <div class="box-caption ">
-                            <div class="text-caption center-align">
-                                <h1><span class="name grey-text"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
-                                <span class="sep"></span>
-                                <span class="job light grey-text text-darken-1">Développeuse Web Junior</span></h1>
-                            </div>
-                
-                            <div id="aPropos" class="section scrollspy">
-                                <div class="container">
-                                    <div class="row valign-wrapper">
-                                        {% include "blocks/_presentation.html.twig" %}
-                                    </div>
+                    <div class="box-caption ">
+                        <div class="text-caption center-align">
+                            <h1><span class="name grey-text"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
+                            <span class="sep"></span>
+                            <span class="job light grey-text text-darken-1">Développeuse Web Junior</span></h1>
+                        </div>
+            
+                        <div id="aPropos" class="section scrollspy">
+                            <div class="container">
+                                <div class="row valign-wrapper">
+                                    {% include "blocks/_presentation.html.twig" %}
                                 </div>
                             </div>
                         </div>
@@ -62,18 +66,17 @@
                 projects: projects
             } %}
             {% include "blocks/contact/_new.html.twig" %}
-        {% elseif route_name == 'page' %}
+        {% else %}
             {% include "blocks/_page_header.html.twig" %}
         {% endif %}
 
-        <div id="pageTop" class="main scrollspy">
+        <div id="pageTop" class="main scrollspy right_side {% if home %}out{% endif %}">
             {% block body %}{% endblock %}
         </div>
         
-        {% if route_name == 'page' %}
+        {% if not home %}
             {% include "blocks/_footer.html.twig" %}
         {% endif %}
-        
         
     </body>
     

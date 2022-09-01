@@ -21,14 +21,6 @@
         }
     }
 }
-@media screen and (max-width: 1024px) {
-    body {
-        .background {
-            background: url('../../../public/images/background/tablet.webp') no-repeat center;
-            background-size: cover;
-        }
-    }
-}
 @media screen and (max-width: 900px) {
     body {
         header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
@@ -67,9 +59,6 @@
 }
 @media screen and (max-width: 800px) {
     body {
-        .box-caption {
-            width: 60%;
-        }
         h6 {
             &.competences {
                 font-size: 50px !important;
@@ -87,10 +76,6 @@
 @media screen and (max-width: 600px) {
     body {
         font-size: 14px;
-        .background {
-            background: url('../../../public/images/background/mobile.webp') no-repeat center;
-            background-size: cover;
-        }
         .background_trigger {
             display: block;
             height: 45px;
@@ -112,9 +97,6 @@
         }
         .section {
             padding: 50px 10px;
-        }
-        .box-caption {
-            width: 80%;
         }
         .logo {
             left: 50%;
@@ -242,6 +224,9 @@
     body {
         .container {
             width: 80%;
+        }
+        .right_side {
+            width: 66.6666666667%;
         }
     }
 }
