@@ -5,20 +5,22 @@ import {loadParticleJs} from './bundles/initParticles.js';
     // About side section
 
     if(document.querySelector('.js-about')) {
-        var options = {
-            color: particlesColorTheme(),
-            nb: 150,
-            speed: 2
-        }
-        // About section background
-        loadParticleJs('particles-js', options);
-
-        // background particle's color change when switch theme light/dark
-        var toggleSwitchTheme = document.getElementById("togButton");
-        toggleSwitchTheme.addEventListener("change", (e) => {
-            options.color = particlesColorTheme();
+        if(document.querySelector('#particles-js')) {
+            var options = {
+                color: particlesColorTheme(),
+                nb: 150,
+                speed: 2
+            }
+            // About section background
             loadParticleJs('particles-js', options);
-        })
+    
+            // background particle's color change when switch theme light/dark
+            var toggleSwitchTheme = document.getElementById("togButton");
+            toggleSwitchTheme.addEventListener("change", (e) => {
+                options.color = particlesColorTheme();
+                loadParticleJs('particles-js', options);
+            })
+        }
 
         // Slide in/out about section
         var trigger = document.querySelector('.background_trigger');

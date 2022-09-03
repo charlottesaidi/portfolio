@@ -1,9 +1,11 @@
 {% if projects|default %}
 
     {# GALLERY #}
-    <ul id="hexGrid">
-        {% for project in projects %}
-            <li class="hex">
+
+    {# Desktop Blocks #}
+    <div class="row hide-on-small-only">
+        <div class="col s4">
+            {% for project in projects|slice(0, 3) %}
                 <div class="hexIn">
                     <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
                         <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
@@ -11,27 +13,50 @@
                         {{project.description|raw}}
                     </a>
                 </div>
-            </li>
-        {% endfor %}
-    </ul>
-
-    {# SWIPER #}
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <ul class="swiper-wrapper">
-            <!-- Slides -->
-            {% for project in projects %}
-                <li class="hex swiper-slide">
-                    <div class="hexIn">
-                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}">
-                            <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                            <h2>{{project.title}}</h2>
-                            {{project.description|raw}}
-                        </a>
-                    </div>
-                </li>
             {% endfor %}
-        </ul>
+        </div>
+        <div class="col s4">
+            {% for project in projects|slice(3, 3) %}
+                <div class="hexIn">
+                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
+                        <h2 class="white-text">{{project.title}}</h2>
+                        {{project.description|raw}}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col s4">
+            {% for project in projects|slice(5, 3) %}
+                <div class="hexIn">
+                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                        <img src="{{asset('uploads/projets/' ~ project.image)}}" loading="lazy" alt="Maquette du projet {{project.title}}" />
+                        <h2 class="white-text">{{project.title}}</h2>
+                        {{project.description|raw}}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# Mobile Slideshow #}
+    <!-- Slideshow container -->
+    <div class="slideshow-container show-on-small">
+
+        <!-- Full-width images with number and caption text -->
+        {% for project in projects %}
+            <div class="slides fade">
+                <a class="slide_link" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                    <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" >
+                    <h2 class="slide_text">{{project.title}}</h2>
+                </a>
+            </div>
+        {% endfor %}
+
+        <!-- Next and previous buttons -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+
     </div>
 
 {% endif %}

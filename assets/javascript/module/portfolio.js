@@ -1,5 +1,3 @@
-import Swiper from './bundles/swiper.js';
-
 (function() {
     // Portfolio Section
     
@@ -7,34 +5,33 @@ import Swiper from './bundles/swiper.js';
 
         if(document.querySelector(".modal.bottom-sheet")) {
             var modals = document.querySelectorAll('.modal.bottom-sheet');
-            var projects = M.Modal.init(modals, {
-                'onCloseEnd': console.log('ok'),
-            });
-            console.log(projects)
+            var projects = M.Modal.init(modals);
         }
 
-        const swiper = new Swiper('.swiper', {
-            effect: 'cards',
-            speed: 400,
-            spaceBetween: 100,
-            scrollbar: {
-                el: '.swiper-scrollbar',
-                draggable: true,
-            },
+        if(document.querySelector(".slides")) {
+            let slideIndex = 1;
+            const $next = document.querySelector('.next');
+            const $prev = document.querySelector('.prev');
+
+            showSlides(slideIndex);
             
-        });
+            $prev.addEventListener('click', () => {showSlides(slideIndex += -1)});
+            $next.addEventListener('click', () => {showSlides(slideIndex += 1)});
 
-        if(document.querySelector(".hex_modal")) {
-
-            document.addEventListener('click', (e) => {
-                console.log(e.target)
-            })
-        }
+            function showSlides(n) {
+                let i;
+                let slides = document.querySelectorAll(".slides");
         
-        if(document.querySelector('.portfolio_blocks')) {
-            // 
+                if (n > slides.length) {slideIndex = 1} 
+                   
+                if (n < 1) {slideIndex = slides.length}
+        
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+        
+                slides[slideIndex-1].style.display = "block";  
+            }
         }
-
     }
-
 })();

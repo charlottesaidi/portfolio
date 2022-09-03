@@ -13,6 +13,5 @@ import './module/contact.js';
 
 (function() {
     // PLUGINS INIT
-    $('.sidenav').sidenav();
-    // $('.modal').modal();    
+    $('.sidenav').sidenav();  
 })();
