@@ -1,10 +1,6 @@
 /* MEDIA QUERIES */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1100px) {
     body {
-        .right_side {
-            margin-left: auto !important;
-            width: 100% !important;
-        }
         .background_container {
             &.shrink {
                 width: 0;
@@ -12,11 +8,15 @@
                     visibility: hidden;
                     opacity: 0;
                 }
-                .background_trigger {
-                    &.out {
-                        right: -5rem;
-                    }
-                }
+            }
+        }
+        .right_side {
+            width: 100%;
+        }
+        .background_trigger{
+            &.out {
+                right: initial;
+                left: 1%;
             }
         }
     }
@@ -50,13 +50,6 @@
         }
     }
 }
-@media screen and (max-width: 860px) {
-    body {
-        .main {
-            width: 100%;
-        }
-    }
-}
 @media screen and (max-width: 800px) {
     body {
         h6 {
@@ -82,12 +75,12 @@
             width: 45px;
             line-height: 45px;
             font-size: 20px;
-            &.out {
-                right: -4rem;
-            }
         }
         #competences {
             padding: 6rem 0 0 0;
+            .container {
+                width: 98%;
+            }
         }
         nav {
             height: 56px !important;
@@ -225,9 +218,6 @@
         .container {
             width: 80%;
         }
-        .right_side {
-            width: 66.6666666667%;
-        }
     }
 }
 @media only screen and (max-width: 450px) {
@@ -235,11 +225,18 @@
         .card-panel:not(.icon_title.card-panel, .change_theme.card-panel, .policy_main .card-panel) {
             padding: 24px 0;
         }
-        #contact .modal h4 {
-            padding: 24px;
-        }
-        #contact .modal .modal-content {
-            padding: 0;
+        .modal {
+            &:not(.bottom-sheet) {
+                h4 {
+                   padding: 24px;
+               }
+               .modal-content {
+                    padding: 0;
+                }
+            }
+            &.bottom-sheet {
+                font-size: 2.56rem;
+            }
         }
     }
 }
@@ -264,7 +261,14 @@
         }
         .swiper {
             display: block;
-            padding-bottom: 25%;
+            padding-bottom: 18%;
+            width: 100%;
+            .hexIn{
+                position: absolute;
+                width: 90%;
+                padding-bottom: 103.851%;
+                margin: 0 7%;
+            }
         }
         #portfolio {
             .container {
@@ -279,14 +283,6 @@
         margin-left: 1% !important;
         margin-right: 1% !important;
         width: 98% !important;
-    }
-}
-@media screen and (max-width: 450px) {
-    .modal h4 {
-        padding: 24px;
-    }
-    .modal .modal-content {
-        padding: 0;
     }
 }
 @media screen and (max-width: 320px) {

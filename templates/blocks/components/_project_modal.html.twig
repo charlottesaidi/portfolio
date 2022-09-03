@@ -4,10 +4,12 @@
     {% for project in projects %}
         <div id="modal1{{project.id}}" class="modal bottom-sheet z-depth-0">
             <div class="modal-content">
-                <a class="" href="{{project.links[0].href}}">
-                    {# <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" /> #}
+                <a class="modal-wrap-link" href="{{project.links[0].href}}">
                     <h2>{{project.title}}</h2>
                     {{project.description|raw}}
+                    {% for link in project.links %}
+                        <a class="btn btn-large waves-effect" href="{{link.href}}">{{link.title}}</a>
+                    {% endfor %}
                 </a>
             </div>
         </div>

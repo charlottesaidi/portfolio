@@ -1,125 +1,26 @@
-import './particleground.js';
+import {particlesColorTheme} from './bundles/initParticles.js';
+import {loadParticleJs} from './bundles/initParticles.js';
 
 (function() {
     // About side section
 
     if(document.querySelector('.js-about')) {
-        const currentTheme = localStorage.getItem("theme");
-        var color = currentTheme == 'light' ? '#1d1d1d' : '#ffffff';
-        
-        particlesJS('particles-js', {
-            "particles": {
-            "number": {
-                "value": 300,
-                "density": {
-                "enable": true,
-                "value_area": 800
-                }
-            },
-            "color": {
-                "value": color
-            },
-            "shape": {
-                "type": "circle",
-                "stroke": {
-                "width": 0,
-                "color": color
-                },
-                "polygon": {
-                "nb_sides": 5
-                },
-            },
-            "opacity": {
-                "value": 0.5,
-                "random": false,
-                "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-                }
-            },
-            "size": {
-                "value": 5,
-                "random": true,
-                "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-                }
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": color,
-                "opacity": 0.4,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 6,
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-                }
-            }
-            },
-            "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {
-                "enable": true,
-                "mode": "repulse"
-                },
-                "onclick": {
-                "enable": true,
-                "mode": "push"
-                },
-                "resize": true
-            },
-            "modes": {
-                "grab": {
-                "distance": 400,
-                "line_linked": {
-                    "opacity": 1
-                }
-                },
-                "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-                },
-                "repulse": {
-                "distance": 200
-                },
-                "push": {
-                "particles_nb": 4
-                },
-                "remove": {
-                "particles_nb": 2
-                }
-            }
-            },
-            "retina_detect": true,
-            "config_demo": {
-            "hide_card": false,
-            "color": color,
-            "background_image": "",
-            "background_position": "50% 50%",
-            "background_repeat": "no-repeat",
-            "background_size": "cover"
-            }
+        var options = {
+            color: particlesColorTheme(),
+            nb: 150,
+            speed: 2
         }
-        );
+        // About section background
+        loadParticleJs('particles-js', options);
 
+        // background particle's color change when switch theme light/dark
+        var toggleSwitchTheme = document.getElementById("togButton");
+        toggleSwitchTheme.addEventListener("change", (e) => {
+            options.color = particlesColorTheme();
+            loadParticleJs('particles-js', options);
+        })
+
+        // Slide in/out about section
         var trigger = document.querySelector('.background_trigger');
  
         trigger.addEventListener('click', (e) => {

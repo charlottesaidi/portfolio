@@ -38,12 +38,12 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
-        $this->mailer->sendAdminEmail(
-            'authentication-success@admin-portfolio.fr', 'Connexion sur le compte Admin',
-            'charlotte.saidi@outlook.fr',
-            'Connexion à l\'interface Admin',
-            'security/authentication-success.html.twig'
-        );
+        // $this->mailer->sendAdminEmail(
+        //     'authentication-success@admin-portfolio.fr', 'Connexion sur le compte Admin',
+        //     'charlotte.saidi@outlook.fr',
+        //     'Connexion à l\'interface Admin',
+        //     'security/authentication-success.html.twig'
+        // );
 
         return new Passport(
             new UserBadge($email),

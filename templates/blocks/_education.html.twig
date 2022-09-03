@@ -1,23 +1,18 @@
 {% if education|default %}
-    <div class="timeline2">
+    {# <div class="timeline2">
         <ul>
             {% for formation in education %}
             <li>
                 <div class="card-panel inside">
                     <strong>{{formation.title}}</strong> 
-                    {# <p class="row"> #}
-                        {# <span class="school">&#128366;</span>  #}
                         <div class="school">
                             <strong>&#128366;</strong>
                             &nbsp; {{formation.description|raw}}
                         </div>
-                    {# </p> #}
-                    {# <p class="row"> #}
                         <div class="school">
                             <i class="location"></i> 
                             <p>&nbsp; {{formation.schoolName}}</p>
                         </div>
-                    {# </p> #}
                 </div>
                 <span class="time">
                     <span>{{formation.date|format_datetime(locale='fr', pattern="MMMM")|upper}}</span>
@@ -26,6 +21,28 @@
             </li>
             {% endfor %}
         </ul>
-    </div>
+    </div> #}
+
+    <section id="timeline">
+        {% for formation in education %}
+  
+            <div class="tl-item">
+                
+                <div class="tl-bg" style="background-image: url({{asset('uploads/formations/' ~ formation.thumbnail)}})"></div>
+                
+                <div class="tl-year">
+                    <p class="f2 heading--sanSerif">{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</p>
+                </div>
+
+                <div class="tl-content">
+                    <h3>{{formation.title}}</h3>
+                    <h4>{{formation.schoolName}}</h4>
+                    {{formation.description|raw}}
+                </div>
+
+            </div>
+
+        {% endfor %}
+    </section>
 
 {% endif %}

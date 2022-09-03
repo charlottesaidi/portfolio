@@ -1,4 +1,4 @@
-import Swiper from './swiper.js';
+import Swiper from './bundles/swiper.js';
 
 (function() {
     // Portfolio Section
@@ -7,7 +7,10 @@ import Swiper from './swiper.js';
 
         if(document.querySelector(".modal.bottom-sheet")) {
             var modals = document.querySelectorAll('.modal.bottom-sheet');
-            var projects = M.Modal.init(modals);
+            var projects = M.Modal.init(modals, {
+                'onCloseEnd': console.log('ok'),
+            });
+            console.log(projects)
         }
 
         const swiper = new Swiper('.swiper', {

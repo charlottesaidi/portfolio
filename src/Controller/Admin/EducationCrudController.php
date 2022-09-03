@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class EducationCrudController extends AbstractCrudController
@@ -23,6 +24,10 @@ class EducationCrudController extends AbstractCrudController
             TextEditorField::new('description', 'Description'),
             Field::new('school_name', 'Etablissement, lieu (département)'),
             Field::new('date', 'Date'),
+            ImageField::new('thumbnail', 'Image')
+                ->setBasePath('uploads/formations')
+                ->setUploadDir('public/uploads/formations')
+                ->setUploadedFileNamePattern('[randomhash].[extension]'),
             AssociationField::new('status', 'Status de publication'),
         ];
     }

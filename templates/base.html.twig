@@ -31,10 +31,11 @@
             {% set home = false %}
         {% endif %}
 
-        <div class="background" id="particles-js"></div>
         {% include "blocks/components/_flashMessages.html.twig" %}
 
-        {% if home %}
+        {% if app.request.get('_route') == 'home' %}
+        <div class="background" id="particles-js"></div>
+        
             {% include "blocks/_header.html.twig" %}
             
             {% include "blocks/components/_trigger_button.html.twig" with {
@@ -53,9 +54,7 @@
             
                         <div id="aPropos" class="section scrollspy">
                             <div class="container">
-                                <div class="row valign-wrapper">
-                                    {% include "blocks/_presentation.html.twig" %}
-                                </div>
+                                {% include "blocks/_presentation.html.twig" %}
                             </div>
                         </div>
                     </div>
@@ -70,8 +69,8 @@
             {% include "blocks/_page_header.html.twig" %}
         {% endif %}
 
-        <div id="pageTop" class="main scrollspy right_side {% if home %}out{% endif %}">
-            {% block body %}{% endblock %}
+        <div id="pageTop" class="main scrollspy {% if home %}right_side out{% endif %}">
+            {% block body %}  {% endblock %}
         </div>
         
         {% if not home %}

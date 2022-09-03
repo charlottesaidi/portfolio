@@ -20,7 +20,7 @@ body {
     #hexGrid {
       display: flex;
       flex-wrap: wrap;
-      width: 90%;
+      width: 100%;
       margin: 0 auto;
       overflow: hidden;
       font-family: 'Raleway', sans-serif;
@@ -40,9 +40,9 @@ body {
     }
     .hexIn{
       position: absolute;
-      width:96%;
-      padding-bottom: 110.851%; /* =  width / sin(60) */
-      margin:0 2%;
+      width: 98%;
+      padding-bottom: 113.851%;
+      margin: 0 0%;
       overflow: hidden;
       visibility: hidden;
       outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
@@ -124,7 +124,7 @@ body {
     /*** HOVER EFFECT  **********************************************************************/
     .hexLink {
         &.hex_modal-trigger {
-            &:hover, &:focus, &:active {
+            &:hover, &:focus, &:active, &.active {
                 h2, div {
                     -webkit-transform:translate3d(0,0,0);
                         -ms-transform:translate3d(0,0,0);

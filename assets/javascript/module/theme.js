@@ -1,10 +1,17 @@
-import {switchTheme} from './function';
 (function() {
     // Switch theme light/dark
     
     var toggleSwitch = document.getElementById("togButton");
 
-    toggleSwitch.addEventListener("change", switchTheme, false);
+    toggleSwitch.addEventListener("change", (e) => {
+            if (e.target.checked) {
+                document.body.setAttribute("theme", "dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.body.setAttribute("theme", "light");
+                localStorage.setItem("theme", "light");
+            }
+    });
 
     //  Keep theme chosen in memory
     const currentTheme = localStorage.getItem("theme");
