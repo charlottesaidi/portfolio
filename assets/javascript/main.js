@@ -10,8 +10,3 @@ import './module/header.js';
 // import './module/competence.js';
 import './module/education.js';
 import './module/contact.js';
-
-(function() {
-    // PLUGINS INIT
-    $('.sidenav').sidenav();  
-})();

@@ -1,5 +1,9 @@
 {% if presentation|default %}
-
+    {# <div class="logo">
+        <div class="logo_img_block">
+            {% include "blocks/components/_logo.html.twig" %}
+        </div>
+    </div> #}
     <div id="caption-border" class="caption js-about">
         <div class="box-caption ">
             <div class="text-caption center-align">
@@ -16,6 +20,15 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="hidden" id="side_nav">
+        <ul class="collection">
+            <li class="collection-item"><a href="#projects">PORTOLIO</a></li>
+            <li class="collection-item"><a href="#cursus">PARCOURS</a></li>
+            <li class="collection-item"><a href="#tools">ENVIRONNEMENT</a></li>
+            <li class="collection-item"><a href="#contact-me">CONTACT</a></li>
+        </ul>
     </div>
     
 {% endif %}

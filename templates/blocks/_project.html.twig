@@ -3,39 +3,48 @@
     {# GALLERY #}
 
     {# Desktop Blocks #}
-    <div class="row hide-on-small-only">
-        <div class="col s4">
-            {% for project in projects|slice(0, 3) %}
-                <div class="hexIn">
-                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                        <h2 class="white-text">{{project.title}}</h2>
-                        {{project.description|raw}}
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col s4">
-            {% for project in projects|slice(3, 3) %}
-                <div class="hexIn">
-                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                        <h2 class="white-text">{{project.title}}</h2>
-                        {{project.description|raw}}
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col s4">
-            {% for project in projects|slice(5, 3) %}
-                <div class="hexIn">
-                    <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                        <img src="{{asset('uploads/projets/' ~ project.image)}}" loading="lazy" alt="Maquette du projet {{project.title}}" />
-                        <h2 class="white-text">{{project.title}}</h2>
-                        {{project.description|raw}}
-                    </a>
-                </div>
-            {% endfor %}
+    <div class="gallery hide-on-small-only">
+        {% if tools|default %}
+            <div class="tool_badges row">
+                {% for tool in tools %}
+                    <a href="#"><span class="badge col">{{tool.title}}</span></a>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col s4">
+                {% for project in projects|slice(0, 4) %}
+                    <div class="hexIn">
+                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                            <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
+                            <h2>{{project.title}}</h2>
+                            {{project.description|raw}}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col s4">
+                {% for project in projects|slice(4, 4) %}
+                    <div class="hexIn">
+                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                            <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
+                            <h2>{{project.title}}</h2>
+                            {{project.description|raw}}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col s4">
+                {% for project in projects|slice(8, 4) %}
+                    <div class="hexIn">
+                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                            <img src="{{asset('uploads/projets/' ~ project.image)}}" loading="lazy" alt="Maquette du projet {{project.title}}" />
+                            <h2>{{project.title}}</h2>
+                            {{project.description|raw}}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="nav-wrapper col s12 m12">
-                <ul class="right hide-on-small-only">
+                <ul class="right">
                     <li><a class="rgpd-head-link grey-text text-darken-2" href="{{path('home')}}">Retour au Portfolio</a></li>
                     <li>
                         {% include "blocks/components/_day-night-switch.html.twig" with {
@@ -16,28 +16,7 @@
                         }  %}
                     </li>
                 </ul>
-                <a href="#" data-target="slide-out" class="right sidenav-trigger">
-                    <svg height="30" viewBox="0 0 100 100">
-                        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                        <path class="line line2" d="M 20,50 H 80" />
-                        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-                    </svg>
-                </a>
             </div>
         </nav>
     </div>
-    <!-- Mobile Menu -->
-    <ul id="slide-out" class="sidenav nav right blur">
-        <li class="right-align">
-            {% include "blocks/components/_day-night-switch.html.twig" with {
-                id: 'togMobileButton'
-            } %}
-            <a class="sidenav-close grey-text text-darken-2" href="#">X</a>
-        </li>
-        <li><a class="sidenav-close sidenav-head-link grey-text text-darken-2" href="{{path('home')}}">Retour au Portfolio</a></li>
-        <li class="mobile_nav_logo">
-            {% include "blocks/components/_logo.html.twig" %}
-        </li>
-    </ul>
-    <!-- Mobile Menu -->
 </header>

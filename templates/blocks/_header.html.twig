@@ -1,9 +1,13 @@
 <header id="header">
     <div class="row" style="margin: 0px; text-align: center;">
+        {% if app.request.get('_route') != 'home' %}
+        
         <div class="logo" id="logo">
             <div class="logo_img_block">
                 {% include "blocks/components/_logo.html.twig" %}
             </div>
         </div>
+
+        {% endif %}
     </div>
 </header>

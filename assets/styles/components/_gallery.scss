@@ -18,8 +18,9 @@ body {
         padding: 0;
     }
     .hexIn {
-        margin: 2px;
+        border: solid 3px #ffffff;
         .hexLink {
+            color: #ffffff;
             display:block;
             text-align: center;
             overflow: hidden;
@@ -32,6 +33,7 @@ body {
                 position: absolute;
                 width: 100%;
                 padding: 5%;
+                background-color: transparentize(#031625, .15);
                 box-sizing:border-box;
                 font-weight: 300;
                 -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
@@ -95,13 +97,13 @@ body {
             }
             .slide_text {
                 font-size: 2.5rem!important;
-                color: #f2f2f2;
+                color: #ffffff;
                 font-size: 15px;
-                padding: 8px 12px;
                 position: absolute;
-                bottom: 8px;
+                bottom: 10%;
                 width: 100%;
                 text-align: center;
+                transition: height .6s;
                 z-index: 1;
             }
             &.fade {
@@ -111,17 +113,20 @@ body {
             &:after {
                 content: '';
                 position: absolute;
-                top: 0;
+                bottom: 0;
                 width: 100%;
                 height: 100%;
+                background-color: transparentize(#031625, .15);
                 transition: height .6s;
-                
             }
             &:hover {
                 &:after {
                     height: 0;
-                    
                 }
+                .slide_text {
+                    height: 0;
+                }
+
             }
             .slide_link {
                 display: block;

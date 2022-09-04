@@ -14,24 +14,19 @@ use App\Repository\BlockRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillsRepository;
+use App\Repository\OutilsRepository;
 
 class DefaultController extends AbstractController
 {
-    public $presentationRepo;
-    public $pageRepository;
-    public $blockRepository;
-    public $educationRepo;
-    public $projectRepo;
-    public $skillsRepo;
-
-    public function __construct(BlockRepository $blockRepository, PageRepository $pageRepository, PresentationRepository $presentationRepo, EducationRepository $educationRepo, ProjectRepository $projectRepo, SkillsRepository $skillsRepo) {
-        $this->presentationRepo = $presentationRepo;
-        $this->pageRepository = $pageRepository;
-        $this->blockRepository = $blockRepository;
-        $this->educationRepo = $educationRepo;
-        $this->projectRepo = $projectRepo;
-        $this->skillsRepo = $skillsRepo;
-    }
+    public function __construct(
+        private BlockRepository $blockRepository, 
+        private PageRepository $pageRepository, 
+        private PresentationRepository $presentationRepo, 
+        private EducationRepository $educationRepo, 
+        private ProjectRepository $projectRepo,  
+        private OutilsRepository $toolRepo, 
+        private SkillsRepository $skillsRepo
+    ) {}
 
     public function index(Request $request): Response
     {
@@ -81,6 +76,7 @@ class DefaultController extends AbstractController
             'presentation' => $this->presentationRepo->findLatest(),
             'projects' => $this->projectRepo->getAllProject(),
             'education' => $this->educationRepo->getAllEducation(),
+            'tools' => $this->toolRepo->findAll(),
             'skill_outer_circle' => $skill_outer_circle,
             'skill_middle_circle' => $skill_middle_circle,
             'skill_inner_circle' => $skill_inner_circle,

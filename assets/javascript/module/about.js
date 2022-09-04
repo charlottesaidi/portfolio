@@ -24,16 +24,20 @@ import {loadParticleJs} from './bundles/initParticles.js';
 
         // Slide in/out about section
         var trigger = document.querySelector('.background_trigger');
+        var main_body = document.querySelector('.right_side');
+        var background = document.querySelector('.background');
  
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             var container = document.querySelector('#'+e.target.dataset.target);
-            var main_body = document.querySelector('.right_side');
-            var background = document.querySelector('.background');
             container.classList.toggle('shrink');
             background.classList.toggle('shrink');
             e.target.classList.toggle('out');
             main_body.classList.toggle('out');
+
+            $('.caption').fadeToggle();
+            $('#side_nav').fadeToggle();
+            $('#logo').fadeToggle();
         })
     }
 

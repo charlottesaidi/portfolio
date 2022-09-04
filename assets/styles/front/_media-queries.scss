@@ -1,13 +1,16 @@
 /* MEDIA QUERIES */
 @media screen and (max-width: 1100px) {
     body {
+        nav {
+            &.nav-hidden {
+                &, .logo {
+                    transform: translate3d(0,-100%,0)
+                }
+            }
+        }
         .background_container {
             &.shrink {
                 width: 0;
-                .box-caption {
-                    visibility: hidden;
-                    opacity: 0;
-                }
             }
         }
         .right_side {
@@ -17,6 +20,11 @@
             &.out {
                 right: initial;
                 left: 1%;
+            }
+        }
+        #portfolio {
+            .container {
+                padding: 7rem 0 0 0
             }
         }
     }
@@ -46,8 +54,8 @@
 }
 @media screen and (max-width: 800px) {
     body {
-        h6 {
-            &.competences {
+        .section_titles {
+            h6 {
                 font-size: 50px !important;
             }
         }
@@ -177,8 +185,8 @@
 }
 @media screen and (max-width: 400px) {
     body[theme=light] .section, body {
-        h6 {
-            &.competences {
+        .section_titles {
+            h6 {
                 font-size: 40px !important;
             }
         }
