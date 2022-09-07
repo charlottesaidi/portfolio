@@ -1,23 +1,40 @@
 (function() {
-    // Header
+    // Headers
 
-    var nav = $('#navigation');
-    var logo = $('#logo');
-    var lastScrollPos = 0;
-    var ticking = false;
+    if(document.querySelector('#navigation')) {
+        var nav = document.querySelector('#navigation');
+        var lastScrollPos = 0;
+        var ticking = false;
+    
+        window.addEventListener('scroll', function() {
+            var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+            var direction = scrollPos > lastScrollPos ? 1 : -1;
+            if(!ticking) {
+                window.requestAnimationFrame(function() {
+                    setHeaderState(nav, scrollPos, direction)
+                    ticking = false;
+                })
+            }
+            lastScrollPos = (scrollPos <= 0) ? 0 : scrollPos;
+            ticking = true;
+        });
+    }
 
-    $(window).on('scroll', function() {
-        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-        var direction = scrollPos > lastScrollPos ? 1 : -1;
-        if(!ticking) {
-            window.requestAnimationFrame(function() {
-                setHeaderState(nav, scrollPos, direction)
-                ticking = false;
-            })
-        }
-        lastScrollPos = (scrollPos <= 0) ? 0 : scrollPos;
-        ticking = true;
-    });
+    if(document.querySelector('#slide-out')) {
+        var burgermenu = document.querySelector('.burgermenu');
+        var navs = document.querySelectorAll('.sidenav');
+        var sidenav = M.Sidenav.init(navs, {
+            "preventScrolling": true
+        });
+        
+        burgermenu.addEventListener('click', (e) => {
+            navs.forEach(nav => {
+                var sidenav_instance = M.Sidenav.getInstance(nav);
+                burgermenu.classList.contains('opened') ? sidenav_instance.close() : sidenav_instance.open();
+            });
+            burgermenu.classList.toggle('opened');
+        })
+    }
 
 })();
 
@@ -27,19 +44,17 @@ function setHeaderState(nav, scrollPos, direction) {
     var offsetTop = (window.outerWidth >= 1080) ? 42 : 12;
     
     if(scrollPos >= offsetTop) {
-        nav.addClass('z-depth-2 blur').removeClass('z-depth-0 transparent');
-        
+        nav.classList.remove('transparent');
     }
     else {
-        nav.addClass('z-depth-0 transparent ').removeClass('z-depth-2 blur');
+        nav.classList.add('transparent');
+        nav.classList.remove('z-depth-2');
     }
     if(direction > 0) {
-        nav.addClass('nav-hidden');
-        nav.addClass('blur').removeClass('transparent');
-        logo.classList.add('out');
+        nav.classList.add('hidden');
+        nav.classList.remove('transparent');
     }
     else {
-        nav.removeClass('nav-hidden');
-        logo.classList.remove('out');
+        nav.classList.remove('hidden');
     }
 }

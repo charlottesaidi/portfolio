@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,6 @@
         <link rel="mask-icon" href="{{asset('images/favicon//safari-pinned-tab.svg')}}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-        <meta name="robots" content="noindex,nofollow"> 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -25,41 +24,15 @@
 
     <body id="body" theme="light">
 
-        {% if app.request.get('_route') == 'home' %}
-            {% set home = true %}
-        {% else %}
-            {% set home = false %}
+        {% if app.request.get('_route') != 'home' %}
+            {% include "blocks/_header.html.twig" %}
         {% endif %}
 
         {% include "blocks/components/_flashMessages.html.twig" %}
 
-        {% if app.request.get('_route') == 'home' %}
-        <div class="background" id="particles-js"></div>
+        {% block body %}  {% endblock %}
         
-            {% include "blocks/_header.html.twig" %}
-            
-            {% include "blocks/components/_trigger_button.html.twig" with {
-                classes: 'background_trigger',
-                target: 'slide-in'
-            } %}
-
-            <div id="slide-in" class="background_container">
-                {% include "blocks/_presentation.html.twig" %}
-            </div>
-            
-            {% include "blocks/components/_project_modal.html.twig" with {
-                projects: projects
-            } %}
-            {% include "blocks/contact/_new.html.twig" %}
-        {% else %}
-            {% include "blocks/_page_header.html.twig" %}
-        {% endif %}
-
-        <div id="pageTop" class="main scrollspy {% if home %}right_side out{% endif %}">
-            {% block body %}  {% endblock %}
-        </div>
-        
-        {% if not home %}
+        {% if app.request.get('_route') != 'home' %}
             {% include "blocks/_footer.html.twig" %}
         {% endif %}
         

@@ -28,7 +28,7 @@ class ProjectRepository extends ServiceEntityRepository
             ->join('p.outils', 'o')
             ->andWhere('s.title = :val')
             ->setParameter('val', 'published')
-            ->orderBy('p.created_at', 'DESC')
+            ->orderBy('p.created_at', 'ASC')
             ->getQuery()
             ->getResult()
         ;

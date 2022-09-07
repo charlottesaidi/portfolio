@@ -1,16 +1,17 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('auth') }}
 {% endblock %}
 
 {% block title %}Connexion à l'Admin{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row valign-wrapper">
-        <div class="card-panel">
-            <p>Connexion réussie sur l'espace administrateur. Vérifiez les adresses de connexion et mots de passe.</p>
+<div class="container_login">
+    <div class="main">
+        <div class="row valign-wrapper">
+            <div class="card-panel">
+                <p>Connexion réussie sur l'espace administrateur. Vérifiez les adresses de connexion et mots de passe.</p>
+            </div>
         </div>
     </div>
 </div>

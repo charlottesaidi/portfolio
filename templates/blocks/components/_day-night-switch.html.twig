@@ -2,5 +2,6 @@
 {% set class = class|default %}
 {% set wrap_class = wrap_class|default %}
 <div class="wrapper {{wrap_class}}">
-    <input type="checkbox" name="checkbox" class="switch {{class}}" id="{{id}}">
+    <label for="switch" class="hidden"></label>
+    <input type="checkbox" name="switch" class="switch {{class}}" id="{{id}}">
 </div>

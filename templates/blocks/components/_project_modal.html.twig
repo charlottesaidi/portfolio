@@ -4,13 +4,25 @@
     {% for project in projects %}
         <div id="modal1{{project.id}}" class="modal bottom-sheet z-depth-0">
             <div class="modal-content">
-                <a class="modal-wrap-link" href="{{project.links[0].href}}">
-                    <h2>{{project.title}}</h2>
-                    {{project.description|raw}}
-                    {% for link in project.links %}
-                        <a class="btn btn-large waves-effect" href="{{link.href}}">{{link.title}}</a>
-                    {% endfor %}
-                </a>
+                <div class="container">
+                    <div class="row center-align">
+                        <h3>{{project.title|upper}}</h3>
+                        {{project.description|raw}}
+                    </div>
+                    <div class="row center-align">
+                        <h4>Technologies</h4>
+                        <p class="tool_badges">
+                            {% for tool in project.outils %}
+                                <span class="badge">{{tool.title}}</span>
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="row center-align">
+                        {% for link in project.links %}
+                            <a class="btn btn-large waves-effect" href="{{link.href}}">{{link.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     {% endfor %}

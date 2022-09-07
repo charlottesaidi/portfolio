@@ -1,13 +1,44 @@
-<header id="header">
-    <div class="row" style="margin: 0px; text-align: center;">
-        {% if app.request.get('_route') != 'home' %}
-        
-        <div class="logo" id="logo">
-            <div class="logo_img_block">
-                {% include "blocks/components/_logo.html.twig" %}
-            </div>
-        </div>
+{% if app.request.get('_route') == 'home' %}
+    {% set sideBody = true %}
+{% else %}
+    {% set sideBody = false %}
+{% endif %}
+{% set classes = classes|default %}
+{% set id = id|default %}
+{% set button_classes = button_classes|default %}
 
-        {% endif %}
-    </div>
-</header>
+{% if sideBody %}
+    <header class="{{classes}} sidenav_container" id="{{id}}">
+        
+        <ul class="collection">
+            <li class="collection-item transparent"><a href="#projects">PORTOLIO</a></li>
+            <li class="collection-item transparent"><a href="#cursus">PARCOURS</a></li>
+            <li class="collection-item transparent"><a href="#tools">ENVIRONNEMENT</a></li>
+            <li class="collection-item transparent"><a href="#contact-me">CONTACT</a></li>
+        </ul>
+        
+    </header>
+{% else %}
+    <header id="header" class="page_header">
+        <div class="row" style="margin: 0px; text-align: center;">
+            <nav id="navigation" class="transparent nav z-depth-2">
+                <div class="logo" id="logo">
+                    <div class="logo_img_block">
+                        {% include "blocks/components/_logo.html.twig" %}
+                    </div>
+                </div>
+                <div class="nav-wrapper col s12 m12">
+                    <ul class="right">
+                        <li><a class="rgpd-head-link" href="{{path('home')}}">Retour au Portfolio</a></li>
+                        <li>
+                            {% include "blocks/components/_day-night-switch.html.twig" with {
+                                id: 'togButton',
+                                class: 'page_button'
+                            }  %}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+{% endif %}

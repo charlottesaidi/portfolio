@@ -21,7 +21,18 @@
 @import "components/collapsible";
 @import "components/forms/forms";
 @import "components/sidenav";
-
+@import "components/cards";
+@import 'components/switch-button.scss';
+@import "components/burger_button.scss";
 @import "components/swiper";
 @import "components/gallery";
 @import "components/timeline";
+@import "components/progress_bar.scss";
+
+// Styles
+@import 'front/_variables.scss';
+@import "front/_fonts.scss";
+@import "front/_main.scss";
+@import "front/_error.scss";
+@import "front/_auth.scss";
+@import 'front/_media-queries';

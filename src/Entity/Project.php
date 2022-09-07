@@ -45,7 +45,7 @@ class Project
     private $status;
 
     /**
-     * @ORM\OneToMany(targetEntity=Links::class, mappedBy="project", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity=Links::class, mappedBy="project", cascade={"remove"}, orphanRemoval=true)
      */
     private $links;
 

@@ -1,10 +1,10 @@
 {% if presentation|default %}
-    {# <div class="logo">
-        <div class="logo_img_block">
-            {% include "blocks/components/_logo.html.twig" %}
-        </div>
-    </div> #}
     <div id="caption-border" class="caption js-about">
+        <div class="logo">
+            <div class="logo_img_block">
+                {% include "blocks/components/_logo.html.twig" %}
+            </div>
+        </div>
         <div class="box-caption ">
             <div class="text-caption center-align">
                 <h1><span class="name grey-text text-lighten-1"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
@@ -20,15 +20,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="hidden" id="side_nav">
-        <ul class="collection">
-            <li class="collection-item"><a href="#projects">PORTOLIO</a></li>
-            <li class="collection-item"><a href="#cursus">PARCOURS</a></li>
-            <li class="collection-item"><a href="#tools">ENVIRONNEMENT</a></li>
-            <li class="collection-item"><a href="#contact-me">CONTACT</a></li>
-        </ul>
     </div>
     
 {% endif %}

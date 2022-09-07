@@ -1,0 +1,17 @@
+.container_login {
+    .main {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgb(var(--main-theme));
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .container_login {
+        //
+    }
+}

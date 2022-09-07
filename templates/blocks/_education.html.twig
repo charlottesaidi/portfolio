@@ -1,27 +1,4 @@
 {% if education|default %}
-    {# <div class="timeline2">
-        <ul>
-            {% for formation in education %}
-            <li>
-                <div class="card-panel inside">
-                    <strong>{{formation.title}}</strong> 
-                        <div class="school">
-                            <strong>&#128366;</strong>
-                            &nbsp; {{formation.description|raw}}
-                        </div>
-                        <div class="school">
-                            <i class="location"></i> 
-                            <p>&nbsp; {{formation.schoolName}}</p>
-                        </div>
-                </div>
-                <span class="time">
-                    <span>{{formation.date|format_datetime(locale='fr', pattern="MMMM")|upper}}</span>
-                    <span>{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</span>
-                </span>
-            </li>
-            {% endfor %}
-        </ul>
-    </div> #}
 
     <section id="timeline">
         {% for formation in education %}

@@ -26,7 +26,7 @@ import {loadParticleJs} from './bundles/initParticles.js';
         var trigger = document.querySelector('.background_trigger');
         var main_body = document.querySelector('.right_side');
         var background = document.querySelector('.background');
- 
+
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             var container = document.querySelector('#'+e.target.dataset.target);
@@ -38,6 +38,9 @@ import {loadParticleJs} from './bundles/initParticles.js';
             $('.caption').fadeToggle();
             $('#side_nav').fadeToggle();
             $('#logo').fadeToggle();
+            if(screen.width <= 1100 || window.innerWidth <= 1100) {
+                $('.burger_container').fadeToggle();
+            }
         })
     }
 

@@ -1,0 +1,12 @@
+{% set title = title|default %}
+{% set message = message|default %}
+{% set emoji = emoji|default %}
+
+<div class="error card-panel">
+    <div class="error-message">
+    {% set referer = app.request.server.get('http-referer')|default('/') %}
+        <h1>{{title}}</h1>
+        <h2>{{message}}<span class="emojis">{{emoji|raw}}</span></h2>
+    </div>
+    <a class="btn btn-large waves-effect" href="{{referer}}">Retour</a>
+</div>
