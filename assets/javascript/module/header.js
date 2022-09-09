@@ -28,6 +28,7 @@
         });
         
         burgermenu.addEventListener('click', (e) => {
+            e.preventDefault();
             navs.forEach(nav => {
                 var sidenav_instance = M.Sidenav.getInstance(nav);
                 burgermenu.classList.contains('opened') ? sidenav_instance.close() : sidenav_instance.open();

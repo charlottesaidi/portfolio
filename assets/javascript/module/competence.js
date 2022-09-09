@@ -18,7 +18,6 @@
             skill.addEventListener('mouseenter', (e) => {
                 var id = e.target.dataset.target;
                 var value = e.target.dataset.value;
-                console.log(e)
                 var skill_card = document.querySelector('#skill_card'+id);
                 skill_card.classList.remove('hidden');
 

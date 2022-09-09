@@ -33,46 +33,42 @@
     } %}
 
     <div id="pageTop" class="main scrollspy right_side out">
-
-        <div class="body">
-            <section>
-            
-                {% include "blocks/components/_day-night-switch.html.twig" with {
-                    id: 'togButton',
-                    class: 'desktop_button',
-                } %}
-
-                <div id="projects" class="section_titles"><h2 class="center-align">PORTFOLIO</h2></div>
-                
-                <div id="portfolio" class="section scrollspy js-portfolio">
-                    <div class="container">
-                        {% include "blocks/_project.html.twig" %}
-                    </div>
-                </div>
-
-                <div id="cursus" class="section_titles"><h2 class="center-align">PARCOURS</h2></div>
-                
-                <div id="formations" class="section scrollspy js-education">
-                    <div class="container">
-                        <div class="row formations">
-                            {% include "blocks/_education.html.twig" %}
-                        </div>
-                    </div>
-                </div>
-
-                <div id="tools" class="section_titles"><h2 class="scenter-align">ENV</h2></div>
-                
-                <div id="competences" class="section scrollspy js-competence">
-                    <div class="container"> 
-                        {% include "blocks/_competences.html.twig" %}
-                    </div>  
-                </div>
     
-                <div id="contact-me" class="section_titles"><h2 class="center-align">CONTACT</h2></div>
-                
-                {% include "blocks/_contact.html.twig" %}
-            </section>
-        </div>
+        {% include "blocks/components/_day-night-switch.html.twig" with {
+            id: 'togButton',
+            class: 'desktop_button',
+        } %}
+
+        <div id="projects" class="section_titles"><h2 class="center-align">PORTFOLIO</h2></div>
+        
+        <section id="portfolio" class="section scrollspy js-portfolio">
+            <div class="container">
+                {% include "blocks/_project.html.twig" %}
+            </div>
+        </section>
+
+        <div id="cursus" class="section_titles"><h2 class="center-align">PARCOURS</h2></div>
+        
+        <section id="formations" class="section scrollspy js-education">
+            <div class="container">
+                <div class="row formations">
+                    {% include "blocks/_education.html.twig" %}
+                </div>
+            </div>
+        </section>
+
+        <div id="tools" class="section_titles"><h2 class="scenter-align">ENV</h2></div>
+        
+        <section id="competences" class="section scrollspy js-competence">
+            <div class="container"> 
+                {% include "blocks/_competences.html.twig" %}
+            </div>  
+        </section>
+
+        <section>
+            <div id="contact-me" class="section_titles"><h2 class="center-align">CONTACT</h2></div>
+            {% include "blocks/_contact.html.twig" %}
+        </section>
 
         {% include "blocks/_footer.html.twig" %}
         

@@ -4,49 +4,29 @@
 
     {# Desktop Blocks #}
     <div class="gallery hide-on-med-and-down">
-        {% if tools|default %}
+        {# {% if tools|default %}
             <div class="tool_badges row">
                 {% for tool in tools %}
                     <a href="#"><span class="badge">{{tool.title}}</span></a>
                 {% endfor %}
             </div>
-        {% endif %}
+        {% endif %} #}
 
-        <div class="grid_gallery">
+        {% set rows = (projects|length)/2 %}
+
+        <div class="grid_gallery" style="grid-template-rows: repeat({{rows|round(0, 'floor')}}, 13vw)!important;">
+            {% set i = 0 %}
             {% for project in projects %}
-            <div class="gallery__item--{{project.id}} grid_items" style="background:url('{{asset('uploads/projets/' ~ project.image)}}'); background-size: cover; background-position: top;">
+            {% set i = i+1 %}
+            <div class="gallery__item--{{i}} grid_items" style="background:url('{{asset('uploads/projets/' ~ project.image)}}'); background-size: cover; background-position: top;">
                 <div class="hexIn card">
                     <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                        {# <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" /> #}
                         <h3>{{project.title}}</h3>
                         {{project.description|raw}}
                     </a>
                 </div>
             </div>
             {% endfor %}
-
-            {# <div class="col s4">
-                {% for project in projects|slice(4, 4) %}
-                    <div class="hexIn card">
-                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                            <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" />
-                            <h3>{{project.title}}</h3>
-                            {{project.description|raw}}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="col s4">
-                {% for project in projects|slice(8, 4) %}
-                    <div class="hexIn card">
-                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
-                            <img src="{{asset('uploads/projets/' ~ project.image)}}" loading="lazy" alt="Maquette du projet {{project.title}}" />
-                            <h3>{{project.title}}</h3>
-                            {{project.description|raw}}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div> #}
         </div>
     </div>
 

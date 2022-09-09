@@ -223,18 +223,20 @@ body {
 	&::-webkit-scrollbar-thumb {
 		background-color: rgb(var(--secondary-theme));
 	}
-    .flash_success {
+    #flash_messages {
         left: 50%;
-        padding: 0 15px;
+        padding: 1.5rem 2rem;
         position: fixed;
         top: 50%;
         transform: translateX(-50%);
-        z-index: 999;
+        z-index: 4;
+        background-color: rgb(var(--success-background));
+        color: rgb(var(--success-color));
         #close_flash_message {
-            background: rgb(var(--info))!important;
-            color: rgb(var(--secondary-theme))!important;
+            background: rgb(var(--success-color))!important;
+            color: rgb(var(--success-background))!important;
             font-weight: bold;
-            margin-left: 10px;
+            margin: 0 0 7px 10px;
             padding: 0 10px!important;
         }
     }
@@ -437,11 +439,12 @@ body {
         margin: 0 auto 2rem auto;
         .badge {
             background-color: rgba(var(--tertiary-theme, .7));
-            margin: 0 0.3rem 0 0;
             padding: 0.5rem 1rem;
             text-transform: lowercase;
         }
         a {
+            display: inline-block;
+            margin: 1rem 0.3rem 0 0;
             color: rgb(var(--secondary-theme));
         }
     }
@@ -505,6 +508,8 @@ body {
                     margin: auto;
                     object-fit: contain;
                     transition: opacity .3s;
+                    width: 100px;
+                    height: 100%
                 }
             }
             &:hover {
@@ -731,15 +736,6 @@ body {
             margin: auto;
         }
     }
-    .success {
-        p {
-            padding: 5px 10px;
-            background-color: rgb(var(--success-background));
-            color: rgb(var(--success-color));
-            border: solid 1px rgb(var(--success-color));
-            border-radius: 3px;
-        }
-    }
     .error {
         p {
             padding: 5px 10px;
@@ -748,6 +744,11 @@ body {
             border: solid 1px rgb(var(--error-color));
             border-radius: 3px;
         }
+    }
+    .form_errors {
+        color: rgb(var(--error-color));
+        padding: 0 0 1rem 0.5rem;
+        font-weight: 700;
     }
     .attribution_title {
         font-weight: bold;
