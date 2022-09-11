@@ -1,15 +1,4 @@
 {% set classes = classes|default %}
 {% set target = target|default %}
 
-{% if 'background_trigger' in classes %}
-
-    <a href="#" data-target="{{target}}" class="{{classes}}">></a> 
-
-{% elseif 'burgermenu' in classes %}
-
-    <div class="burger_container hidden">
-        <a href="#" data-target="{{target}}" class="{{classes}}">
-            <span></span>
-        </a>
-    </div>
-{% endif %}
+<a href="#" data-target="{{target}}" class="{{classes}}">></a> 

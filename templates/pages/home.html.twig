@@ -11,66 +11,46 @@
 
     <div id="slide-in" class="background_container">
         {% include "blocks/_presentation.html.twig" %}
-
-        {% include "blocks/_header.html.twig" with {
-            classes: "hidden",
-            id: "side_nav"
-        } %}
     </div>
-    
-    {% include "blocks/components/_trigger_button.html.twig" with {
-        classes: 'burgermenu',
-        target: 'slide-out'
-    } %}
 
     {% include "blocks/_header.html.twig" with {
-        classes: "sidenav",
-        id: "slide-out",
+        classes: "hidden",
+        id: "side_nav"
     } %}
 
-    {% include "blocks/components/_project_modal.html.twig" with {
-        projects: projects
-    } %}
-
-    <div id="pageTop" class="main scrollspy right_side out">
+    <main class="right_side out">
     
         {% include "blocks/components/_day-night-switch.html.twig" with {
             id: 'togButton',
             class: 'desktop_button',
         } %}
-
-        <div id="projects" class="section_titles"><h2 class="center-align">PORTFOLIO</h2></div>
         
-        <section id="portfolio" class="section scrollspy js-portfolio">
-            <div class="container">
-                {% include "blocks/_project.html.twig" %}
-            </div>
+        <section id="portfolio" class="scroll_reveal js-portfolio">
+            <div id="projects" class="section_titles scrollspy"><h2 class="center-align">PORTFOLIO</h2></div>
+            {% include "blocks/_project.html.twig" %}
+        </section>
+        
+        <section id="formations" class="scroll_reveal js-education">
+            <div id="cursus" class="section_titles scrollspy"><h2 class="center-align">PARCOURS</h2></div>
+            {% include "blocks/_education.html.twig" %}
+        </section>
+        
+        <section id="competences" class="scroll_reveal js-competence">
+            <div id="tools" class="section_titles scrollspy"><h2 class="scenter-align">ENV</h2></div>
+            {% include "blocks/_competences.html.twig" %}
         </section>
 
-        <div id="cursus" class="section_titles"><h2 class="center-align">PARCOURS</h2></div>
-        
-        <section id="formations" class="section scrollspy js-education">
-            <div class="container">
-                <div class="row formations">
-                    {% include "blocks/_education.html.twig" %}
-                </div>
-            </div>
-        </section>
-
-        <div id="tools" class="section_titles"><h2 class="scenter-align">ENV</h2></div>
-        
-        <section id="competences" class="section scrollspy js-competence">
-            <div class="container"> 
-                {% include "blocks/_competences.html.twig" %}
-            </div>  
-        </section>
-
-        <section>
-            <div id="contact-me" class="section_titles"><h2 class="center-align">CONTACT</h2></div>
+        <section class="scroll_reveal js-contact">
+            <div id="contact-me" class="section_titles scrollspy"><h2 class="center-align">CONTACT</h2></div>
             {% include "blocks/_contact.html.twig" %}
         </section>
 
         {% include "blocks/_footer.html.twig" %}
         
-    </div>
+    </main>
+
+    {% include "blocks/components/_project_modal.html.twig" with {
+        projects: projects
+    } %}
+
 {% endblock %}

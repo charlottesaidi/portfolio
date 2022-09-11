@@ -1,10 +1,10 @@
 :root {
     --main-theme: 255, 255, 255;
-    --secondary-theme: 29, 29, 29;
+    --secondary-theme: 37, 36, 35;
     --tertiary-theme: 235, 235, 235;
     --shady: 61, 59, 59;
     --gradient: 99, 99, 99;
-    --accent-color: 0, 61, 167;
+    --accent-color: 56, 167, 226;
     --accent-background: 223, 241, 255;
     --info: 70, 118, 158;
     --success-color: 0, 128, 0;
@@ -16,12 +16,11 @@
 }
 
 [theme=dark] {
-    --main-theme: 29, 29, 29;
-    --secondary-theme: 255, 255, 255;
-    --tertiary-theme: 41, 41, 41;
+    --main-theme: 37, 36, 35;
+    --secondary-theme: 235, 235, 235;
+    --tertiary-theme: 50, 49, 48;
     --shady: 209, 200, 200;
     --gradient: 125, 125, 125;
-    --accent-color: 56, 167, 226;
     --accent-background: 3, 22, 37;
     --info: 41, 116, 179;
     --success-color: 186, 229, 186; 

@@ -1,25 +1,31 @@
 {% if education|default %}
 
-    <section id="timeline">
-        {% for formation in education %}
-  
-            <div class="tl-item">
-                
-                <div class="tl-bg" style="background-image: url({{asset('uploads/formations/' ~ formation.thumbnail)}})"></div>
-                
-                <div class="tl-year">
-                    <p class="f2 heading--sanSerif">{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</p>
-                </div>
+<div class="bg_white_section">
+    <div class="container">
+        <div class="row formations">
+            <div id="timeline">
+                {% for formation in education %}
+        
+                    <div class="tl-item">
+                        
+                        <div class="tl-bg" style="background-image: url({{asset('uploads/formations/' ~ formation.thumbnail)}})"></div>
+                        
+                        <div class="tl-year">
+                            <p class="f2 heading--sanSerif">{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</p>
+                        </div>
 
-                <div class="tl-content">
-                    <h3>{{formation.title}}</h3>
-                    <h4>{{formation.schoolName}}</h4>
-                    {{formation.description|raw}}
-                </div>
+                        <div class="tl-content">
+                            <h3>{{formation.title}}</h3>
+                            <h4>{{formation.schoolName}}</h4>
+                            {{formation.description|raw}}
+                        </div>
 
+                    </div>
+
+                {% endfor %}
             </div>
-
-        {% endfor %}
-    </section>
+        </div>
+    </div>
+</div>
 
 {% endif %}

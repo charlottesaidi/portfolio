@@ -20,28 +20,25 @@
         });
     }
 
-    if(document.querySelector('#slide-out')) {
-        var burgermenu = document.querySelector('.burgermenu');
-        var navs = document.querySelectorAll('.sidenav');
-        var sidenav = M.Sidenav.init(navs, {
-            "preventScrolling": true
-        });
-        
-        burgermenu.addEventListener('click', (e) => {
-            e.preventDefault();
-            navs.forEach(nav => {
-                var sidenav_instance = M.Sidenav.getInstance(nav);
-                burgermenu.classList.contains('opened') ? sidenav_instance.close() : sidenav_instance.open();
-            });
-            burgermenu.classList.toggle('opened');
-        })
+    if(document.querySelector('.sidenav_container')) {
+        const containers = document.querySelectorAll('.scrollspy');
+        const links = document.querySelectorAll('.nav_link');
+
+        var selectors = [
+            containers,
+            links
+        ]
+
+        window.onscroll = () => {
+            addActiveClassOnLinks(selectors);
+        };
     }
 
 })();
 
 // Functions
 // Change nav style on scroll
-function setHeaderState(nav, scrollPos, direction) {
+var setHeaderState = (nav, scrollPos, direction) => {
     var offsetTop = (window.outerWidth >= 1080) ? 42 : 12;
     
     if(scrollPos >= offsetTop) {
@@ -59,3 +56,21 @@ function setHeaderState(nav, scrollPos, direction) {
         nav.classList.remove('hidden');
     }
 }
+// active class for anchor links
+var addActiveClassOnLinks = (selectors) => {
+    var current = "";
+
+    selectors[0].forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute("id"); 
+        }
+    });
+
+    selectors[1].forEach((link) => {
+        link.classList.remove("active");
+        if (link.classList.contains(current)) {
+            link.classList.add("active");
+        }
+    });
+};

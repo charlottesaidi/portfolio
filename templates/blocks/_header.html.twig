@@ -11,10 +11,23 @@
     <header class="{{classes}} sidenav_container" id="{{id}}">
         
         <ul class="collection">
-            <li class="collection-item transparent"><a href="#projects">PORTOLIO</a></li>
-            <li class="collection-item transparent"><a href="#cursus">PARCOURS</a></li>
-            <li class="collection-item transparent"><a href="#tools">ENVIRONNEMENT</a></li>
-            <li class="collection-item transparent"><a href="#contact-me">CONTACT</a></li>
+            {# icons menu #}
+            <li class="collection-item transparent"><a class="nav_link projects active" href="#projects">
+                {% include "blocks/components/svgs/menu_icons/_gallery.html.twig" %}
+                <span class="after">PORTOLIO</span>
+            </a></li>
+            <li class="collection-item transparent"><a class="nav_link cursus" href="#cursus">
+                {% include "blocks/components/svgs/menu_icons/_diploma.html.twig" %}
+                <span class="after">PARCOURS</span>
+            </a></li>
+            <li class="collection-item transparent"><a class="nav_link tools" href="#tools">
+                {% include "blocks/components/svgs/menu_icons/_coding.html.twig" %}
+                <span class="after">ENVIRONNEMENT</span>
+            </a></li>
+            <li class="collection-item transparent"><a class="nav_link contact-me" href="#contact-me">
+                {% include "blocks/components/svgs/menu_icons/_mail.html.twig" %}
+                <span class="after">CONTACT</span>
+            </a></li>
         </ul>
         
     </header>
@@ -22,14 +35,14 @@
     <header id="header" class="page_header">
         <div class="row" style="margin: 0px; text-align: center;">
             <nav id="navigation" class="transparent nav z-depth-2">
-                <div class="logo" id="logo">
-                    <div class="logo_img_block">
-                        {% include "blocks/components/_logo.html.twig" %}
+                <div class="nav-wrapper row">
+                    <div class="logo col s2" id="logo">
+                        CSaidi
                     </div>
-                </div>
-                <div class="nav-wrapper col s12 m12">
-                    <ul class="right">
-                        <li><a class="rgpd-head-link" href="{{path('home')}}">Retour au Portfolio</a></li>
+                    <ul class="col s10">
+                        <li class="right">
+                            <a class="rgpd-head-link" href="{{path('home')}}">Retour au Portfolio</a>
+                        </li>
                         <li>
                             {% include "blocks/components/_day-night-switch.html.twig" with {
                                 id: 'togButton',

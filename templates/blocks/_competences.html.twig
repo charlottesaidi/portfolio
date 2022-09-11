@@ -1,65 +1,69 @@
-<div class="cards">
-    {% if language_skills %}
-        <h3>Langages</h3>
-        <div class="row">
-            {% for skill in language_skills %}
-                <button class="col card" data-value="{{skill.progress}}">
-                        {% include "blocks/components/_radial_progress_bar.html.twig" with {
-                            progress: skill.progress,
-                            id: skill.slug,
-                            classes: "hidden"
-                        } %}
-                    <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
-                        <img class="skill_card"  src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
-                    </div>
-                    <div class="card-content">
-                        {{skill.title|upper}}
-                    </div>
-                </button>
-            {% endfor %}
+<div class="bg_white_section">
+    <div class="container"> 
+        <div class="cards">
+            {% if language_skills %}
+                <h3>Langages</h3>
+                <div class="row">
+                    {% for skill in language_skills %}
+                        <button class="col card" data-value="{{skill.progress}}">
+                                {% include "blocks/components/_radial_progress_bar.html.twig" with {
+                                    progress: skill.progress,
+                                    id: skill.slug,
+                                    classes: "hidden"
+                                } %}
+                            <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
+                                <img class="skill_card"  src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
+                            </div>
+                            <div class="card-content">
+                                {{skill.title|upper}}
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        
+            {% if framework_skills %}
+                <h3>Librairies et Frameworks</h3>
+                <div class="row">
+                    {% for skill in framework_skills %}
+                        <button class="col card">
+                            {% include "blocks/components/_radial_progress_bar.html.twig" with {
+                                progress: skill.progress,
+                                id: skill.slug,
+                                classes: "hidden"
+                            } %}
+                            <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
+                                <img class="skill_card"  src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
+                            </div>
+                            <div class="card-content">
+                                {{skill.title|upper}}
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        
+            {% if misc_skills %}
+                <h3>Divers</h3>
+                <div class="row">
+                    {% for skill in misc_skills %}
+                        <button class="col card">
+                            {% include "blocks/components/_radial_progress_bar.html.twig" with {
+                                progress: skill.progress,
+                                id: skill.slug,
+                                classes: "hidden"
+                            } %}
+                            <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
+                                <img class="skill_card" src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
+                            </div>
+                            <div class="card-content">
+                                {{skill.title|upper}}
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        
         </div>
-    {% endif %}
-
-    {% if framework_skills %}
-        <h3>Librairies et Frameworks</h3>
-        <div class="row">
-            {% for skill in framework_skills %}
-                <button class="col card">
-                    {% include "blocks/components/_radial_progress_bar.html.twig" with {
-                        progress: skill.progress,
-                        id: skill.slug,
-                        classes: "hidden"
-                    } %}
-                    <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
-                        <img class="skill_card"  src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
-                    </div>
-                    <div class="card-content">
-                        {{skill.title|upper}}
-                    </div>
-                </button>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    {% if misc_skills %}
-        <h3>Divers</h3>
-        <div class="row">
-            {% for skill in misc_skills %}
-                <button class="col card">
-                    {% include "blocks/components/_radial_progress_bar.html.twig" with {
-                        progress: skill.progress,
-                        id: skill.slug,
-                        classes: "hidden"
-                    } %}
-                    <div class="card-image" data-target="{{skill.slug}}" data-value="{{skill.progress}}">
-                        <img class="skill_card" src="{{asset('uploads/competences/' ~ skill.image)}}" alt="{{skill.title}}" />
-                    </div>
-                    <div class="card-content">
-                        {{skill.title|upper}}
-                    </div>
-                </button>
-            {% endfor %}
-        </div>
-    {% endif %}
-
+    </div>  
 </div>
