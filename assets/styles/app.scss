@@ -6,6 +6,7 @@
 
 // Variables;
 @import "components/variables";
+@import 'front/_variables.scss';
 
 // Reset
 @import "components/normalize";
@@ -31,7 +32,6 @@
 @import "components/progress_bar.scss";
 
 // Styles
-@import 'front/_variables.scss';
 @import "front/_fonts.scss";
 @import "front/_main.scss";
 @import "front/_error.scss";

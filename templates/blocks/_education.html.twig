@@ -3,25 +3,24 @@
 <div class="bg_white_section">
     <div class="container">
         <div class="row formations">
-            <div id="timeline">
+            <div class="main-timeline">
                 {% for formation in education %}
-        
-                    <div class="tl-item">
-                        
-                        <div class="tl-bg" style="background-image: url({{asset('uploads/formations/' ~ formation.thumbnail)}})"></div>
-                        
-                        <div class="tl-year">
-                            <p class="f2 heading--sanSerif">{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</p>
+                    <div class="timeline">
+                        <div class="timeline-content">
+                            <div class="circle"><span class="homebox">
+                            <img src="{{asset('uploads/formations/' ~ formation.thumbnail)}}" class="img" alt="{{formation.schoolName}} thumbnail">
+                            </span></div>
+                            <div class="content">
+                                <span class="year">{{formation.date|format_datetime(locale='fr', pattern="yyyy")}}</span>
+                                <h3 class="title h4">{{formation.title}}</h3>
+                                <div class="description">
+                                    <strong>{{formation.schoolName}}</strong> 
+                                    {{formation.description|raw}} 
+                                </div>
+                                <div class="icon"><span></span></div>
+                            </div>
                         </div>
-
-                        <div class="tl-content">
-                            <h3>{{formation.title}}</h3>
-                            <h4>{{formation.schoolName}}</h4>
-                            {{formation.description|raw}}
-                        </div>
-
                     </div>
-
                 {% endfor %}
             </div>
         </div>
