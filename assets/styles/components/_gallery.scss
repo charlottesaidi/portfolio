@@ -108,44 +108,9 @@ body {
                 height: 50vh;
                 object-fit: cover;
             }
-            .slide_text {
-                font-size: 2.5rem!important;
-                color: #ffffff;
-                font-size: 15px;
-                position: absolute;
-                bottom: 0;
-                overflow: hidden;
-                height: 20%;
-                width: 100%;
-                text-align: center;
-                transition: height .6s;
-                z-index: 1;
-            }
             &.fade {
                 animation-name: fade;
                 animation-duration: 1.5s;
-            }
-            .slide_link {
-                display: block;
-                cursor: pointer;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: transparentize(#031625, .15);
-                    transition: height .6s;
-                }
-                &:hover {
-                    &:after {
-                        height: 0;
-                    }
-                    .slide_text {
-                        height: 0;
-                    }
-    
-                }
             }
         }
         .prev, .next {
@@ -169,6 +134,44 @@ body {
             right: 0;
             border-radius: 3px 0 0 3px;
         }
+    }
+    .slide_link {
+        display: block;
+        cursor: pointer;
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparentize(#031625, .15);
+            transition: height .6s;
+        }
+        &:hover {
+            &:after {
+                height: 0;
+            }
+            .slide_text {
+                height: 0;
+            }
+
+        }
+        &.carousel-item {
+            height: auto!important;
+        }
+    }
+    .slide_text {
+        color: #ffffff;
+        font-size: 1.5rem !important;
+        position: absolute;
+        bottom: 0;
+        overflow: hidden;
+        height: 20%;
+        width: 100%;
+        text-align: center;
+        transition: height .6s;
+        z-index: 1;
     }
     @keyframes fade {
         from {opacity: .4}

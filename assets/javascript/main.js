@@ -8,3 +8,4 @@ import './module/portfolio.js';
 import './module/header.js';
 import './module/competence.js';
 import './module/contact.js';
+import './module/scroll.js';

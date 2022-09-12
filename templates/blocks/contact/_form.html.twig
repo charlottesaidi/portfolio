@@ -1,7 +1,7 @@
 <div id="flash_messages" class="hidden card">
     {# message from js if successful submit #}
     <p class="flash_success">
-        <span id="flash_message">TEST MESSAGE DE SUCCES</span>
+        <span id="flash_message"></span>
         <button id="close_flash_message" class="waves-effect waves-teal btn-small">X</button>
     </p>
 </div>
@@ -14,9 +14,6 @@
 }) }}
     <div class="row">
         <div class="input-field col s12 l6">
-            <span class="prefix">
-                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20"><path fill="#9e9e9e" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
-            </span>
             {{ form_label(form.first_name) }}
             {{ form_widget(form.first_name) }}
             <div class="form_errors" id="first_name">
@@ -25,9 +22,6 @@
         </div>
 
         <div class="input-field col s12 l6">
-            <span class="prefix">
-                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20"><path fill="#9e9e9e" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
-            </span>
             {{ form_label(form.last_name) }}
             {{ form_widget(form.last_name) }}
             <div class="form_errors" id="last_name">
@@ -38,7 +32,6 @@
 
     <div class="row">
         <div class="input-field col s12">
-            <span class="prefix">&#9993;</span>
             {{ form_label(form.email) }}
             {{ form_widget(form.email) }}
             <div class="form_errors" id="email">
@@ -49,7 +42,6 @@
 
     <div class="row">
         <div class="input-field col s12">
-            <span class="prefix">&#128394;</span>
             {{ form_label(form.object) }}
             {{ form_widget(form.object) }}
             <div class="form_errors" id="object">
@@ -60,9 +52,6 @@
 
     <div class="row">
         <div class="input-field col s12">
-            <span class="prefix">
-                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="comment-alt" class="svg-inline--fa fa-comment-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22"><path fill="#9e9e9e" d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 7.1 5.8 12 12 12 2.4 0 4.9-.7 7.1-2.4L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm16 352c0 8.8-7.2 16-16 16H288l-12.8 9.6L208 428v-60H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h384c8.8 0 16 7.2 16 16v288z"></path></svg>
-            </span>
             {{ form_label(form.message) }}
             {{ form_widget(form.message, {'attr': {'class' : 'materialize-textarea'}}) }}
             <div class="form_errors" id="message">
