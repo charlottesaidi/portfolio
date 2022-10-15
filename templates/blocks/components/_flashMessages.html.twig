@@ -1,0 +1,6 @@
+{% for message in app.flashes('success') %}
+    <div id="flash_messages" class="flash_success card-panel blue lighten-3 row valign-wrapper">
+        <p class="col">{{message}}</p>
+        <p id="close_flash_message" class="waves-effect waves-teal btn-small">X</p>
+    </div>
+{% endfor %}

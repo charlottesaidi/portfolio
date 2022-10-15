@@ -1,0 +1,12 @@
+{% if page %}
+
+    <h3 class="center-align sub_title_page">{{page.pageTitle}}</h3>
+    <div class="row center">
+        {{page.description|raw}}
+    </div>
+    {% for content in page.blocks %}
+        <h4 class="sub_title_page">{{content.title}}</h4>
+        {{content.content|raw}}
+    {% endfor %}
+
+{% endif %}

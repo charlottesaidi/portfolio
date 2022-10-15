@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="caption-border" class="caption">
+        <div class="box-caption ">
+            <div class="text-caption card-panel center-align">
+                <h1><span class="name grey-text text-darken-3"><a class="al" href="{{path('admin')}}">C</a>harlotte Saidi</span>
+                <span class="sep"></span>
+                <span class="job light grey-text text-lighten-1">Développeuse Web Junior</span></h1>
+            </div>
+        </div>
+    </div>
+
+    {% include "blocks/components/_section-up.html.twig"%}
+    <div id="aPropos" class="purple lighten-5 section scrollspy">
+        <div class="container">
+            <h6 class="center-align competences">A Propos</h6>
+            <div class="row valign-wrapper">
+                {% include "blocks/_presentation.html.twig" %}
+            </div>
+        </div>
+    </div>
+    {% include "blocks/components/_section-down.html.twig" %}
+
+    <div id="competences" class="section scrollspy">
+        <div class="container card-panel">
+            <h6 class="center-align competences">Mes compétences</h6>
+            <div class="row">
+                {% include "blocks/_competences.html.twig" %}
+            </div>
+        </div>  
+    </div>
+
+    {% include "blocks/components/_section-up.html.twig"%}
+    <div id="portfolio" class="purple lighten-5 section scrollspy">
+            
+        <div class="container">
+            <h6 class="competences">Portfolio</h6>
+            <div class="row"> 
+                {% include "blocks/_project.html.twig" %}
+            </div>
+            <div class="competence_show_btn center-align">
+                <button class="btn-floating show_blocks btn-large btn white purple-text">+</button>
+            </div>
+        </div>
+    </div>
+    {% include "blocks/components/_section-down.html.twig" %}
+
+    <div id="formations" class="section scrollspy">
+        <div class="container card-panel">
+            <h6 class="center-align competences">Formations</h6>
+            <div class="row formations">
+                {% include "blocks/_education.html.twig" %}
+            </div>
+            <p class="upload_cv center-align">
+                <span>Vous avez une préférence pour les CVs plus classiques ? Vous avez la possibilité de le télécharger par ici : </span>
+                <a class="download_btn" href="{{asset('download/cv-saidi-charlotte.pdf')}}" download>
+                    <img src="{{asset('images/pdf.webp')}}" alt="PDF icon" width="80">
+                </a>
+            </p>
+        </div>
+    </div>
+
+    {% include "blocks/_contact.html.twig" %}
+    
+{% endblock %}

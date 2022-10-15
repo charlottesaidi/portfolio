@@ -1,0 +1,38 @@
+{% if projects %}
+    {% for project in projects %}
+        <div class="col s12 l4 m6 portfolio_blocks">
+            <ul class="demo-3">
+                <li>
+                    <figure>
+                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" height="400"/>
+                        <figcaption>
+                            <h2 class="purple-text">{{project.title}}</h2>
+                            {{project.description|raw}}
+                            <div class="title">
+                                <div class="border-top title-parts"></div>
+                                <p class="sub-title title-parts">Outils</p>
+                                <div class="border-top-right title-parts"></div>
+                            </div>
+                                <p>
+                                {% set lastOutil = project.outils|last %}
+                                {% for outil in project.outils %}
+                                    {{ outil.title }} {% if not loop.last %}<strong class="separator">~</strong> {% endif %}
+                                 {% endfor %}    
+                                </p>
+                            <div class="title">
+                                <div class="border-top title-parts"></div>
+                                <p class="sub-title title-parts">Liens</p>
+                                <div class="border-top-right title-parts"></div>
+                            </div>
+                            <div class="links">
+                            {% for link in project.links %}
+                                <a href="{{link.href}}" class="btn-primary btn-small wave-effect" target="_blank">{{link.title}}</a>
+                            {% endfor %}
+                            </div>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+{% endif %}

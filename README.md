@@ -1,13 +1,13 @@
-# Portfolio
-Version page fixe
+# Portfolio administrable
+Portfolio simple avec back office
 
 ### Outils
-- HTML5
-- CSS3
-- Javascript/JQuery
+- Symfony 5.3.7
+- Symfony easycorp/easyadmin-bundle 3.5
+- @symfony/webpack-encore 1.0.0
+- Javascript/JQuery 3.6.0
 - [MaterializeCss](https://materializecss.com/)
-- [EmailJs](https://www.emailjs.com/)
 
-### Links
+### Liens
 
-- [Live Site](https://charlottesaidi.github.io/portfolio/)  
+- [Site live](https://charlottesaidi.fr)  

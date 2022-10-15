@@ -1,0 +1,95 @@
+{% if competences %}
+
+    <div id="block1" class="col s12">
+        <div class="row">
+            <h5 class="col s12 l6">Langages</h5>
+            <h5 class="col s12 l6 right-align">Frameworks et librairies</h5>
+        </div>
+        <div class="card-panel inside">
+            <div class="row">
+                <div class="col s12 l6">
+                    {% for language in competences %}
+                        {% if language.categorie == 'langages' %}
+                            <div class="row valign-wrapper">
+                                <div class="col s2 hide-on-small-only">
+                                    <img src="{{asset('uploads/competences/' ~ language.image)}}" alt="{{language.title}} icon" width="50" height="50">
+                                </div>
+                                <div class="col s12 m10">
+                                    <p class="black-text">
+                                    {{language.title}}
+                                    </p>
+                                    <div class="progress-bar grey lighten-3">
+                                        <div id="{{language.slug}}" class="progress-inner-bar {{language.progress}}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col s12 l6">
+                    {% for framework in competences %}
+                        {% if framework.categorie == 'frameworks et librairies' %}
+                            <div class="row valign-wrapper">
+                                <div class="col s2 hide-on-small-only">
+                                    <img src="{{asset('uploads/competences/' ~ framework.image)}}" alt="{{framework.title}} icon" width="50" height="50">
+                                </div>
+                                <div class="col s12 m10">
+                                    <p class="black-text">
+                                    {{framework.title}}
+                                    </p>
+                                    <div class="progress-bar grey lighten-3">
+                                        <div id="{{framework.slug}}" class="progress-inner-bar {{framework.progress}}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="block2" class="col s12 l7">
+        <h5>Autres</h5>
+        <div class="card-panel inside">
+            {% for misc in competences %}
+                {% if misc.categorie == 'autres' %}
+                    <div class="row valign-wrapper">
+                        <div class="col s2 hide-on-small-only">
+                            <img src="{{asset('uploads/competences/' ~ misc.image)}}" alt="{{misc.title}} icon" width="50" height="50">
+                        </div>
+                        <div class="col s12 m10">
+                            <p class="black-text">
+                            {{misc.title}}
+                            </p>
+                            <div class="progress-bar grey lighten-3">
+                                <div id="{{misc.slug}}" class="progress-inner-bar {{misc.progress}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col s12 l5 perso">
+        <h5 class="right-align">Personnelles</h5>
+        <div class="card-panel inside">
+            {% for perso in competences %}
+                {% if perso.categorie == 'personnelles' %}
+                    <div class="row valign-wrapper">
+                        <div class="col s2 hide-on-small-only">
+                            <img src="{{asset('uploads/competences/' ~ perso.image)}}" alt="{{perso.title}} icon" width="40" height="40">
+                        </div>
+                        <div class="col s12 m10">
+                            <p class="black-text">
+                            {{perso.title}}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}
