@@ -1,38 +1,56 @@
-{% if projects %}
-    {% for project in projects %}
-        <div class="col s12 l4 m6 portfolio_blocks">
-            <ul class="demo-3">
-                <li>
-                    <figure>
-                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" height="400"/>
-                        <figcaption>
-                            <h2 class="purple-text">{{project.title}}</h2>
+{% if projects|default %}
+
+{# GALLERY #}
+<div class="bg_white_section">
+    <div class="container">
+        {# Desktop Blocks #}
+        <div class="gallery hide-on-med-and-down">
+            {# {% if tools|default %}
+                <div class="tool_badges row">
+                    {% for tool in tools %}
+                        <a href="#"><span class="badge">{{tool.title}}</span></a>
+                    {% endfor %}
+                </div>
+            {% endif %} #}
+
+            {% set rows = (projects|length)/2 %}
+
+            <div class="grid_gallery" style="grid-template-rows: repeat({{rows|round(0, 'floor')}}, 21vw)!important;">
+                {% set i = 0 %}
+                {% for project in projects %}
+                {% set i = i+1 %}
+                <div class="gallery__item--{{i}} grid_items" style="background:url('{{asset('uploads/projets/' ~ project.image)}}'); background-size: cover; background-position: top;">
+                    <div class="hexIn card">
+                        <a class="hexLink modal-trigger hex_modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                            <h3>{{project.title}}</h3>
                             {{project.description|raw}}
-                            <div class="title">
-                                <div class="border-top title-parts"></div>
-                                <p class="sub-title title-parts">Outils</p>
-                                <div class="border-top-right title-parts"></div>
-                            </div>
-                                <p>
-                                {% set lastOutil = project.outils|last %}
-                                {% for outil in project.outils %}
-                                    {{ outil.title }} {% if not loop.last %}<strong class="separator">~</strong> {% endif %}
-                                 {% endfor %}    
-                                </p>
-                            <div class="title">
-                                <div class="border-top title-parts"></div>
-                                <p class="sub-title title-parts">Liens</p>
-                                <div class="border-top-right title-parts"></div>
-                            </div>
-                            <div class="links">
-                            {% for link in project.links %}
-                                <a href="{{link.href}}" class="btn-primary btn-small wave-effect" target="_blank">{{link.title}}</a>
-                            {% endfor %}
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
+
+        {# Mobile Slideshow #}
+        <!-- Slideshow container -->
+        <div class="slideshow-container hide-on-large-only card">
+
+            <!-- Full-width images with number and caption text -->
+            {% for project in projects %}
+                <div class="slides fade">
+                    <a class="slide_link modal-trigger" data-target="modal1{{project.id}}" data-project="{{project.id}}">
+                        <img src="{{asset('uploads/projets/' ~ project.image)}}" alt="Maquette du projet {{project.title}}" >
+                        <h3 class="slide_text">{{project.title}}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+
+            <!-- Next and previous buttons -->
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+
+        </div>
+    </div>
+</div>
+
 {% endif %}

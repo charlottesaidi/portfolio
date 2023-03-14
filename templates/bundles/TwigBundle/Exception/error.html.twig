@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('error-pages') }}
 {% endblock %}
 {% block title %}Erreur serveur{% endblock %}
 {% block body %}
 
-<div class="main">
-    <div class="error_template center-align">
-
-        <div id="error">
-            <div class="error card-panel">
-                <div class="error-message">
-                {% set referer = app.request.server.get('http-referer')|default('/') %}
-                    <h1 class="purple-text">Oups...</h1>
-                    <h2>Un problème est survenu ! <span class="emojis">&#129300;</span></h2>
-                </div>
-                <a class="error-link btn btn-small btn-primary" href="{{referer}}">Retour</a>
+<div class="error_page">
+    <div class="main">
+        <div class="error_template center-align">
+    
+            <div id="error">
+                {% include "blocks/components/_error_message.html.twig" with {
+                    title: "Oups...",
+                    message: "Un problème est survenu !",
+                    emoji: "&#129300;"
+                } %}
             </div>
+    
         </div>
-
     </div>
 </div>
 {% endblock %}

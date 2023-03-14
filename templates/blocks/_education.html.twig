@@ -1,31 +1,30 @@
-{% if education %}
-    <div class="timeline2">
-        <ul>
-            {% for formation in education %}
-            <li>
-                <div class="card-panel inside">
-                    <strong>{{formation.title}}</strong> 
-                    {# <p class="row"> #}
-                        {# <span class="school">&#128366;</span>  #}
-                        <div class="school">
-                            <strong>&#128366;</strong>
-                            &nbsp; {{formation.description|raw}}
+{% if education|default %}
+
+<div class="bg_white_section">
+    <div class="container">
+        <div class="row formations">
+            <div class="main-timeline">
+                {% for formation in education %}
+                    <div class="timeline">
+                        <div class="timeline-content">
+                            <div class="circle"><span class="homebox">
+                            <img src="{{asset('uploads/formations/' ~ formation.thumbnail)}}" class="img" alt="{{formation.schoolName}} thumbnail">
+                            </span></div>
+                            <div class="content">
+                                <span class="year">{{formation.date|format_datetime(locale='fr', pattern="yyyy")}}</span>
+                                <h3 class="title h4">{{formation.title}}</h3>
+                                <div class="description">
+                                    <strong>{{formation.schoolName}}</strong> 
+                                    {{formation.description|raw}} 
+                                </div>
+                                <div class="icon"><span></span></div>
+                            </div>
                         </div>
-                    {# </p> #}
-                    {# <p class="row"> #}
-                        <div class="school">
-                            <i class="location"></i> 
-                            <p>&nbsp; {{formation.schoolName}}</p>
-                        </div>
-                    {# </p> #}
-                </div>
-                <span class="time">
-                    <span>{{formation.date|format_datetime(locale='fr', pattern="MMMM")|upper}}</span>
-                    <span>{{formation.date|format_datetime(locale='fr', pattern="yyyy")|upper}}</span>
-                </span>
-            </li>
-            {% endfor %}
-        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+</div>
 
 {% endif %}

@@ -1,26 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('error-pages') }}
 {% endblock %}
 {% block title %}Non autorisé{% endblock %}
 
 {% block body %}
 
-<div class="main">
-    <div class="error_template center-align">
+<div class="error_page">
+    <div class="main">
+        <div class="error_template center-align">
 
-        <div id="error">
-            <div class="error card-panel">
-                <div class="error-message">
-                {% set referer = app.request.server.get('http-referer')|default('/') %}
-                    <h1 class="purple-text">403</h1>
-                    <h2>Nope ! Bien tenté mais cet espace m'est réservé ! <span class="emojis">&#128513;</span></h2>
-                </div>
-                <a class="error-link btn btn-small btn-primary" href="{{referer}}">Retour</a>
+            <div id="error">
+                {% include "blocks/components/_error_message.html.twig" with {
+                    title: "403",
+                    message: "Nope ! Bien tenté mais cet espace m'est réservé !",
+                    emoji: "&#128513;"
+                } %}
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 {% endblock %}

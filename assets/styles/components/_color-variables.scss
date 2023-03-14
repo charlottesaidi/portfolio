@@ -81,6 +81,23 @@ $deep-purple: (
   "accent-4":    #6200ea
 );
 
+$indigo-dye: (
+  "base":       #3581af,
+  "lighten-5":  #e1e8ee,
+  "lighten-4":  #c1d8e6,
+  "lighten-3":  #92b9d1,
+  "lighten-2":  #70a4c4,
+  "lighten-1":  #236a96,
+  "darken-1":   #1c5a81,
+  "darken-2":   #0d476b,
+  "darken-3":   #0e5886,
+  "darken-4":   #00416A,
+  "accent-1":    #7bccff,
+  "accent-2":    #4abaff,
+  "accent-3":    #33b0fd,
+  "accent-4":    #0196f3
+);
+
 $indigo: (
   "base":       #3f51b5,
   "lighten-5":  #e8eaf6,
@@ -108,7 +125,7 @@ $blue: (
   "darken-1":   #1E88E5,
   "darken-2":   #1976D2,
   "darken-3":   #1565C0,
-  "darken-4":   #0D47A1,
+  "darken-4":   #003da5,
   "accent-1":    #82B1FF,
   "accent-2":    #448AFF,
   "accent-3":    #2979FF,
@@ -218,7 +235,7 @@ $lime: (
 );
 
 $yellow: (
-  "base":       #ffeb3b,
+  "base":       #ffe013,
   "lighten-5":  #fffde7,
   "lighten-4":  #fff9c4,
   "lighten-3":  #fff59d,
@@ -337,6 +354,7 @@ $colors: (
   "purple": $purple,
   "deep-purple": $deep-purple,
   "indigo": $indigo,
+  "indigo-dye": $indigo-dye,
   "blue": $blue,
   "light-blue": $light-blue,
   "cyan": $cyan,

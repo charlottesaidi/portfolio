@@ -1,10 +1,20 @@
-{% if presentation %}
-    <div class="col s12 l7 text grey-text text-darken-1">
-        {{ presentation.textBlock|raw }}   
-    </div>
-    <div class="col s5 hide-on-med-and-down">
-        <div class="profile right">
-            <img src="{{('uploads/presentation/' ~ presentation.image)}}" alt="Photo de présentation" class="img_profile" width="200" height="200">
+{% if presentation|default %}
+    <div id="caption-border" class="caption js-about">
+        <div class="box-caption ">
+            <div class="text-caption center-align">
+                <h1><span class="name grey-text text-lighten-1">Charlotte Saidi</span>
+                <span class="sep"></span>
+                <span class="job light grey-text">Développeuse Web Junior</span></h1>
+            </div>
+
+            <div id="aPropos" class="section scrollspy">
+                <div class="container">
+                    <div class="text">
+                        {{ presentation.textBlock|raw }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
 {% endif %}

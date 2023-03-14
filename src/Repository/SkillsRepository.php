@@ -30,6 +30,19 @@ class SkillsRepository extends ServiceEntityRepository
         ;
     }
 
+    public function getAllSkillsByCategory(string $title)
+    {
+        return $this->createQueryBuilder('s')
+            ->select('s, c')
+            ->join('s.categorie', 'c')
+            ->where('c.title = :title')
+            ->setParameter(':title', $title)
+            ->orderBy('s.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Skills[] Returns an array of Skills objects
     //  */

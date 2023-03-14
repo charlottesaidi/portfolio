@@ -24,6 +24,10 @@ app_reset_password:
     path: /reset-password/reset/{token}
     defaults: { _controller: App\Controller\ResetPasswordController::reset }
     
+contact:
+    path: /contact
+    defaults: { _controller: App\Controller\ContactController::index }
+
 admin:
     path: /admin
     defaults: { _controller: App\Controller\Admin\DashboardController::index }
