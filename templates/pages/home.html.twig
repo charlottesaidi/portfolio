@@ -10,7 +10,13 @@
     } %}
 
     <div id="slide-in" class="background_container">
-        {% include "blocks/_presentation.html.twig" %}
+        <div class="caption">
+            <div class="text-caption center-align">
+                <h1><span class="name grey-text text-lighten-1">Charlotte Saidi</span>
+                <span class="sep"></span>
+                <span class="job light grey-text">Développeuse Web Junior</span></h1>
+            </div>
+        </div>
     </div>
 
     {% include "blocks/_header.html.twig" with {
@@ -24,24 +30,29 @@
             id: 'togButton',
             class: 'desktop_button',
         } %}
+
+        <section id="aPropos" class="js-about scrollspy">
+            <div class="section_titles"><h2 class="center-align">A PROPOS</h2></div>
+            {% include "blocks/_presentation.html.twig" %}
+        </section>
         
-        <section id="portfolio" class="js-portfolio">
-            <div id="projects" class="section_titles scrollspy"><h2 class="center-align">PORTFOLIO</h2></div>
+        <section id="portfolio" class="scroll_reveal slide-left js-portfolio scrollspy">
+            <div class="section_titles"><h2 class="center-align">PORTFOLIO</h2></div>
             {% include "blocks/_project.html.twig" %}
         </section>
         
-        <section id="formations" class="scroll_reveal slide-left js-education">
-            <div id="cursus" class="section_titles scrollspy"><h2 class="center-align">PARCOURS</h2></div>
+        <section id="formations" class="scroll_reveal slide-left js-education scrollspy">
+            <div class="section_titles"><h2 class="center-align">PARCOURS</h2></div>
             {% include "blocks/_education.html.twig" %}
         </section>
         
-        <section id="competences" class="scroll_reveal slide-left js-competence">
-            <div id="tools" class="section_titles scrollspy"><h2 class="scenter-align">ENV</h2></div>
+        <section id="competences" class="scroll_reveal slide-left js-competence scrollspy">
+            <div class="section_titles"><h2 class="scenter-align">ENV</h2></div>
             {% include "blocks/_competences.html.twig" %}
         </section>
 
-        <section class="scroll_reveal slide-left js-contact">
-            <div id="contact-me" class="section_titles scrollspy"><h2 class="center-align">CONTACT</h2></div>
+        <section id="contact" class="scroll_reveal slide-left js-contact scrollspy">
+            <div class="section_titles"><h2 class="center-align">CONTACT</h2></div>
             {% include "blocks/_contact.html.twig" %}
         </section>
 

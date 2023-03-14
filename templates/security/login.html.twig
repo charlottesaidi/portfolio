@@ -10,7 +10,7 @@
         <div class="main">
             <div class="row card-panel">
                 <div class="inner_row">
-                    <form class="login hoverable" method="post">
+                    <form class="login" method="post">
                         {% if error %}
                             <div class="alert red-text">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}

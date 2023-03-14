@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<title>Faire un don sur Lobol</title>
+
+{% block body %}
+    <style>
+        html, body, .widget_body, .widget_link {height:100%}
+        .widget_link {display:block;width:100%;background:url("{{asset('images/widget/button_donate.png')}}") center;background-size:cover}
+    </style>
+
+    <div class="widget_body">
+
+        <a class="widget_link" id="widget" href="https://www.beta.lobol.fr/asso/{{slug}}" target="_blank">
+        </a>
+
+    </div>
+{% endblock %}

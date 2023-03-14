@@ -5,13 +5,20 @@
         <div class="row formations">
             <div class="main-timeline">
                 {% for formation in education %}
+                    {% set formation_year = formation.date|format_datetime(locale='fr', pattern="yyyy") %}
                     <div class="timeline">
                         <div class="timeline-content">
                             <div class="circle"><span class="homebox">
                             <img src="{{asset('uploads/formations/' ~ formation.thumbnail)}}" class="img" alt="{{formation.schoolName}} thumbnail">
                             </span></div>
                             <div class="content">
-                                <span class="year">{{formation.date|format_datetime(locale='fr', pattern="yyyy")}}</span>
+                                <span class="year">
+                                    {% if formation_year == 'now'|date('Y') %}
+                                        Maintenant
+                                    {% else %}
+                                        {{formation_year}}
+                                    {% endif %}
+                                </span>
                                 <h3 class="title h4">{{formation.title}}</h3>
                                 <div class="description">
                                     <strong>{{formation.schoolName}}</strong> 
