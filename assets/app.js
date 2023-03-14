@@ -9,7 +9,7 @@
 import './styles/light/app.scss';
 import './styles/dark/app.scss';
 
-import './javaScript/main.js';
+import './javascript/main.js';
 
 // start the Stimulus application
 import './bootstrap';

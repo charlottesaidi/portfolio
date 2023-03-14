@@ -1,4 +1,4 @@
-import '../javaScript/materialize/bin/materialize.min.js';
+import '../javascript/materialize/bin/materialize.min.js';
 
 $(function(){
     // PLUGINS INIT

@@ -10,28 +10,19 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\PresentationRepository;
 use App\Repository\PageRepository;
-use App\Repository\BlockRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillsRepository;
 
 class DefaultController extends AbstractController
 {
-    public $presentationRepo;
-    public $pageRepository;
-    public $blockRepository;
-    public $educationRepo;
-    public $projectRepo;
-    public $skillsRepo;
-
-    public function __construct(BlockRepository $blockRepository, PageRepository $pageRepository, PresentationRepository $presentationRepo, EducationRepository $educationRepo, ProjectRepository $projectRepo, SkillsRepository $skillsRepo) {
-        $this->presentationRepo = $presentationRepo;
-        $this->pageRepository = $pageRepository;
-        $this->blockRepository = $blockRepository;
-        $this->educationRepo = $educationRepo;
-        $this->projectRepo = $projectRepo;
-        $this->skillsRepo = $skillsRepo;
-    }
+    public function __construct(
+        private PageRepository $pageRepository,
+        private PresentationRepository $presentationRepo,
+        private EducationRepository $educationRepo,
+        private ProjectRepository $projectRepo,
+        private SkillsRepository $skillsRepo
+    ) {}
 
     public function index(Request $request): Response
     {

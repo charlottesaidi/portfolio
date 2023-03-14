@@ -23,12 +23,8 @@ class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
 
-    private $resetPasswordHelper;
-
-    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper)
-    {
-        $this->resetPasswordHelper = $resetPasswordHelper;
-    }
+    public function __construct(private  ResetPasswordHelperInterface $resetPasswordHelper)
+    {}
 
     /**
      * Display & process form to request a password reset.
