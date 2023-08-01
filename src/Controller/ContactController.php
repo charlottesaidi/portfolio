@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class ContactController extends AbstractController
+class ContactController extends BaseController
 {
     public function __construct(private ValidatorInterface $validator)
     {}
