@@ -8,7 +8,7 @@
 {% block body %}
     <div class="container_login">
         <div class="main">
-            <div class="row">
+            <div class="row auth_template">
                 <div class="login card-panel">
                     {% for flashError in app.flashes('reset_password_error') %}
                         <div class="alert alert-danger red-text text-darken-3" role="alert">{{ flashError }}</div>

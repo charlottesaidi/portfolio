@@ -16,26 +16,29 @@ class ContactController extends AbstractController
     
     public function index(Request $request): Response
     {
-        $data = json_decode($request->getContent(), true);
-        $contact = new Contact();
+        try {
+            $data = json_decode($request->getContent(), true);
+            $contact = new Contact();
 
-        $contact->setFirstName($data['contact[first_name]'])
-            ->setLastName($data['contact[last_name]'])
-            ->setEmail($data['contact[email]'])
-            ->setObject($data['contact[object]'])
-            ->setMessage($data['contact[message]']);
+            $contact->setFirstName($data['contact[first_name]'])
+                ->setLastName($data['contact[last_name]'])
+                ->setEmail($data['contact[email]'])
+                ->setObject($data['contact[object]'])
+                ->setMessage($data['contact[message]']);
 
-        $errors = $this->validator->validate($contact);
+            $errors = $this->validator->validate($contact);
 
-        if(count($errors) > 0) {
-            $errorsString = (string) $errors;
-            return $this->json(['error' => $errors]);
-        }
-        
+            if(count($errors) > 0) {
+                return $this->json(['error' => $errors]);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
-    
-        return $this->json(['success' => 'Merci, votre message m\'est bien parvenu. Je vous répondrai très bientôt !']);
+
+            return $this->json(['success' => 'Merci, votre message m\'est bien parvenu. Je vous répondrai très bientôt !']);
+        } catch (\Exception $e) {
+            return $this->json(['error' => $e->getMessage()]);
+        }
     }
 }
