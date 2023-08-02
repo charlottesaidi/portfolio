@@ -1,21 +1,24 @@
-{% extends "base.html.twig" %}
+{% extends '@EasyAdmin/page/login_minimal.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block page_title %}Password Reset Email Sent{% endblock %}
 
-{% block body %}
+{% block body_class 'page-login' %}
 
-    <div class="container_login">
-        <div class="main">
+{% block wrapper_wrapper %}
+
+    <div class="login-wrapper">
+        <div class="content">
             <div class="row valign-wrapper auth_template">
                 <div class="card-panel">
                     <p>
-                        Email contenant le lien de réinitialisation de mot de passe à l'adresse fournie.
-                        Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                        Email envoyé.
+                        Le lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
                     </p>
                     <p>Si l'email n'est pas arrivé : vérifier dans les spams ou <a href="{{ path('app_forgot_password_request') }}">réessayer</a>.</p>
+                    <p><a href="{{ path('home') }}">Retour à l'accueil</a></p>
                 </div>
             </div>
         </div>
