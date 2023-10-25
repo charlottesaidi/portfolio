@@ -21,10 +21,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
       - name: Install Composer Dependencies
-        run: composer install
+        run: composer install && composer require symfony/runtime
       - name: Install yarn dependencies
-        uses: actions/setup-node@v3
+        uses: mskelton/setup-yarn@v1
         with:
           node-version: '16.x'
       - name: Build assets
-        run: npm run build
+        run: yarn encore production --progress
