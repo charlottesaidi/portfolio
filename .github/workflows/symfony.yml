@@ -1,0 +1,31 @@
+name: Symfony
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  symfony-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+        with:
+          php-version: '8.0'
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+      - name: Install Composer Dependencies
+        run: composer install
+      - name: Install yarn dependencies
+        uses: mskelton/setup-node@v1
+        with:
+          node-version: '16.x'
+        run: npm install
+      - name: Build assets
+        run: npm run build
