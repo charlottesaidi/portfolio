@@ -1,14 +1,16 @@
-{% extends "base.html.twig" %}
+{% extends '@EasyAdmin/page/login_minimal.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
-{% block title %}Reset Admin Password{% endblock %}
+{% block page_title %}Reset Admin Password{% endblock %}
 
-{% block body %}
-    <div class="container_login">
-        <div class="main">
-            <div class="row valign-wrapper">
+{% block body_class 'page-login' %}
+
+{% block wrapper_wrapper %}
+    <div class="login-wrapper">
+        <div class="content">
+            <div class="row valign-wrapper auth_template">
                 <div class="card-panel">
                     <h1>Réinitialiser le mot de passe</h1>
     

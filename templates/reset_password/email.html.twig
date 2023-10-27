@@ -1,21 +1,23 @@
-{% extends "base.html.twig" %}
+{% extends '@EasyAdmin/page/login_minimal.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
-{% block title %}Admin password request{% endblock %}
+{% block page_title %}Admin password request{% endblock %}
 
-{% block body %}
-<div class="container_login">
-    <div class="main">
-        <div class="row valign-wrapper">
-            <div class="card-panel">
-                <p>Lien pour réinitialiser le mot de passe Admin :</p>
-                <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class="btn btn-primary btn-small">Changer le mot de passe</a>
-                <p>Lien expirant dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+{% block body_class 'page-login' %}
+
+{% block wrapper_wrapper %}
+    <div class="login-wrapper">
+        <div class="content">
+            <div class="row valign-wrapper">
+                <div class="card-panel">
+                    <p>Lien pour réinitialiser le mot de passe Admin :</p>
+                    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class="btn btn-primary btn-small">Changer le mot de passe</a>
+                    <p>Lien expirant dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

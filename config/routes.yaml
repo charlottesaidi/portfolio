@@ -31,6 +31,21 @@ contact:
 admin:
     path: /admin
     defaults: { _controller: App\Controller\Admin\DashboardController::index }
+
+contact_show:
+    path: /admin/contact/{id}
+    methods: GET|POST
+    defaults: { _controller: App\Controller\Admin\DashboardController::show }
+
+contact_delete:
+    path: /admin/contact-delete/{id}
+    methods: POST
+    defaults: { _controller: App\Controller\Admin\DashboardController::delete }
+
+answer_delete:
+    path: /admin/answer-delete/{id}
+    methods: POST
+    defaults: { _controller: App\Controller\Admin\DashboardController::deleteAnswer }
     
 page:
     path: /{slug}

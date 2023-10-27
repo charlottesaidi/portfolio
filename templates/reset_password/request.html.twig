@@ -1,33 +1,43 @@
-{% extends "base.html.twig" %}
+{% extends '@EasyAdmin/page/login_minimal.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
-{% block title %}Reset Admin Password{% endblock %}
+{% block page_title %}Reset Admin Password{% endblock %}
 
-{% block body %}
-    <div class="container_login">
-        <div class="main">
-            <div class="row">
+{% block body_class 'page-login' %}
+
+{% block wrapper_wrapper %}
+    <div class="login-wrapper">
+        <section class="content">
+            <div class="row auth_template">
                 <div class="login card-panel">
                     {% for flashError in app.flashes('reset_password_error') %}
                         <div class="alert alert-danger red-text text-darken-3" role="alert">{{ flashError }}</div>
                     {% endfor %}
-                    <h1>Vérification Email</h1>
     
                     {{ form_start(requestForm) }}
-                        {{ form_row(requestForm.email) }}
-                        <div>
+                        <div class="form-group">
+                            {{ form_label(requestForm.email) }}
+                            <div class="form-widget">
+                                {{ form_widget(requestForm.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-text">
                             <small>
-                                Un lien pour réinitialiser le mot de passe sera envoyé à cette adresse e-mail.
+                                Un lien pour réinitialiser le mot de passe sera envoyé à cette adresse e-mail si un utilisateur est trouvé.
                             </small>
                         </div>
-    
-                        <button class="btn btn-primary">Envoyer</button>
-                        <a href="{{path('home')}}">Retour au Portfolio</a>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block">Envoyer</button>
+                        </div>
+                        <div class="form-text">
+                            <a href="{{path('home')}}">Retour au Portfolio</a>
+                        </div>
                     {{ form_end(requestForm) }}
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}

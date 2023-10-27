@@ -7,6 +7,13 @@
         width: 100%;
         z-index: 1000;
         background-color: rgb(var(--main-theme));
+        .auth_template {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%);
+            width: 50%;
+        }
     }
 }
 
