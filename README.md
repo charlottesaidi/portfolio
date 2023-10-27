@@ -2,10 +2,9 @@
 Portfolio simple avec back office
 
 ### Outils
-- Symfony 5.3.7
-- Symfony easycorp/easyadmin-bundle 3.5
-- @symfony/webpack-encore 1.0.0
-- Javascript/JQuery 3.6.0
+- Symfony 6.3
+- Symfony easycorp/easyadmin-bundle 4.*
+- @symfony/webpack-encore 2.*
 - [MaterializeCss](https://materializecss.com/)
 
 ### Liens
