@@ -3,7 +3,7 @@ import './particles.js';
 export function particlesColorTheme() {
     var particles_color = '';
 
-    if(body.getAttribute("theme") == 'light') {
+    if(body.getAttribute("theme") === 'light') {
         particles_color = '#0c0e11';
     } else {
         particles_color = '#b8e6ff';
@@ -18,7 +18,7 @@ export function loadParticleJs(element, options) {
             "value": options.nb,
             "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 1000
             }
         },
         "color": {

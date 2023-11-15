@@ -9,7 +9,7 @@ import {loadParticleJs} from './bundles/initParticles.js';
             var options = {
                 color: particlesColorTheme(),
                 nb: 150,
-                speed: 2
+                speed: 0.3
             }
             // About section background
             loadParticleJs('particles-js', options);
