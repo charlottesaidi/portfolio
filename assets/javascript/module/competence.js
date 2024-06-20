@@ -6,12 +6,16 @@
     if(document.querySelector('.js-competence')) {
         const $skills = document.querySelectorAll('.card-image');
 
-        CSS.registerProperty({
-            name: '--p', 
-            syntax: '<integer>', 
-            initialValue: 0, 
-            inherits: true
-        })
+        if ('registerProperty' in CSS) {
+          CSS.registerProperty({
+            name: '--p',
+            syntax: '<integer>',
+            initialValue: '0',
+            inherits: true,
+          });
+        } else {
+          document.documentElement.style.setProperty('--p', '0');
+        }
 
         $skills.forEach(skill => {
 

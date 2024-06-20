@@ -1,6 +1,4 @@
 .radial_wrapper {
-//     width: 120px;
-//     height: 120px;
   position: absolute;
   margin: auto;
   display: flex;
@@ -8,17 +6,6 @@
   justify-content: center;
   align-items: center;
  }
-  // .chart_wrapper {
-  //   width: 100%;
-  //   margin: auto;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
-  // .container_chart {
-  //   font: 1px;
-  //   padding: 0 20px;
-  // }
   $d: 3.5em;
   $w: 4px;
   .chart_body {
@@ -50,8 +37,8 @@
       place-content: center;
       margin: -.5*$w;
       background: 
-        radial-gradient(circle at 50% #{$w}, 
-          var(--c0) #{$w}, transparent 0), 
+        radial-gradient(closest-side,
+                rgb(var(--main-theme)) 86%, transparent 80% 100%),
         conic-gradient(var(--c0), var(--c1) calc(var(--p)*1%), transparent 0%);
       --mask: 
         linear-gradient(red, red) text, 
@@ -77,5 +64,3 @@
     animation-duration: 3s;
     animation-delay: -2s
   }
-  
-  // @keyframes p { 95%, 100% { --p: 100 } }
