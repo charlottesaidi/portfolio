@@ -15,6 +15,23 @@
         }
     }
 }
+
+@media screen and (max-width: 993px) {
+  body {
+    .swiper {
+      display: block;
+      margin-bottom: 18%;
+      width: 100%;
+      .hexIn{
+        position: absolute;
+        width: 90%;
+        padding-bottom: 103.851%;
+        margin: 0 7%;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 900px) {
     body {
         header .hide-on-small-only, #contact .hide-on-small-only, .hide-on-small-and-down {
@@ -240,17 +257,6 @@
     body {
         #contact .modal span.prefix {
             display: none;
-        }
-        .swiper {
-            display: block;
-            padding-bottom: 18%;
-            width: 100%;
-            .hexIn{
-                position: absolute;
-                width: 90%;
-                padding-bottom: 103.851%;
-                margin: 0 7%;
-            }
         }
         #hexGrid {
             display: none;

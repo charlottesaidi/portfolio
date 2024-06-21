@@ -31,7 +31,6 @@
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData))
             }).then((res) => {return res.json()}).then((data) => {
-                console.log(data)
                 if(data.error) {
                     var violations = data.error.violations;
                     for(let _violations of violations) {
