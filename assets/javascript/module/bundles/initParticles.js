@@ -18,7 +18,7 @@ export function loadParticleJs(element, options) {
             "value": options.nb,
             "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 1200
             }
         },
         "color": {
@@ -62,7 +62,7 @@ export function loadParticleJs(element, options) {
             "width": 1
         },
         "move": {
-            "enable": false,
+            "enable": true,
             "speed": options.speed,
             "direction": "none",
             "random": false,
