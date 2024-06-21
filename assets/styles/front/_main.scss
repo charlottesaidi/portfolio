@@ -612,7 +612,7 @@ body {
     .modal {
         max-height: 85%;
         padding: 0 0 20px 0;
-        background-color: rgb(var(--tertiary-theme)) !important;
+        background-color: rgb(var(--main-theme)) !important;
         &.bottom-sheet {
             top: 50%;
             max-height: 50%;
@@ -643,7 +643,7 @@ body {
                 }
             }
             .badge {
-                background-color: rgb(var(--main-theme));
+                //background-color: rgb(var(--main-theme));
                 display: inline-block;
                 margin-top: 0.5rem;
             }
