@@ -5,32 +5,23 @@ namespace App\Entity;
 use App\Repository\LinksRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=LinksRepository::class)
- */
+#[ORM\Table(name:"links")]
+#[ORM\Entity(repositoryClass:LinksRepository::class)]
 class Links
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $title;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $href;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $href;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="links")
-     */
-    private $project;
+    #[ORM\ManyToOne(targetEntity: Project::class, inversedBy: "links")]
+    private ?Project $project;
 
     public function getId(): ?int
     {

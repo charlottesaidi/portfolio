@@ -5,57 +5,38 @@ namespace App\Entity;
 use App\Repository\EducationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=EducationRepository::class)
- */
+#[ORM\Table(name: "education")]
+#[ORM\Entity(repositoryClass: EducationRepository::class)]
 class Education
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    #[ORM\Column(type: "text")]
+    private ?string $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $school_name;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $school_name;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $date;
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTimeInterface $date;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $thumbnail;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $thumbnail;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+    #[ORM\Column(type: "datetime")]
+    private \DateTime $created_at;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updated_at;
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTimeImmutable $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="education")
-     */
-    private $status;
+    #[ORM\ManyToOne(targetEntity:Status::class, inversedBy:"education")]
+    private ?Status $status;
 
     public function __construct()
     {

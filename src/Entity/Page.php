@@ -7,37 +7,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=PageRepository::class)
- */
+#[ORM\Table(name:"page")]
+#[ORM\Entity(repositoryClass:PageRepository::class)]
 class Page
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $page_title;
+    #[ORM\Column(type:"string", length:255)]
+    private ?string $page_title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    #[ORM\Column(type:"text")]
+    private ?string $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Block::class, mappedBy="page", orphanRemoval=true)
-     */
-    private $blocks;
+    #[ORM\OneToMany(mappedBy: "page", targetEntity: Block::class, orphanRemoval: true)]
+    private Collection $blocks;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
+    #[ORM\Column(type:"string", length: 255)]
+    private ?string $slug;
 
     public function __construct()
     {

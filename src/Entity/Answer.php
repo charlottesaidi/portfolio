@@ -5,33 +5,23 @@ namespace App\Entity;
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Table(name="portfolio_answer")
- * @ORM\Entity(repositoryClass=AnswerRepository::class)
- */
+#[ORM\Table(name: "portfolio_answer")]
+#[ORM\Entity(repositoryClass: AnswerRepository::class)]
 class Answer
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $message;
+    #[ORM\Column(type: "text")]
+    private ?string $message;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+    #[ORM\Column(type: "datetime")]
+    private \DateTime $created_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="admin_answer")
-     */
-    private $contact_answer;
+    #[ORM\ManyToOne(targetEntity: Contact::class, inversedBy: "admin_answer")]
+    private ?Contact $contact_answer;
 
     public function __construct()
     {

@@ -7,37 +7,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=StatusRepository::class)
- */
+#[ORM\Table(name:"status")]
+#[ORM\Entity(repositoryClass:StatusRepository::class)]
 class Status
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type:"string", length: 255)]
+    private ?string $title;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Education::class, mappedBy="status")
-     */
-    private $education;
+    #[ORM\OneToMany(mappedBy: "status", targetEntity: Education::class)]
+    private Collection $education;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Project::class, mappedBy="status")
-     */
-    private $projects;
+    #[ORM\OneToMany(mappedBy: "status", targetEntity: Project::class)]
+    private Collection $projects;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Presentation::class, mappedBy="status")
-     */
-    private $presentations;
+    #[ORM\OneToMany(mappedBy: "status", targetEntity: Presentation::class)]
+    private Collection $presentations;
 
     public function __construct()
     {

@@ -6,31 +6,23 @@ use App\Repository\OutilsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass=OutilsRepository::class)
- * @UniqueEntity(fields={"title"}, message="Cette techno existe déjà ^^")
- */
+#[ORM\Table(name:"outils")]
+#[ORM\Entity(repositoryClass:OutilsRepository::class)]
+#[UniqueEntity("title", message: "Cette techno existe déjà ^^")]
 class Outils
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type:"string", length:255)]
+    private ?string $title;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="outils")
-     */
-    private $projects;
+    #[ORM\ManyToMany(targetEntity:Project::class, mappedBy:"outils")]
+    private Collection $projects;
 
     public function __construct()
     {

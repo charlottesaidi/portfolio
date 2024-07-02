@@ -8,70 +8,50 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert ;
 
-/**
- * @ORM\Table(name="portfolio_contact")
- * @ORM\Entity(repositoryClass=ContactRepository::class)
- */
+#[ORM\Table(name:"categories")]
+#[ORM\Entity(repositoryClass:ContactRepository::class)]
 class Contact
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/")
-     * @Assert\Email(
-     *    message = "Renseignez une adresse e-mail valide"
-     * )
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
+    #[Assert\NotBlank]
+    #[Assert\Regex("/^\w+/")]
+    #[Assert\Email(
+        message: "Renseignez une adresse e-mail valide"
+    )]
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $email;
 
-    /**
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/")
-     * @ORM\Column(type="string", length=255)
-     */
-    private $first_name;
+    #[Assert\NotBlank]
+    #[Assert\Regex("/^\w+/")]
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $first_name;
 
-    /**
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/")
-     * @ORM\Column(type="string", length=255)
-     */
-    private $last_name;
+    #[Assert\NotBlank]
+    #[Assert\Regex("/^\w+/")]
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $last_name;
 
-    /**
-     * @Assert\Regex("/^\w+/")
-     * @ORM\Column(type="string", length=255)
-     */
-    private $object;
+    #[Assert\Regex("/^\w+/")]
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $object;
 
-    /**
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/")
-     * @ORM\Column(type="text")
-     */
-    private $message;
+    #[Assert\NotBlank]
+    #[Assert\Regex("/^\w+/")]
+    #[ORM\Column(type: 'text')]
+    private ?string $message;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+    #[ORM\Column(type:"datetime")]
+    private \DateTime $created_at;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $unread = true;
+    #[ORM\Column(type:"boolean")]
+    private bool $unread = true;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="contact_answer")
-     */
-    private $admin_answer;
+    #[ORM\OneToMany(mappedBy: "contact_answer", targetEntity: Answer::class)]
+    private Collection $admin_answer;
 
     public function __construct()
     {

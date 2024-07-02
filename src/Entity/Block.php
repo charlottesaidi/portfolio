@@ -5,33 +5,24 @@ namespace App\Entity;
 use App\Repository\BlockRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=BlockRepository::class)
- */
+#[ORM\Table(name:"block")]
+#[ORM\Entity(RepositoryClass: BlockRepository::class)]
 class Block
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type:"string")]
+    private ?string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $content;
+    #[ORM\Column(type:"text")]
+    private ?string $content;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Page::class, inversedBy="blocks")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $page;
+    #[ORM\ManyToOne(targetEntity:Page::class, inversedBy:"blocks")]
+    #[ORM\JoinColumn(nullable:false)]
+    private ?Page $page;
 
     public function getId(): ?int
     {

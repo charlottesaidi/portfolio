@@ -5,42 +5,29 @@ namespace App\Entity;
 use App\Repository\PresentationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=PresentationRepository::class)
- */
+#[ORM\Table(name:"presentation")]
+#[ORM\Entity(repositoryClass:PresentationRepository::class)]
 class Presentation
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $text_block;
+    #[ORM\Column(type:"text")]
+    private ?string $text_block;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $image;
+    #[ORM\Column(type:"string", length: 255, nullable: true)]
+    private ?string $image;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+    #[ORM\Column(type:"datetime")]
+    private \DateTime $created_at;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updated_at;
+    #[ORM\Column(type:"datetime", nullable: true)]
+    private ?\DateTimeImmutable $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="presentations")
-     */
-    private $status;
+    #[ORM\ManyToOne(targetEntity:Status::class, inversedBy: "presentations")]
+    private ?Status $status;
 
     public function __construct()
     {

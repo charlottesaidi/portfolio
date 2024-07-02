@@ -7,57 +7,38 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ProjectRepository::class)
- */
+#[ORM\Table(name:"project")]
+#[ORM\Entity(repositoryClass:ProjectRepository::class)]
 class Project
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type:"string", length: 255)]
+    private ?string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    #[ORM\Column(type:"text")]
+    private ?string $description;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+    #[ORM\Column(type:"datetime")]
+    private \DateTime $created_at;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updated_at;
+    #[ORM\Column(type:"datetime", nullable:true)]
+    private ?\DateTimeImmutable $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="projects")
-     */
-    private $status;
+    #[ORM\ManyToOne(targetEntity:Status::class, inversedBy:"projects")]
+    private ?Status $status;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Links::class, mappedBy="project", cascade={"remove"}, orphanRemoval=true)
-     */
-    private $links;
+    #[ORM\OneToMany(mappedBy: "project", targetEntity: Links::class, cascade: ["remove"], orphanRemoval: true)]
+    private Collection $links;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Outils::class, inversedBy="projects")
-     */
-    private $outils;
+    #[ORM\ManyToMany(targetEntity:Outils::class, inversedBy:"projects")]
+    private Collection $outils;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $image;
 
     public function __construct()
     {
