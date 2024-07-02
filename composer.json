@@ -14,7 +14,6 @@
         "doctrine/orm": "^2.9",
         "easycorp/easyadmin-bundle": "^4.x-dev",
         "phpdocumentor/reflection-docblock": "^5.2",
-        "sensio/framework-extra-bundle": "^6.1",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "6.4.*",
         "symfony/console": "6.4.*",
