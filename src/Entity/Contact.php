@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert ;
 
-#[ORM\Table(name:"categories")]
+#[ORM\Table(name:"portfolio_contact")]
 #[ORM\Entity(repositoryClass:ContactRepository::class)]
 class Contact
 {
