@@ -29,10 +29,8 @@ use App\Repository\ContactRepository;
 use App\Repository\AnswerRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-/**
- * @Route("/admin")
- * @IsGranted("ROLE_ADMIN")
- */
+#[Route('/admin', name: 'admin')]
+#[isGranted('ROLE_ADMIN')]
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(

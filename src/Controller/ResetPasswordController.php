@@ -34,7 +34,7 @@ class ResetPasswordController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $email = $form-> get("email")->getData();
-            $user = $userRepo->findOneByEmail($email);
+            $user = $userRepo->findOneBy(['email' => $email]);
             if($user == Null) {
                 $this->addFlash('reset_password_error', 'Cette adresse email n\'est pas celle de l\'admin... mais c\'était bien tenté --\'');
                 return $this->redirectToRoute('app_forgot_password_request');
